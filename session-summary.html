@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What We Found — CELO Business Solutions · The Signal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#07080f;--navy:#0b0f1e;--card:#111624;--gold:#c9a84c;--gold-border:rgba(201,168,76,0.22);--white:#f2f2f5;--grey:#7a84a0;--muted:#4a5270;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',-apple-system,sans-serif;}
+body{font-family:var(--sans);background:var(--navy);color:var(--white);line-height:1.7;margin:0}
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(7,8,15,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.12);height:52px;display:flex;align-items:center;padding:0 32px;gap:16px}
+.nav-brand{font-family:var(--serif);font-size:.85rem;font-weight:700;color:var(--white);display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}.nav-brand span{color:var(--gold)}
+.nav-back{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:all .15s;border:1px solid rgba(201,168,76,.3);padding:5px 14px;border-radius:20px;background:rgba(201,168,76,.07);font-weight:600}
+.nav-back:hover{background:rgba(201,168,76,.15);border-color:rgba(201,168,76,.6);color:#e0c068}
+.hero{padding:88px 40px 52px;text-align:center;position:relative;overflow:hidden;background:var(--black);border-bottom:1px solid rgba(201,168,76,.1)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(201,168,76,.07) 0%,transparent 65%);pointer-events:none}
+.eyebrow{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px;display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before,.eyebrow::after{content:'';width:22px;height:1px;background:rgba(201,168,76,.5)}
+h1{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.1;margin-bottom:16px}
+h1 .gold{color:var(--gold)}h1 .it{font-style:italic}
+.hero-sub{font-size:.82rem;color:var(--grey);max-width:520px;margin:0 auto;line-height:1.85}
+.hero-sub strong{color:var(--white)}
+.body{max-width:780px;margin:0 auto;padding:52px 32px 80px}
+.section{margin-bottom:52px}
+.section-label{font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.section-label::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.15)}
+h2{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--white);margin-bottom:14px;line-height:1.2}
+h2 .gold{color:var(--gold);font-style:italic}
+p{font-size:.88rem;color:var(--grey);line-height:1.85;margin-bottom:14px}
+p strong{color:var(--white)}
+.finding{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px}
+.finding-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:6px}
+.finding-dot.green{background:#5ce07a}.finding-dot.red{background:#e05c5c}.finding-dot.gold{background:var(--gold)}
+.finding-content .title{font-size:.85rem;font-weight:600;color:var(--white);margin-bottom:4px}
+.finding-content .body{font-size:.8rem;color:var(--grey);line-height:1.65}
+.quote{border-left:3px solid var(--gold);padding:16px 20px;margin:20px 0;background:rgba(201,168,76,.05);border-radius:0 8px 8px 0}
+.quote p{font-family:var(--serif);font-size:.95rem;font-style:italic;color:var(--white);margin-bottom:0;line-height:1.65}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+@media(max-width:580px){.stat-grid{grid-template-columns:1fr 1fr}}
+.stat-card{background:var(--card);border:1px solid rgba(201,168,76,.12);border-radius:8px;padding:18px 20px;text-align:center}
+.stat-num{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--gold);margin-bottom:4px}
+.stat-label{font-size:.7rem;color:var(--grey);line-height:1.4}
+.nav-chapters{display:flex;gap:10px;margin-top:40px;flex-wrap:wrap}
+.nav-ch{flex:1;min-width:160px;background:var(--card);border:1px solid rgba(201,168,76,.15);border-radius:8px;padding:14px 18px;text-decoration:none;transition:all .2s}
+.nav-ch:hover{border-color:rgba(201,168,76,.4);transform:translateY(-2px)}
+.nav-ch .ch-label{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px}
+.nav-ch .ch-name{font-size:.82rem;font-weight:600;color:var(--white)}
+footer{text-align:center;padding:32px 20px;border-top:1px solid rgba(255,255,255,.05);font-size:.7rem;color:var(--muted)}
+footer span{color:var(--gold)}
+</style>
+</head>
+<body>
+<nav class="nav"><a class="nav-brand" href="signal-origin.html"><div class="nav-dot"></div>The <span>Signal</span></a><a class="nav-back" href="signal-origin.html">← Back to Hub</a></nav>
+<section class="hero">
+  <div class="eyebrow">Chapter 01 · Session Summary</div>
+  <h1>What We <span class="gold it">Found</span></h1>
+  <p class="hero-sub">The diagnostic — what's working, what's invisible, and the <strong>one shift that unlocks CELO's next revenue tier.</strong></p>
+</section>
+<div class="body">
+  <div class="section">
+    <div class="section-label">The Signal Read</div>
+    <h2>CELO is broadcasting <span class="gold">to job seekers.</span><br>Not to clients.</h2>
+    <p>CELO Business Solutions has genuine assets — industry body memberships, an active social following, a team capable of delivering real results for international businesses. The problem isn't the product. The problem is where the signal is pointed.</p>
+    <p>Your entire digital presence — the website, the social channels, the TikTok, the Instagram — is aimed at candidates looking for work. That's useful for operations. It's invisible to the COO in Chicago who's drowning in back-office work and needs a trusted outsourcing partner by next quarter.</p>
+    <p><strong>CELO is fighting for talent while the revenue opportunity — client acquisition — has no voice, no face, and no system behind it.</strong> That's what this session addresses.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">What's Working</div>
+    <h2>The <span class="gold">foundations</span> worth building on</h2>
+    <div class="finding"><div class="finding-dot green"></div><div class="finding-content"><div class="title">Industry body credibility is real</div><div class="body">PHILCALL membership, Philippine Chamber of Commerce, PABC — these are not decorative logos. They represent standards, accountability, and a network. Most SMB clients buying BPO services don't know how to evaluate quality. Membership in recognised bodies is a shortcut to trust — if it's communicated correctly.</div></div></div>
+    <div class="finding"><div class="finding-dot green"></div><div class="finding-content"><div class="title">Social infrastructure exists</div><div class="body">Facebook, LinkedIn, TikTok, Instagram, Twitter — CELO has built accounts across every major platform. The distribution channels are live. The audience (currently candidate-focused) could be pivoted toward client attraction with a content repositioning.</div></div></div>
+    <div class="finding"><div class="finding-dot green"></div><div class="finding-content"><div class="title">BPO demand is structurally growing</div><div class="body">Post-pandemic, the permanent shift to remote operations has made outsourcing mainstream for SMBs who previously resisted it. The US, UK, and Australian markets are actively looking for trusted Philippines-based partners. The market is arriving — CELO just needs to be visible when it does.</div></div></div>
+    <div class="finding"><div class="finding-dot green"></div><div class="finding-content"><div class="title">The Philippines advantage is genuine</div><div class="body">English proficiency, cultural alignment with Western markets, educated workforce, time zone overlap with US and AU — these aren't talking points, they're operational realities that clients pay for. CELO benefits from a market position that took decades and a country to build.</div></div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Where It's Leaking</div>
+    <h2>The gaps <span class="gold">costing CELO</span> every month</h2>
+    <div class="finding"><div class="finding-dot red"></div><div class="finding-content"><div class="title">No client-facing website</div><div class="body">The homepage is a careers portal. A prospect who finds CELO through LinkedIn or a referral and visits the website sees job listings — not services, not case studies, not a reason to get in touch. This is the single biggest revenue leak and the easiest to fix.</div></div></div>
+    <div class="finding"><div class="finding-dot red"></div><div class="finding-content"><div class="title">No differentiation from 1,000 other BPOs</div><div class="body">The Philippines BPO industry employs over 1.5 million people. Thousands of companies offer "quality outsourcing at competitive rates." Without a clear point of difference — a vertical, a methodology, a client profile you serve exceptionally well — CELO is invisible in a crowded market.</div></div></div>
+    <div class="finding"><div class="finding-dot red"></div><div class="finding-content"><div class="title">No systematic outbound or pipeline</div><div class="body">Client acquisition appears to be referral-dependent. Referrals are unpredictable. A business that relies on word of mouth has a revenue ceiling determined by the size of its existing network — not by its actual capacity or quality.</div></div></div>
+    <div class="finding"><div class="finding-dot red"></div><div class="finding-content"><div class="title">No case studies or proof of outcomes</div><div class="body">Any BPO can claim quality. The ones that win enterprise contracts show it. Client testimonials, before/after operational metrics, specific industries served — this is the evidence that converts a sceptical COO into a signed contract. CELO has no visible proof library.</div></div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The Core Insight</div>
+    <div class="quote"><p>"CELO is doing the right things in the wrong direction. The talent engine is pointing inward — toward building the team. The revenue engine needs to point outward — toward the clients who need that team. Same energy. Different direction. Everything changes."</p></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Market Opportunity</div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-num">$1.57T</div><div class="stat-label">Global BPO market size by 2030</div></div>
+      <div class="stat-card"><div class="stat-num">10</div><div class="stat-label">Enterprise clients at $5K/mo = $600K ARR</div></div>
+      <div class="stat-card"><div class="stat-num">#1</div><div class="stat-label">Fix needed: a client-facing website</div></div>
+    </div>
+  </div>
+
+  <div class="nav-chapters">
+    <a class="nav-ch" href="revenue-architecture.html"><div class="ch-label">Chapter 02</div><div class="ch-name">Revenue Architecture →</div></a>
+    <a class="nav-ch" href="signal-origin.html"><div class="ch-label">All Chapters</div><div class="ch-name">← Back to Hub</div></a>
+  </div>
+</div>
+<footer><p>The <span>Signal</span> · CELO Business Solutions · Chapter 01 of 09</p></footer>
+</body>
+</html>

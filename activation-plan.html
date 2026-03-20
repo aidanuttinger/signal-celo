@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>90-Day Activation Plan — CELO Business Solutions · The Signal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#07080f;--navy:#0b0f1e;--card:#111624;--gold:#c9a84c;--gold-border:rgba(201,168,76,0.22);--white:#f2f2f5;--grey:#7a84a0;--muted:#4a5270;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',-apple-system,sans-serif;}
+body{font-family:var(--sans);background:var(--navy);color:var(--white);line-height:1.7;margin:0}
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(7,8,15,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.12);height:52px;display:flex;align-items:center;padding:0 32px;gap:16px}
+.nav-brand{font-family:var(--serif);font-size:.85rem;font-weight:700;color:var(--white);display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}.nav-brand span{color:var(--gold)}
+.nav-back{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:all .15s;border:1px solid rgba(201,168,76,.3);padding:5px 14px;border-radius:20px;background:rgba(201,168,76,.07);font-weight:600}.nav-back:hover{background:rgba(201,168,76,.15);border-color:rgba(201,168,76,.6);color:#e0c068}
+.hero{padding:88px 40px 52px;text-align:center;position:relative;overflow:hidden;background:var(--black);border-bottom:1px solid rgba(201,168,76,.1)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(201,168,76,.07) 0%,transparent 65%);pointer-events:none}
+.eyebrow{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px;display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before,.eyebrow::after{content:'';width:22px;height:1px;background:rgba(201,168,76,.5)}
+h1{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.1;margin-bottom:16px}
+h1 .gold{color:var(--gold)}h1 .it{font-style:italic}
+.hero-sub{font-size:.82rem;color:var(--grey);max-width:520px;margin:0 auto;line-height:1.85}.hero-sub strong{color:var(--white)}
+.body{max-width:780px;margin:0 auto;padding:52px 32px 80px}
+.section{margin-bottom:52px}
+.section-label{font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.section-label::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.15)}
+h2{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--white);margin-bottom:14px;line-height:1.2}
+h2 .gold{color:var(--gold);font-style:italic}
+p{font-size:.88rem;color:var(--grey);line-height:1.85;margin-bottom:14px}p strong{color:var(--white)}
+.phase{background:var(--card);border:1px solid rgba(201,168,76,.15);border-radius:12px;padding:26px 30px;margin-bottom:18px;position:relative;overflow:hidden}
+.phase::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--gold)}
+.phase-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:14px;flex-wrap:wrap}
+.phase-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--white)}
+.phase-name .gold{color:var(--gold)}
+.phase-timing{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:5px 12px;border-radius:20px;white-space:nowrap}
+.task{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
+.task-check{width:16px;height:16px;border-radius:3px;border:1px solid rgba(201,168,76,.4);flex-shrink:0;margin-top:3px}
+.task-text{font-size:.82rem;color:var(--grey);line-height:1.55}.task-text strong{color:var(--white)}
+.milestone{background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);border-radius:8px;padding:12px 16px;margin-top:14px}
+.milestone-label{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px}
+.milestone-text{font-size:.82rem;color:var(--white);font-weight:500}
+.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}
+@media(max-width:560px){.metrics-grid{grid-template-columns:1fr 1fr}}
+.metric-card{background:var(--card);border:1px solid rgba(201,168,76,.12);border-radius:8px;padding:16px 18px;text-align:center}
+.metric-num{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--gold);margin-bottom:4px}
+.metric-label{font-size:.7rem;color:var(--grey);line-height:1.4}
+.closing{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.2);border-radius:12px;padding:28px 32px;margin-top:32px;text-align:center}
+.closing h3{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:10px}
+.closing h3 .gold{color:var(--gold);font-style:italic}
+.closing p{font-size:.84rem;margin-bottom:0;max-width:500px;margin-left:auto;margin-right:auto}
+.nav-chapters{display:flex;gap:10px;margin-top:40px;flex-wrap:wrap}
+.nav-ch{flex:1;min-width:160px;background:var(--card);border:1px solid rgba(201,168,76,.15);border-radius:8px;padding:14px 18px;text-decoration:none;transition:all .2s}
+.nav-ch:hover{border-color:rgba(201,168,76,.4);transform:translateY(-2px)}
+.nav-ch .ch-label{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px}
+.nav-ch .ch-name{font-size:.82rem;font-weight:600;color:var(--white)}
+footer{text-align:center;padding:32px 20px;border-top:1px solid rgba(255,255,255,.05);font-size:.7rem;color:var(--muted)}footer span{color:var(--gold)}
+</style>
+</head>
+<body>
+<nav class="nav"><a class="nav-brand" href="signal-origin.html"><div class="nav-dot"></div>The <span>Signal</span></a><a class="nav-back" href="signal-origin.html">← Back to Hub</a></nav>
+<section class="hero">
+  <div class="eyebrow">Chapter 09 · Activation Plan</div>
+  <h1>90 Days to <span class="gold it">Pipeline Full</span></h1>
+  <p class="hero-sub"><strong>Week by week — from invisible to fully in-market.</strong> No overwhelm. Just the right things in the right sequence.</p>
+</section>
+<div class="body">
+
+  <div class="section">
+    <div class="section-label">The North Star</div>
+    <p>By Day 90: CELO has a client-facing website live, a defined ICP and service tiers, a reactivation campaign completed with 2–3 new conversations, a LinkedIn outbound system producing weekly inbound, and 2 referral partner relationships active. That's the foundation for $300K–$600K ARR within 12 months of consistent execution.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Phase 1 · Weeks 1–2</div>
+    <div class="phase">
+      <div class="phase-header"><div class="phase-name">Foundation: <span class="gold">Get Client-Ready</span></div><div class="phase-timing">Days 1–14</div></div>
+      <div class="task"><div class="task-check"></div><div class="task-text"><strong>Build the client-facing website</strong> — minimum viable: homepage, services page, booking page. Careers section moves to /careers. Go live within 2 weeks.</div></div>
+      <div class="task"><div class="task-check"></div><div class="task-text"><strong>Define 3 service tiers</strong> with pricing ranges. Write one-page descriptions for each. These become the services page content AND the outreach materials.</div></div>
+      <div class="task"><div class="task-check"></div><div class="task-text"><strong>Rebuild LinkedIn company page</strong> — new banner, updated description with client-facing positioning, service showcase enabled.</div></div>
+      <div class="task"><div class="task-check"></div><div class="task-text"><strong>Write one case study</strong> — even anonymised. One result, one before/after. This is the most important content asset CELO doesn't have.</div></div>
+      <div class="task"><div class="task-check"></div><div class="task-text"><strong>Build the warm list</strong> — compile all past proposals, churned clients, and warm LinkedIn connections into a spreadsheet. Segment by pool type.</div></div>
+      <div class="milestone"><div class="milestone-label">Day 14 Milestone</div><div class="milestone-text">Website live. Service tiers defined. LinkedIn rebuilt. Case study written. Warm list segmented.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Phase 2 · Weeks 3–4</div>
+    <div class="phase">
+      <div class="phase-header"><div class="phase-name">Reactivation: <span class="gold">Wake the Warm List</span></div><div class="phase-timing">Days 15–28</div></div>
+      <div class="task"><div class="task-check"></div><div class="task-text"><strong>Send reactivation sequence</strong> to all three warm list pools (Chapter 05 templates). Target: 30–50 outreach messages over 2 weeks.</div></div>
+      <div class="task"><div class="task-check"></div><div class="task-text"><strong>Begin LinkedIn content</strong> — 2 posts per week. Topic mix: outsourcing ROI insights, "a day in the life of a CELO team member," client success stories (anonymised). Build the brand, not just the pitch.</div></div>
+      <div class="task"><div class="task-check"></div><div class="task-text"><strong>Identify 5 referral partners</strong> — web agencies, business coaches, or bookkeepers serving your ICP. Send personal outreach: "We serve the same clients and don't compete — worth a 20-minute call?"</div></div>
+      <div class="task"><div class="task-check"></div><div class="task-text"><strong>Book at least 3 diagnostic calls</strong> from reactivation and LinkedIn. The goal is conversations, not contracts. Every call is research AND a sales opportunity.</div></div>
+      <div class="milestone"><div class="milestone-label">Day 28 Milestone</div><div class="milestone-text">Reactivation sequence complete. 3+ diagnostic calls booked. LinkedIn posting rhythm established. 2 referral partner conversations started.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Phase 3 · Month 2</div>
+    <div class="phase">
+      <div class="phase-header"><div class="phase-name">Engine: <span class="gold">Outbound Goes Live</span></div><div class="phase-timing">Days 29–60</div></div>
+      <div class="task"><div class="task-check"></div><div class="task-text"><strong>Launch LinkedIn outbound</strong> — 10 connection requests/day to ICP-matched prospects. Begin follow-up sequence with all accepted connections.</div></div>
+      <div class="task"><div class="task-check"></div><div class="task-text"><strong>Launch cold email</strong> — 50 targeted emails per week to sourced ICP contacts. Track reply rate and adjust subject lines and first lines based on data.</div></div>
+      <div class="task"><div class="task-check"></div><div class="task-text"><strong>Sign first referral partner agreement</strong> — formalise the relationship with commission structure. Even a handshake agreement in writing creates accountability.</div></div>
+      <div class="task"><div class="task-check"></div><div class="task-text"><strong>Close first new retainer client</strong> from warm list or outbound. Even a small team engagement ($2,000–$3,000/month) validates the system and creates a new case study.</div></div>
+      <div class="milestone"><div class="milestone-label">Day 60 Milestone</div><div class="milestone-text">Outbound producing 3–5 calls/week. First referral partner signed. First new retainer client closed or in final conversation.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Phase 4 · Month 3</div>
+    <div class="phase">
+      <div class="phase-header"><div class="phase-name">Scale: <span class="gold">Compound the Momentum</span></div><div class="phase-timing">Days 61–90</div></div>
+      <div class="task"><div class="task-check"></div><div class="task-text"><strong>Add second case study</strong> from the new client closed in Month 2. Real results, specific metrics. Add to website immediately.</div></div>
+      <div class="task"><div class="task-check"></div><div class="task-text"><strong>Optimise outbound</strong> — review LinkedIn and cold email data. Double down on what's generating replies. Kill what isn't. The system is only as good as the iteration.</div></div>
+      <div class="task"><div class="task-check"></div><div class="task-text"><strong>Activate second and third referral partners</strong> — with the first one producing results, the pitch to the next two is easier. Show what happened with partner #1.</div></div>
+      <div class="task"><div class="task-check"></div><div class="task-text"><strong>Target 3 total retainer clients by Day 90</strong> — at an average of $5K/month that's $15K MRR / $180K ARR run rate. The pipeline to hit this is built in Months 1–2.</div></div>
+      <div class="milestone"><div class="milestone-label">Day 90 Milestone</div><div class="milestone-text">3 active retainer clients. 2 case studies live. Outbound producing consistent pipeline. Referral network active. $15K+ MRR baseline.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Success Metrics</div>
+    <div class="metrics-grid">
+      <div class="metric-card"><div class="metric-num">3</div><div class="metric-label">Retainer clients by Day 90</div></div>
+      <div class="metric-card"><div class="metric-num">$15K</div><div class="metric-label">Monthly recurring revenue target</div></div>
+      <div class="metric-card"><div class="metric-num">2</div><div class="metric-label">Live case studies on website</div></div>
+      <div class="metric-card"><div class="metric-num">3+</div><div class="metric-label">Active referral partners</div></div>
+      <div class="metric-card"><div class="metric-num">10/day</div><div class="metric-label">LinkedIn outreach contacts</div></div>
+      <div class="metric-card"><div class="metric-num">5+</div><div class="metric-label">Diagnostic calls per week by Month 3</div></div>
+    </div>
+  </div>
+
+  <div class="closing">
+    <h3>CELO has everything it needs.<br>It just needs to <span class="gold">broadcast it.</span></h3>
+    <p>The talent is there. The infrastructure is there. The industry bodies, the social presence, the work ethic — all there. What this plan adds is the client-facing voice, the systematic outreach, and the proof that CELO delivers. Execute the sequence. The revenue follows.</p>
+  </div>
+
+  <div class="nav-chapters">
+    <a class="nav-ch" href="outbound-system.html"><div class="ch-label">Chapter 07–08</div><div class="ch-name">← Outbound System</div></a>
+    <a class="nav-ch" href="signal-origin.html"><div class="ch-label">All Chapters</div><div class="ch-name">← Back to Hub</div></a>
+  </div>
+</div>
+<footer><p>The <span>Signal</span> · CELO Business Solutions · Chapter 09 of 09</p></footer>
+</body>
+</html>

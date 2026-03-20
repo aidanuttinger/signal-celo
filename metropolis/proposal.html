@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intelligence Built on Your Data — CELO × Metropolis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --forest:#0d1f10;
+  --forest-mid:#142918;
+  --forest-card:rgba(255,255,255,.04);
+  --forest-border:rgba(255,255,255,.07);
+  --text:#f0f7f2;
+  --body:rgba(240,247,242,.7);
+  --muted:rgba(240,247,242,.38);
+  --green:#2e7b52;
+  --green-bright:#35a05f;
+  --green-light:#6fc896;
+  --green-glow:rgba(53,160,95,.15);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Inter',-apple-system,sans-serif;
+  --max:1080px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--forest);color:var(--text);margin:0;overflow-x:hidden;line-height:1.7}
+
+/* ─── NAV ─── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(13,31,16,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--forest-border);height:56px;display:flex;align-items:center;padding:0 40px;justify-content:space-between}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-mark{width:28px;height:28px;background:var(--green-bright);border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-weight:700;font-size:.8rem}
+.nav-name{font-family:var(--serif);font-size:.9rem;font-weight:700;color:var(--text)}
+.nav-name span{color:var(--green-light)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-client{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.nav-cta{font-size:.68rem;font-weight:700;color:var(--green-light);text-decoration:none;border:1px solid rgba(111,200,150,.3);padding:7px 16px;border-radius:20px;transition:all .15s}
+.nav-cta:hover{background:rgba(111,200,150,.08);border-color:rgba(111,200,150,.6)}
+
+/* ─── SECTIONS ─── */
+.slide{min-height:100vh;display:flex;align-items:center;padding:80px 40px;position:relative;overflow:hidden}
+.slide-sm{padding:64px 40px;min-height:auto}
+.inner{max-width:var(--max);margin:0 auto;width:100%}
+
+/* decorative bg elements */
+.glow{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px);opacity:.5}
+.glow-1{width:600px;height:600px;background:rgba(53,160,95,.07);top:-200px;right:-200px}
+.glow-2{width:500px;height:500px;background:rgba(46,123,82,.06);bottom:-200px;left:-150px}
+.glow-3{width:400px;height:400px;background:rgba(53,160,95,.05);top:50%;right:-100px}
+.grid-bg{position:absolute;inset:0;opacity:.025;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.8) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.8) 1px,transparent 1px);background-size:50px 50px}
+
+/* ─── TYPOGRAPHY ─── */
+.eyebrow{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.eyebrow::after{content:'';width:32px;height:1px;background:rgba(111,200,150,.3)}
+.hero-title{font-family:var(--serif);font-size:clamp(2.8rem,5.5vw,4.4rem);font-weight:700;line-height:1.05;letter-spacing:-.02em;margin-bottom:20px}
+.hero-title .it{font-style:italic;color:var(--green-bright)}
+.h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:700;line-height:1.08;margin-bottom:16px}
+.h2 .it{font-style:italic;color:var(--green-bright)}
+.h3{font-family:var(--serif);font-size:1.25rem;font-weight:700;margin-bottom:8px;line-height:1.2}
+.lead{font-size:1rem;color:var(--body);line-height:1.9;max-width:600px;margin-bottom:28px}
+.lead strong{color:var(--text)}
+.body-sm{font-size:.82rem;color:var(--body);line-height:1.8}
+.body-sm strong{color:var(--text)}
+
+/* ─── SLIDE DIVIDERS ─── */
+.slide-divider{height:1px;background:linear-gradient(90deg,transparent,var(--forest-border),transparent)}
+.slide-alt{background:var(--forest-mid)}
+
+/* ─── HERO SLIDE ─── */
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.hero-badge{display:flex;align-items:center;gap:6px;background:rgba(53,160,95,.08);border:1px solid rgba(53,160,95,.2);color:var(--green-light);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:20px}
+.hero-badge .dot{width:4px;height:4px;border-radius:50%;background:var(--green-bright)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+@media(max-width:840px){.hero-grid{grid-template-columns:1fr}}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.hero-stat{background:var(--forest-card);border:1px solid var(--forest-border);border-radius:12px;padding:20px;text-align:center}
+.hs-val{font-family:var(--serif);font-size:1.8rem;font-weight:700;color:var(--green-bright);line-height:1;margin-bottom:5px}
+.hs-label{font-size:.7rem;color:var(--muted);line-height:1.4}
+.hero-ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.btn-primary{display:inline-flex;align-items:center;gap:7px;background:var(--green-bright);color:#fff;font-size:.75rem;font-weight:700;padding:13px 26px;border-radius:7px;text-decoration:none;transition:background .15s}
+.btn-primary:hover{background:#2a8a50}
+.btn-outline{display:inline-flex;align-items:center;gap:7px;border:1.5px solid rgba(111,200,150,.3);color:rgba(240,247,242,.8);font-size:.75rem;font-weight:600;padding:13px 26px;border-radius:7px;text-decoration:none;transition:all .15s}
+.btn-outline:hover{border-color:rgba(111,200,150,.6);color:var(--text)}
+
+/* ─── CONTEXT SLIDE ─── */
+.context-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:40px}
+@media(max-width:780px){.context-grid{grid-template-columns:1fr}}
+.data-pillars{display:flex;flex-direction:column;gap:14px;margin-top:12px}
+.data-pillar{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;background:var(--forest-card);border:1px solid var(--forest-border);border-radius:10px;transition:all .2s}
+.data-pillar:hover{border-color:rgba(53,160,95,.3);background:rgba(255,255,255,.06)}
+.dp-icon{width:38px;height:38px;border-radius:9px;background:rgba(53,160,95,.1);border:1px solid rgba(53,160,95,.2);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.dp-title{font-size:.86rem;font-weight:700;color:var(--text);margin-bottom:3px}
+.dp-body{font-size:.76rem;color:var(--body);line-height:1.6}
+.data-quote{background:rgba(53,160,95,.07);border:1px solid rgba(53,160,95,.18);border-radius:14px;padding:28px;margin-top:0}
+.dq-text{font-family:var(--serif);font-size:1.05rem;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:14px}
+.dq-sub{font-size:.75rem;color:var(--muted)}
+.data-nums{display:flex;flex-direction:column;gap:12px;margin-top:18px}
+.dn-item{display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:1px solid var(--forest-border)}
+.dn-item:last-child{border:none;padding:0}
+.dn-label{font-size:.76rem;color:var(--body)}
+.dn-val{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--green-bright)}
+
+/* ─── THREE SOLUTIONS OVERVIEW ─── */
+.solutions-intro{text-align:center;max-width:600px;margin:0 auto 48px}
+.solutions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:840px){.solutions-grid{grid-template-columns:1fr}}
+.solution-card{background:var(--forest-card);border:1px solid var(--forest-border);border-radius:16px;padding:28px;display:flex;flex-direction:column;transition:all .25s;position:relative;overflow:hidden}
+.solution-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green-bright);opacity:0;transition:opacity .2s}
+.solution-card:hover{border-color:rgba(53,160,95,.35);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.solution-card:hover::before{opacity:1}
+.sc-num{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:14px}
+.sc-icon{font-size:2rem;margin-bottom:16px}
+.sc-title{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.2}
+.sc-body{font-size:.8rem;color:var(--body);line-height:1.7;flex:1}
+.sc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px}
+.sc-tag{font-size:.6rem;background:rgba(255,255,255,.04);border:1px solid var(--forest-border);color:var(--muted);padding:3px 8px;border-radius:4px}
+
+/* ─── DEEP DIVE SLIDES ─── */
+.deep-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+@media(max-width:840px){.deep-grid{grid-template-columns:1fr}}
+.deep-num{font-family:var(--serif);font-size:5rem;font-weight:700;color:rgba(53,160,95,.1);line-height:1;margin-bottom:-8px}
+.deep-features{display:flex;flex-direction:column;gap:14px;margin-top:24px}
+.df-item{display:flex;gap:12px;align-items:flex-start;padding:16px;background:var(--forest-card);border:1px solid var(--forest-border);border-radius:9px}
+.df-dot{width:6px;height:6px;border-radius:50%;background:var(--green-bright);flex-shrink:0;margin-top:5px}
+.df-title{font-size:.84rem;font-weight:700;color:var(--text);margin-bottom:3px}
+.df-body{font-size:.76rem;color:var(--body);line-height:1.6}
+.deep-visual{background:var(--forest-card);border:1px solid var(--forest-border);border-radius:16px;padding:28px;position:relative;overflow:hidden}
+.deep-visual::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green-bright),rgba(53,160,95,.2))}
+
+/* risk meter */
+.risk-meter{margin:16px 0}
+.rm-label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.rm-bar{height:8px;border-radius:4px;background:rgba(255,255,255,.06);margin-bottom:14px;overflow:hidden}
+.rm-fill{height:100%;border-radius:4px;transition:width .3s}
+.rm-fill.high{background:linear-gradient(90deg,#e05a5a,#f07070)}
+.rm-fill.med{background:linear-gradient(90deg,#e09a40,#f0b050)}
+.rm-fill.low{background:linear-gradient(90deg,var(--green),var(--green-bright))}
+.risk-cards{display:flex;flex-direction:column;gap:8px}
+.risk-card{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:7px;border:1px solid var(--forest-border)}
+.rc-left{font-size:.76rem;color:var(--body)}
+.rc-badge{font-size:.62rem;font-weight:700;padding:3px 9px;border-radius:10px}
+.rc-high{background:rgba(224,90,90,.12);border:1px solid rgba(224,90,90,.3);color:#f08080}
+.rc-med{background:rgba(224,154,64,.12);border:1px solid rgba(224,154,64,.3);color:#f0b060}
+.rc-low{background:rgba(53,160,95,.12);border:1px solid rgba(53,160,95,.3);color:var(--green-light)}
+
+/* forecast bars */
+.forecast-bars{display:flex;gap:4px;align-items:flex-end;height:90px;margin:16px 0}
+.fb{flex:1;border-radius:3px 3px 0 0;background:rgba(53,160,95,.3);position:relative;transition:background .2s;min-width:0}
+.fb:hover{background:rgba(53,160,95,.6)}
+.fb.peak{background:var(--green-bright)}
+.fb-label{font-size:.44rem;color:var(--muted);text-align:center;margin-top:3px}
+.forecast-axis{display:flex;justify-content:space-between;margin-bottom:4px}
+.fa-label{font-size:.55rem;color:var(--muted)}
+.forecast-legend{display:flex;gap:12px;margin-top:8px}
+.fl-item{display:flex;align-items:center;gap:5px;font-size:.62rem;color:var(--muted)}
+.fl-dot{width:8px;height:8px;border-radius:2px}
+
+/* workforce chart */
+.wf-chart{display:flex;flex-direction:column;gap:8px;margin:16px 0}
+.wf-row{display:flex;align-items:center;gap:10px}
+.wf-time{font-size:.65rem;color:var(--muted);width:36px;flex-shrink:0}
+.wf-bar-wrap{flex:1;height:20px;background:rgba(255,255,255,.04);border-radius:4px;overflow:hidden}
+.wf-bar{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:8px;font-size:.6rem;font-weight:700;color:#fff;transition:width .3s}
+.wf-bar.optimal{background:var(--green)}
+.wf-bar.peak{background:var(--green-bright)}
+.wf-bar.low{background:rgba(255,255,255,.15)}
+.wf-count{font-size:.68rem;color:var(--muted);width:20px;text-align:right;flex-shrink:0}
+
+/* ─── DATA ADVANTAGE ─── */
+.advantage-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
+@media(max-width:780px){.advantage-grid{grid-template-columns:1fr}}
+.adv-card{background:var(--forest-card);border:1px solid var(--forest-border);border-radius:14px;padding:26px}
+.adv-title{font-size:.9rem;font-weight:700;color:var(--text);margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.adv-icon{font-size:1rem}
+.adv-body{font-size:.78rem;color:var(--body);line-height:1.75}
+.adv-highlight{background:rgba(53,160,95,.08);border:1px solid rgba(53,160,95,.2);border-radius:10px;padding:20px 22px;margin-top:12px}
+.ah-val{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--green-bright);line-height:1;margin-bottom:4px}
+.ah-label{font-size:.72rem;color:var(--body)}
+.timeline{display:flex;flex-direction:column;gap:0;margin-top:12px}
+.tl-item{display:flex;gap:14px;align-items:flex-start;padding-bottom:16px}
+.tl-item:last-child{padding-bottom:0}
+.tl-line{display:flex;flex-direction:column;align-items:center;gap:0;flex-shrink:0}
+.tl-dot{width:10px;height:10px;border-radius:50%;background:var(--green-bright);flex-shrink:0;margin-top:4px}
+.tl-connector{width:2px;flex:1;background:rgba(53,160,95,.2);min-height:24px}
+.tl-item:last-child .tl-connector{display:none}
+.tl-title{font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:3px}
+.tl-body{font-size:.74rem;color:var(--body);line-height:1.6}
+
+/* ─── ROI SLIDE ─── */
+.roi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:36px 0}
+@media(max-width:700px){.roi-grid{grid-template-columns:1fr}}
+.roi-card{background:var(--forest-card);border:1px solid var(--forest-border);border-radius:14px;padding:24px;text-align:center;transition:all .2s}
+.roi-card:hover{border-color:rgba(53,160,95,.3);transform:translateY(-3px)}
+.roi-icon{font-size:1.6rem;margin-bottom:12px}
+.roi-val{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--green-bright);line-height:1;margin-bottom:5px}
+.roi-label{font-size:.76rem;color:var(--body);line-height:1.4;margin-bottom:6px}
+.roi-sub{font-size:.68rem;color:var(--muted);line-height:1.4}
+.roi-total{background:rgba(53,160,95,.08);border:1px solid rgba(53,160,95,.2);border-radius:12px;padding:26px;text-align:center;margin-top:4px}
+.rt-label{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:10px}
+.rt-val{font-family:var(--serif);font-size:2.5rem;font-weight:700;color:var(--text);margin-bottom:6px}
+.rt-sub{font-size:.78rem;color:var(--body)}
+
+/* ─── PILOT ─── */
+.pilot-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:36px}
+@media(max-width:780px){.pilot-grid{grid-template-columns:1fr}}
+.pilot-steps{display:flex;flex-direction:column;gap:0}
+.ps-item{display:flex;gap:16px;align-items:flex-start;padding-bottom:22px}
+.ps-item:last-child{padding-bottom:0}
+.ps-num-wrap{display:flex;flex-direction:column;align-items:center;gap:0;flex-shrink:0}
+.ps-num{width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.ps-connector{width:2px;flex:1;background:rgba(46,123,82,.2);min-height:24px;margin:4px 0}
+.ps-item:last-child .ps-connector{display:none}
+.ps-title{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.ps-body{font-size:.78rem;color:var(--body);line-height:1.65}
+.ps-timing{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:5px}
+.pilot-box{background:rgba(53,160,95,.07);border:1px solid rgba(53,160,95,.2);border-radius:14px;padding:28px}
+.pb-title{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:12px;line-height:1.3}
+.pb-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.pb-list li{display:flex;gap:8px;font-size:.8rem;color:var(--body);align-items:flex-start}
+.pb-list li .lk{color:var(--green-light);font-weight:700;flex-shrink:0}
+.pb-note{font-size:.72rem;color:var(--muted);line-height:1.6;padding-top:14px;border-top:1px solid var(--forest-border)}
+
+/* ─── NEXT STEPS ─── */
+.ns-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+@media(max-width:700px){.ns-grid{grid-template-columns:1fr}}
+.ns-card{background:var(--forest-card);border:1px solid var(--forest-border);border-radius:12px;padding:24px;transition:all .2s}
+.ns-card:hover{border-color:rgba(53,160,95,.3)}
+.ns-step{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:10px}
+.ns-title{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.2}
+.ns-body{font-size:.76rem;color:var(--body);line-height:1.65}
+.ns-cta{margin-top:48px;text-align:center}
+.ns-close{font-family:var(--serif);font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.2}
+.ns-close .it{font-style:italic;color:var(--green-bright)}
+.ns-close-sub{font-size:.85rem;color:var(--body);margin-bottom:24px}
+
+/* ─── FOOTER ─── */
+footer{background:#08130a;padding:32px 40px;text-align:center;border-top:1px solid var(--forest-border)}
+.footer-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-brand{font-family:var(--serif);font-size:.88rem;font-weight:700;color:var(--text)}
+.footer-brand span{color:var(--green-light)}
+.footer-note{font-size:.68rem;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-brand" href="../signal-origin.html">
+    <div class="nav-mark">C</div>
+    <div class="nav-name">CELO <span>AI Division</span></div>
+  </a>
+  <div class="nav-right">
+    <span class="nav-client">Prepared for Metropolis</span>
+    <a class="nav-cta" style="margin-right:8px;background:transparent;border:1px solid rgba(111,200,150,.3);color:var(--green-light)" href="../index.html">← CELO Hub</a>
+    <a class="nav-cta" href="forecasting-tool.html">Live Tool →</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════ SLIDE 1: HERO ═══════════════════════════════ -->
+<section class="slide" id="cover">
+  <div class="glow glow-1"></div>
+  <div class="grid-bg"></div>
+  <div class="inner">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badges">
+          <div class="hero-badge"><div class="dot"></div>Confidential · CELO × Metropolis</div>
+          <div class="hero-badge"><div class="dot"></div>March 2026</div>
+        </div>
+        <div class="eyebrow">AI Solutions Proposal</div>
+        <h1 class="hero-title">Intelligence Built<br>on <span class="it">Your Data.</span></h1>
+        <p class="lead">CELO has supported Metropolis operations for <strong>3 years</strong>. In that time, something invaluable accumulated — a deep, detailed record of your customers, your call patterns, your pain points, and your peaks.<br><br>This proposal is about turning that record into a <strong>predictive, automated, operational advantage.</strong></p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="#solutions">See the Solutions →</a>
+          <a class="btn-outline" href="forecasting-tool.html">Live Forecasting Demo</a>
+        </div>
+      </div>
+      <div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+          <div class="hero-stat"><div class="hs-val">4,500+</div><div class="hs-label">Metropolis Locations<br>Across North America</div></div>
+          <div class="hero-stat"><div class="hs-val">1M+</div><div class="hs-label">New Members<br>Every Month</div></div>
+          <div class="hero-stat"><div class="hs-val">212M+</div><div class="hs-label">Minutes Saved<br>for Members</div></div>
+          <div class="hero-stat"><div class="hs-val">3 yrs</div><div class="hs-label">CELO Operational<br>Data on Your Customers</div></div>
+        </div>
+        <div style="background:var(--forest-card);border:1px solid var(--forest-border);border-radius:12px;padding:18px 20px;display:flex;gap:12px;align-items:flex-start">
+          <div style="font-size:1.2rem;flex-shrink:0">💡</div>
+          <div style="font-size:.78rem;color:var(--body);line-height:1.7"><strong style="color:var(--text)">The insight CELO brings that no consultant can:</strong> we already know your customers. We've spoken to them. We've handled their issues. We know what frustrates them, what they call about, when they're about to leave — and when they love you.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="slide-divider"></div>
+
+<!-- ═══════════════════════════════ SLIDE 2: CONTEXT ═══════════════════════════════ -->
+<section class="slide slide-alt slide-sm" id="context">
+  <div class="glow glow-2"></div>
+  <div class="inner">
+    <div class="eyebrow">The Opportunity</div>
+    <h2 class="h2">Three years of data.<br><span class="it">Mostly untapped.</span></h2>
+    <div class="context-grid">
+      <div>
+        <p class="lead">Every call CELO has handled for Metropolis is a data point. Every complaint, every compliment, every cancellation, every frustrated member who called three times about the same issue. <strong>That's pattern data — and patterns predict the future.</strong></p>
+        <div class="data-pillars">
+          <div class="data-pillar"><div class="dp-icon">📞</div><div><div class="dp-title">Call History & Volume Data</div><div class="dp-body">Millions of call records — times, durations, issue types, resolution outcomes, escalation rates. The raw material for forecasting.</div></div></div>
+          <div class="data-pillar"><div class="dp-icon">👤</div><div><div class="dp-title">Member Behaviour Patterns</div><div class="dp-body">Which customers call repeatedly. Which go silent before churning. Which issues predict cancellation. Which experiences create loyalty.</div></div></div>
+          <div class="data-pillar"><div class="dp-icon">📍</div><div><div class="dp-title">Location & Event Correlation</div><div class="dp-body">Call volume spikes that match sports events, concerts, holidays, and weather patterns. Predictable, once the patterns are surfaced.</div></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="data-quote">
+          <div class="dq-text">"We have been providing customer service to Metropolis for 3 years. I see an opportunity if we can make use of the data from past and real-time data to forecast future issues, call volumes, and customer needs."</div>
+          <div class="dq-sub">— Mark, CELO Operations Lead</div>
+        </div>
+        <div class="data-nums" style="margin-top:20px">
+          <div class="dn-item"><div class="dn-label">Years of historical call data available</div><div class="dn-val">3 years</div></div>
+          <div class="dn-item"><div class="dn-label">Typical forecast accuracy with 12+ months of data</div><div class="dn-val">&gt; 90%</div></div>
+          <div class="dn-item"><div class="dn-label">Reduction in staffing costs via accurate forecasting</div><div class="dn-val">15–30%</div></div>
+          <div class="dn-item"><div class="dn-label">Average churn reduction from early intervention</div><div class="dn-val">20–35%</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="slide-divider"></div>
+
+<!-- ═══════════════════════════════ SLIDE 3: THREE SOLUTIONS ═══════════════════════════════ -->
+<section class="slide slide-sm" id="solutions">
+  <div class="glow glow-3"></div>
+  <div class="inner">
+    <div class="solutions-intro">
+      <div class="eyebrow" style="justify-content:center">Three AI Solutions</div>
+      <h2 class="h2" style="text-align:center">One data set.<br><span class="it">Three ways to win.</span></h2>
+      <p class="body-sm" style="text-align:center;max-width:500px;margin:0 auto">Each solution addresses a specific operational failure point. Together they create a closed-loop intelligence system — predict, forecast, staff, intervene, repeat.</p>
+    </div>
+    <div class="solutions-grid">
+      <div class="solution-card">
+        <div class="sc-num">Solution 01</div>
+        <div class="sc-icon">🎯</div>
+        <div class="sc-title">Predictive AI</div>
+        <div class="sc-body">Forward-looking. Asks "What is likely to happen next?" and "What can we do now to change that outcome?" Flags high-risk customers before they churn. Enables proactive, tailored intervention instead of reactive damage control.</div>
+        <div class="sc-tags"><span class="sc-tag">Churn Prevention</span><span class="sc-tag">Risk Scoring</span><span class="sc-tag">Proactive Outreach</span></div>
+      </div>
+      <div class="solution-card">
+        <div class="sc-num">Solution 02</div>
+        <div class="sc-icon">📈</div>
+        <div class="sc-title">Forecasting AI</div>
+        <div class="sc-body">Uses past and real-time data to forecast future call volumes, issue types, and customer needs by location, day, and hour. Allows Metropolis to act before problems escalate — reducing churn, wait times, and operational costs.</div>
+        <div class="sc-tags"><span class="sc-tag">Call Volume Forecasting</span><span class="sc-tag">Issue Prediction</span><span class="sc-tag">Occupancy Modelling</span></div>
+      </div>
+      <div class="solution-card">
+        <div class="sc-num">Solution 03</div>
+        <div class="sc-icon">👥</div>
+        <div class="sc-title">Workforce Management AI</div>
+        <div class="sc-body">Analyses historical, real-time, and external data to forecast call volumes with 90%+ accuracy. Automates workforce planning to optimise agent scheduling, reduce wait times, and cut costs by anticipating peaks before they arrive.</div>
+        <div class="sc-tags"><span class="sc-tag">Automated Scheduling</span><span class="sc-tag">Peak Anticipation</span><span class="sc-tag">Cost Optimisation</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="slide-divider"></div>
+
+<!-- ═══════════════════════════════ SLIDE 4: PREDICTIVE AI ═══════════════════════════════ -->
+<section class="slide slide-alt" id="predictive">
+  <div class="glow glow-1"></div>
+  <div class="inner">
+    <div class="deep-grid">
+      <div>
+        <div class="deep-num">01</div>
+        <div class="eyebrow">Predictive AI</div>
+        <h2 class="h2">Know who's about to<br>leave — <span class="it">before they do.</span></h2>
+        <p class="lead">A customer who has called three times about the same issue is not just frustrated. They are <strong>a churn event waiting to happen</strong>. Predictive AI surfaces that signal in real time, so agents can act before the cancellation — not after.</p>
+        <div class="deep-features">
+          <div class="df-item"><div class="df-dot"></div><div><div class="df-title">Behaviour Pattern Recognition</div><div class="df-body">Models trained on 3 years of Metropolis customer data identify the sequences of events that precede churn — call frequency, issue type, tone signals, resolution outcomes.</div></div></div>
+          <div class="df-item"><div class="df-dot"></div><div><div class="df-title">Real-Time Risk Scoring</div><div class="df-body">Every active customer carries a live churn risk score. Agents see a risk flag on every call — so they know who needs proactive retention before the conversation starts.</div></div></div>
+          <div class="df-item"><div class="df-dot"></div><div><div class="df-title">Proactive Intervention Playbooks</div><div class="df-body">High-risk customers get tailored outreach before they call to cancel — an offer, a resolution, a human touch at the moment that matters most.</div></div></div>
+        </div>
+      </div>
+      <div class="deep-visual">
+        <div style="font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:16px">Live Churn Risk Dashboard — Sample</div>
+        <div class="risk-meter">
+          <div class="rm-label"><span>Member #M-4821 — "Same billing issue, 3rd call"</span><span style="color:#f08080">HIGH RISK</span></div>
+          <div class="rm-bar"><div class="rm-fill high" style="width:87%"></div></div>
+          <div class="rm-label"><span>Member #M-2047 — "App error, 2nd call this week"</span><span style="color:#f0b060">MED RISK</span></div>
+          <div class="rm-bar"><div class="rm-fill med" style="width:52%"></div></div>
+          <div class="rm-label"><span>Member #M-7703 — "Quick location query, resolved"</span><span style="color:var(--green-light)">LOW RISK</span></div>
+          <div class="rm-bar"><div class="rm-fill low" style="width:12%"></div></div>
+        </div>
+        <div style="font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:16px 0 8px">Recommended Interventions</div>
+        <div class="risk-cards">
+          <div class="risk-card"><div class="rc-left">M-4821 · Credit applied + priority callback</div><div class="rc-badge rc-high">Act Now</div></div>
+          <div class="risk-card"><div class="rc-left">M-2047 · App team escalation + follow-up</div><div class="rc-badge rc-med">Act Today</div></div>
+          <div class="risk-card"><div class="rc-left">M-7703 · Standard resolution, monitor</div><div class="rc-badge rc-low">Monitor</div></div>
+        </div>
+        <div style="margin-top:16px;padding:12px 14px;background:rgba(53,160,95,.06);border:1px solid rgba(53,160,95,.15);border-radius:8px;font-size:.74rem;color:var(--body)"><strong style="color:var(--green-light)">Built on your data:</strong> Risk models trained on 3 years of actual Metropolis call outcomes — not generic benchmarks.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="slide-divider"></div>
+
+<!-- ═══════════════════════════════ SLIDE 5: FORECASTING AI ═══════════════════════════════ -->
+<section class="slide" id="forecasting">
+  <div class="glow glow-2"></div>
+  <div class="inner">
+    <div class="deep-grid">
+      <div class="deep-visual">
+        <div style="font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:14px">Forecasted Call Volume — Chicago Downtown · Friday</div>
+        <div class="forecast-axis">
+          <span class="fa-label">6am</span><span class="fa-label">9am</span><span class="fa-label">12pm</span><span class="fa-label">3pm</span><span class="fa-label">6pm</span><span class="fa-label">9pm</span>
+        </div>
+        <div class="forecast-bars">
+          <div class="fb" style="height:15%"></div><div class="fb" style="height:22%"></div>
+          <div class="fb" style="height:45%"></div><div class="fb peak" style="height:80%"></div>
+          <div class="fb peak" style="height:92%"></div><div class="fb peak" style="height:85%"></div>
+          <div class="fb" style="height:72%"></div><div class="fb" style="height:65%"></div>
+          <div class="fb" style="height:68%"></div><div class="fb" style="height:55%"></div>
+          <div class="fb peak" style="height:78%"></div><div class="fb peak" style="height:88%"></div>
+          <div class="fb" style="height:62%"></div><div class="fb" style="height:40%"></div>
+          <div class="fb" style="height:25%"></div><div class="fb" style="height:12%"></div>
+        </div>
+        <div class="forecast-legend">
+          <div class="fl-item"><div class="fl-dot" style="background:var(--green-bright)"></div>Peak Period</div>
+          <div class="fl-item"><div class="fl-dot" style="background:rgba(53,160,95,.3)"></div>Normal Volume</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px">
+          <div style="text-align:center;padding:12px;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid var(--forest-border)">
+            <div style="font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--green-bright)">247</div>
+            <div style="font-size:.64rem;color:var(--muted);margin-top:2px">Forecasted Calls</div>
+          </div>
+          <div style="text-align:center;padding:12px;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid var(--forest-border)">
+            <div style="font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--green-bright)">9–11am</div>
+            <div style="font-size:.64rem;color:var(--muted);margin-top:2px">Peak Window</div>
+          </div>
+          <div style="text-align:center;padding:12px;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid var(--forest-border)">
+            <div style="font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--green-bright)">+38%</div>
+            <div style="font-size:.64rem;color:var(--muted);margin-top:2px">vs Avg Friday</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding:10px 14px;background:rgba(224,154,64,.06);border:1px solid rgba(224,154,64,.2);border-radius:7px;font-size:.72rem;color:rgba(240,180,80,.8)">⚠ Bears game tonight at 7pm — expect secondary spike 5–8pm. Alert issued 48hrs in advance.</div>
+      </div>
+      <div>
+        <div class="deep-num">02</div>
+        <div class="eyebrow">Forecasting AI</div>
+        <h2 class="h2">Know what's coming<br><span class="it">before it arrives.</span></h2>
+        <p class="lead">The best way to handle a surge in call volume is to <strong>not be surprised by it</strong>. Forecasting AI uses your historical data, real-time signals, and external context to predict volume hours and days before it hits.</p>
+        <div class="deep-features">
+          <div class="df-item"><div class="df-dot"></div><div><div class="df-title">Multi-Variable Forecasting</div><div class="df-body">Day of week, time of day, location, city, local events (sports, concerts, holidays), weather, membership density, and historical baselines — all combined into a single volume prediction.</div></div></div>
+          <div class="df-item"><div class="df-dot"></div><div><div class="df-title">Issue Type Prediction</div><div class="df-body">Not just how many calls are coming — but what they'll be about. Billing spikes after statement dates. App errors after updates. Event-related disputes after concerts. Category forecasting = smarter agent prep.</div></div></div>
+          <div class="df-item"><div class="df-dot"></div><div><div class="df-title">Parking Occupancy Modelling</div><div class="df-body">Forecast space availability by location and time window. Operations teams can proactively redirect, communicate, and staff accordingly — before lots fill up and calls flood in.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="slide-divider"></div>
+
+<!-- ═══════════════════════════════ SLIDE 6: WORKFORCE ═══════════════════════════════ -->
+<section class="slide slide-alt" id="workforce">
+  <div class="glow glow-3"></div>
+  <div class="inner">
+    <div class="deep-grid">
+      <div>
+        <div class="deep-num">03</div>
+        <div class="eyebrow">Workforce Management AI</div>
+        <h2 class="h2">Right people. Right time.<br><span class="it">Right cost.</span></h2>
+        <p class="lead">Staffing a call centre reactively is expensive. You either pay for idle agents during quiet periods or fail customers during peaks. <strong>Workforce Management AI eliminates both</strong> by forecasting staffing needs with 90%+ accuracy — automated, weekly, by shift.</p>
+        <div class="deep-features">
+          <div class="df-item"><div class="df-dot"></div><div><div class="df-title">90%+ Forecasting Accuracy</div><div class="df-body">Industry benchmark for AI-driven workforce planning with 12+ months of training data. CELO has 3 years. Accuracy from day one — not after months of calibration.</div></div></div>
+          <div class="df-item"><div class="df-dot"></div><div><div class="df-title">Automated Weekly Schedules</div><div class="df-body">The system generates staffing recommendations by shift, location, and skill set — reducing the management time spent on manual scheduling from hours to minutes.</div></div></div>
+          <div class="df-item"><div class="df-dot"></div><div><div class="df-title">Cost Reduction Quantified</div><div class="df-body">Overstaffing is as expensive as understaffing. Optimal scheduling typically reduces labour costs by 15–25% while maintaining or improving service levels.</div></div></div>
+        </div>
+      </div>
+      <div class="deep-visual">
+        <div style="font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:14px">AI-Generated Staffing Plan — Monday</div>
+        <div class="wf-chart">
+          <div class="wf-row"><div class="wf-time">6am</div><div class="wf-bar-wrap"><div class="wf-bar low" style="width:25%">2</div></div><div class="wf-count">2</div></div>
+          <div class="wf-row"><div class="wf-time">7am</div><div class="wf-bar-wrap"><div class="wf-bar optimal" style="width:37%">3</div></div><div class="wf-count">3</div></div>
+          <div class="wf-row"><div class="wf-time">8am</div><div class="wf-bar-wrap"><div class="wf-bar optimal" style="width:62%">5</div></div><div class="wf-count">5</div></div>
+          <div class="wf-row"><div class="wf-time">9am</div><div class="wf-bar-wrap"><div class="wf-bar peak" style="width:87%">7</div></div><div class="wf-count">7</div></div>
+          <div class="wf-row"><div class="wf-time">10am</div><div class="wf-bar-wrap"><div class="wf-bar peak" style="width:100%">8</div></div><div class="wf-count">8</div></div>
+          <div class="wf-row"><div class="wf-time">11am</div><div class="wf-bar-wrap"><div class="wf-bar peak" style="width:87%">7</div></div><div class="wf-count">7</div></div>
+          <div class="wf-row"><div class="wf-time">12pm</div><div class="wf-bar-wrap"><div class="wf-bar optimal" style="width:75%">6</div></div><div class="wf-count">6</div></div>
+          <div class="wf-row"><div class="wf-time">1pm</div><div class="wf-bar-wrap"><div class="wf-bar optimal" style="width:62%">5</div></div><div class="wf-count">5</div></div>
+          <div class="wf-row"><div class="wf-time">5pm</div><div class="wf-bar-wrap"><div class="wf-bar peak" style="width:87%">7</div></div><div class="wf-count">7</div></div>
+          <div class="wf-row"><div class="wf-time">6pm</div><div class="wf-bar-wrap"><div class="wf-bar optimal" style="width:50%">4</div></div><div class="wf-count">4</div></div>
+          <div class="wf-row"><div class="wf-time">8pm</div><div class="wf-bar-wrap"><div class="wf-bar low" style="width:25%">2</div></div><div class="wf-count">2</div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px">
+          <div style="padding:12px;background:rgba(53,160,95,.07);border:1px solid rgba(53,160,95,.18);border-radius:8px">
+            <div style="font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--green-bright)">$4,200</div>
+            <div style="font-size:.66rem;color:var(--body);margin-top:2px">Saved vs. manual scheduling<br>this week</div>
+          </div>
+          <div style="padding:12px;background:rgba(53,160,95,.07);border:1px solid rgba(53,160,95,.18);border-radius:8px">
+            <div style="font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--green-bright)">94%</div>
+            <div style="font-size:.66rem;color:var(--body);margin-top:2px">Forecast accuracy<br>last 4 weeks</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="slide-divider"></div>
+
+<!-- ═══════════════════════════════ SLIDE 7: DATA ADVANTAGE ═══════════════════════════════ -->
+<section class="slide slide-sm" id="advantage">
+  <div class="glow glow-1"></div>
+  <div class="inner">
+    <div class="eyebrow">The CELO Advantage</div>
+    <h2 class="h2">3 years in your operations.<br><span class="it">That's not a timeline. That's a moat.</span></h2>
+    <p class="lead">Any AI vendor can build models. What they can't build in the first year is the data quality and operational context that CELO already has. We're not starting from scratch — <strong>we're starting from experience.</strong></p>
+    <div class="advantage-grid">
+      <div>
+        <div class="adv-card" style="margin-bottom:14px">
+          <div class="adv-title"><div class="adv-icon">📊</div>What Other AI Vendors Need</div>
+          <div class="adv-body">External vendors need 6–18 months of data collection and model training before hitting useful accuracy. During that time, you're paying for calibration — not results.</div>
+        </div>
+        <div class="adv-card">
+          <div class="adv-title"><div class="adv-icon">⚡</div>What CELO Already Has</div>
+          <div class="adv-body">3 years of Metropolis-specific call data. Issue categories, resolution rates, churn precursors, seasonal patterns, event spikes, location-level differences. The training data is already rich. Models hit accuracy from month one.</div>
+          <div class="adv-highlight">
+            <div class="ah-val">Day 1</div>
+            <div class="ah-label">Useful accuracy from go-live — not after months of training</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="adv-card">
+          <div class="adv-title"><div class="adv-icon">🔄</div>How the Intelligence Loop Works</div>
+          <div class="adv-body" style="margin-bottom:14px">CELO's embedded team doesn't just feed data to an algorithm — they validate it. Ground-level operational insight combined with AI pattern recognition creates predictions that get smarter every week.</div>
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div><div><div class="tl-title">Historical Data Layer</div><div class="tl-body">3 years of Metropolis call records, outcomes, member data, location performance — structured and ready.</div></div></div>
+            <div class="tl-item"><div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div><div><div class="tl-title">Real-Time Signal Layer</div><div class="tl-body">Live call queue, current occupancy data, weather feeds, event calendars — merged in real time.</div></div></div>
+            <div class="tl-item"><div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div><div><div class="tl-title">Prediction Engine</div><div class="tl-body">Models output forecasts, risk scores, and staffing recommendations — refreshed hourly.</div></div></div>
+            <div class="tl-item"><div class="tl-line"><div class="tl-dot"></div></div><div><div class="tl-title">CELO Operational Validation</div><div class="tl-body">CELO's team reviews, applies, and feeds outcomes back into the models. The loop makes everything smarter over time.</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="slide-divider"></div>
+
+<!-- ═══════════════════════════════ SLIDE 8: ROI ═══════════════════════════════ -->
+<section class="slide slide-alt slide-sm" id="roi">
+  <div class="inner">
+    <div class="eyebrow">The Business Case</div>
+    <h2 class="h2">What the numbers<br><span class="it">look like.</span></h2>
+    <p class="lead">Based on industry benchmarks for AI-enhanced call centre operations and parking operations at Metropolis's scale. <strong>Conservative estimates — real pilots typically outperform.</strong></p>
+    <div class="roi-grid">
+      <div class="roi-card">
+        <div class="roi-icon">📉</div>
+        <div class="roi-val">15–25%</div>
+        <div class="roi-label">Reduction in staffing costs</div>
+        <div class="roi-sub">Through accurate demand forecasting and automated scheduling — eliminating chronic over and understaffing.</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-icon">🔄</div>
+        <div class="roi-val">20–35%</div>
+        <div class="roi-label">Reduction in churn rate</div>
+        <div class="roi-sub">From proactive intervention on high-risk members before they cancel — turning reactive support into retention.</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-icon">⏱️</div>
+        <div class="roi-val">30–40%</div>
+        <div class="roi-label">Reduction in average wait time</div>
+        <div class="roi-sub">Through demand anticipation — the right agents are staffed and ready when volume peaks, every time.</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-icon">🎯</div>
+        <div class="roi-val">&gt; 90%</div>
+        <div class="roi-label">Call volume forecast accuracy</div>
+        <div class="roi-sub">Achievable from month one, given 3 years of existing Metropolis operational data already in CELO's hands.</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-icon">📊</div>
+        <div class="roi-val">2–4x</div>
+        <div class="roi-label">ROI within 12 months</div>
+        <div class="roi-sub">Typical return on AI-enhanced operations at this scale. Implementation cost recovered within the first quarter of full deployment.</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-icon">🏢</div>
+        <div class="roi-val">4,500+</div>
+        <div class="roi-label">Locations that benefit</div>
+        <div class="roi-sub">Insights from pilot locations roll out system-wide. The bigger the network, the more powerful the pattern data becomes.</div>
+      </div>
+    </div>
+    <div class="roi-total">
+      <div class="rt-label">Estimated Annual Operational Savings · Full Deployment</div>
+      <div class="rt-val">$2.4M – $8.5M+</div>
+      <div class="rt-sub">Based on a 4,500-location network, ~10M annual member interactions, and conservative efficiency benchmarks. Pilot will establish precise figures for Metropolis's specific scale.</div>
+    </div>
+  </div>
+</section>
+
+<div class="slide-divider"></div>
+
+<!-- ═══════════════════════════════ SLIDE 9: PILOT ═══════════════════════════════ -->
+<section class="slide" id="pilot">
+  <div class="glow glow-2"></div>
+  <div class="inner">
+    <div class="eyebrow">The Pilot Proposal</div>
+    <h2 class="h2">90 days. One region.<br><span class="it">Proof before commitment.</span></h2>
+    <div class="pilot-grid">
+      <div>
+        <p class="lead">We're not asking for a full system commitment before results are proven. The pilot establishes accuracy, quantifies ROI, and builds the confidence for full rollout — at low risk and low cost.</p>
+        <div class="pilot-steps">
+          <div class="ps-item">
+            <div class="ps-num-wrap"><div class="ps-num">1</div><div class="ps-connector"></div></div>
+            <div><div class="ps-timing">Days 1–14</div><div class="ps-title">Data Scoping & Model Setup</div><div class="ps-body">CELO AI team structures 3 years of historical data. Initial models built for one target region. Baseline metrics established.</div></div>
+          </div>
+          <div class="ps-item">
+            <div class="ps-num-wrap"><div class="ps-num">2</div><div class="ps-connector"></div></div>
+            <div><div class="ps-timing">Days 15–30</div><div class="ps-title">Live Forecasting Dashboard</div><div class="ps-body">Pilot forecasting tool goes live — visible to CELO ops team and Metropolis stakeholders. Daily predictions vs actuals tracked.</div></div>
+          </div>
+          <div class="ps-item">
+            <div class="ps-num-wrap"><div class="ps-num">3</div><div class="ps-connector"></div></div>
+            <div><div class="ps-timing">Days 31–60</div><div class="ps-title">Workforce & Risk Integration</div><div class="ps-body">Staffing recommendations begin. Churn risk scoring activated. CELO agents receive live risk flags on incoming calls.</div></div>
+          </div>
+          <div class="ps-item">
+            <div class="ps-num-wrap"><div class="ps-num">4</div><div class="ps-connector"></div></div>
+            <div><div class="ps-timing">Days 61–90</div><div class="ps-title">Results Review & Rollout Plan</div><div class="ps-body">Full pilot performance report delivered. Forecast accuracy documented. Cost savings quantified. Rollout proposal for remaining regions and 4,500+ locations presented.</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="pilot-box">
+          <div class="pb-title">What Metropolis Gets from the Pilot</div>
+          <ul class="pb-list">
+            <li><span class="lk">→</span>90-day proof of concept with zero long-term commitment required upfront</li>
+            <li><span class="lk">→</span>Live forecasting dashboard — real Metropolis data, real predictions</li>
+            <li><span class="lk">→</span>Staffing recommendations with measured accuracy across the pilot period</li>
+            <li><span class="lk">→</span>Churn risk scoring on real customer accounts — tracked against actual outcomes</li>
+            <li><span class="lk">→</span>Full ROI report with actual Metropolis-specific savings figures</li>
+            <li><span class="lk">→</span>Roadmap for full 4,500-location deployment with confidence from real data</li>
+          </ul>
+          <div class="pb-note">The pilot is designed to be low-friction. CELO's team handles the technical build. Metropolis provides data access agreement and a regional ops contact. That's it.</div>
+        </div>
+        <div style="margin-top:14px;background:var(--forest-card);border:1px solid var(--forest-border);border-radius:10px;padding:18px 20px">
+          <div style="font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:8px">Why CELO builds this — not a third party</div>
+          <div class="body-sm">CELO's in-house AI division means no external vendor dependencies. The models, the data, the tooling — all owned and operated by CELO. <strong>One company. One relationship. Complete accountability.</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="slide-divider"></div>
+
+<!-- ═══════════════════════════════ SLIDE 10: NEXT STEPS ═══════════════════════════════ -->
+<section class="slide slide-alt slide-sm" id="nextsteps">
+  <div class="inner">
+    <div class="eyebrow">Next Steps</div>
+    <h2 class="h2">Three moves.<br><span class="it">Pilot starts in 30 days.</span></h2>
+    <div class="ns-grid">
+      <div class="ns-card">
+        <div class="ns-step">Step 01 · This Week</div>
+        <div class="ns-title">Internal Approval from CELO & Metropolis Stakeholders</div>
+        <div class="ns-body">Both teams review this proposal. CELO confirms AI division capacity and timeline. Metropolis confirms pilot region and identifies an operational point of contact.</div>
+      </div>
+      <div class="ns-card">
+        <div class="ns-step">Step 02 · Week 2</div>
+        <div class="ns-title">Data Access Agreement & Pilot Scoping Call</div>
+        <div class="ns-body">A 60-minute call with CELO AI lead, CELO ops lead, and Metropolis ops team. Agree pilot region, define success metrics, and sign data access agreement.</div>
+      </div>
+      <div class="ns-card">
+        <div class="ns-step">Step 03 · Day 15</div>
+        <div class="ns-title">Build Begins</div>
+        <div class="ns-body">CELO AI team begins data structuring and model build. Two-week sprint to a live forecasting dashboard. Metropolis gets access from day 15.</div>
+      </div>
+    </div>
+    <div class="ns-cta">
+      <div class="ns-close">The data exists.<br>The team exists.<br><span class="it">The only question is when.</span></div>
+      <div class="ns-close-sub">Try the live forecasting tool below — built on Metropolis's operational profile.</div>
+      <a class="btn-primary" style="margin:0 auto;display:inline-flex" href="forecasting-tool.html">Open Live Forecasting Tool →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">CELO <span>AI Division</span> × Metropolis</div>
+    <div class="footer-note">Confidential · Prepared by CELO Business Solutions · March 2026</div>
+    <a class="nav-cta" href="../index.html" style="font-size:.62rem;padding:6px 14px;background:transparent;border:1px solid rgba(111,200,150,.3);color:var(--green-light)">← CELO Hub</a>
+  </div>
+</footer>
+
+</body>
+</html>

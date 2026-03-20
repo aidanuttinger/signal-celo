@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ideal Client Profile — CELO Business Solutions · The Signal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#07080f;--navy:#0b0f1e;--card:#111624;--gold:#c9a84c;--gold-border:rgba(201,168,76,0.22);--white:#f2f2f5;--grey:#7a84a0;--muted:#4a5270;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',-apple-system,sans-serif;}
+body{font-family:var(--sans);background:var(--navy);color:var(--white);line-height:1.7;margin:0}
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(7,8,15,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.12);height:52px;display:flex;align-items:center;padding:0 32px;gap:16px}
+.nav-brand{font-family:var(--serif);font-size:.85rem;font-weight:700;color:var(--white);display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}.nav-brand span{color:var(--gold)}
+.nav-back{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:all .15s;border:1px solid rgba(201,168,76,.3);padding:5px 14px;border-radius:20px;background:rgba(201,168,76,.07);font-weight:600}.nav-back:hover{background:rgba(201,168,76,.15);border-color:rgba(201,168,76,.6);color:#e0c068}
+.hero{padding:88px 40px 52px;text-align:center;position:relative;overflow:hidden;background:var(--black);border-bottom:1px solid rgba(201,168,76,.1)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(201,168,76,.07) 0%,transparent 65%);pointer-events:none}
+.eyebrow{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px;display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before,.eyebrow::after{content:'';width:22px;height:1px;background:rgba(201,168,76,.5)}
+h1{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.1;margin-bottom:16px}
+h1 .gold{color:var(--gold)}h1 .it{font-style:italic}
+.hero-sub{font-size:.82rem;color:var(--grey);max-width:520px;margin:0 auto;line-height:1.85}.hero-sub strong{color:var(--white)}
+.body{max-width:780px;margin:0 auto;padding:52px 32px 80px}
+.section{margin-bottom:52px}
+.section-label{font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.section-label::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.15)}
+h2{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--white);margin-bottom:14px;line-height:1.2}
+h2 .gold{color:var(--gold);font-style:italic}
+p{font-size:.88rem;color:var(--grey);line-height:1.85;margin-bottom:14px}p strong{color:var(--white)}
+.profile-card{background:var(--card);border:1px solid rgba(201,168,76,.2);border-radius:14px;padding:28px 32px;margin:20px 0;position:relative;overflow:hidden}
+.profile-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),rgba(201,168,76,.3))}
+.profile-name{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:4px}
+.profile-name .gold{color:var(--gold);font-style:italic}
+.profile-tag{font-size:.72rem;color:var(--gold);letter-spacing:.08em;margin-bottom:18px;font-weight:600}
+.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+@media(max-width:560px){.profile-grid{grid-template-columns:1fr}}
+.pg-label{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:4px}
+.pg-value{font-size:.82rem;color:var(--white);line-height:1.5}
+.signals-list{margin-top:14px}
+.sig-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px}
+.sig-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:6px}
+.sig-text{font-size:.8rem;color:var(--grey);line-height:1.5}
+.anti-profile{background:rgba(224,92,92,.05);border:1px solid rgba(224,92,92,.2);border-radius:10px;padding:22px 26px;margin:16px 0}
+.anti-profile .ap-title{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:#e05c5c;font-weight:700;margin-bottom:10px}
+.anti-profile p{font-size:.82rem;margin-bottom:0;color:var(--grey)}
+.where-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0}
+@media(max-width:580px){.where-grid{grid-template-columns:1fr 1fr}}
+.where-card{background:var(--card);border:1px solid rgba(201,168,76,.1);border-radius:8px;padding:14px 16px;text-align:center}
+.where-flag{font-size:1.4rem;margin-bottom:6px}
+.where-label{font-size:.7rem;color:var(--gold);font-weight:700;margin-bottom:4px}
+.where-desc{font-size:.72rem;color:var(--grey);line-height:1.4}
+.nav-chapters{display:flex;gap:10px;margin-top:40px;flex-wrap:wrap}
+.nav-ch{flex:1;min-width:160px;background:var(--card);border:1px solid rgba(201,168,76,.15);border-radius:8px;padding:14px 18px;text-decoration:none;transition:all .2s}
+.nav-ch:hover{border-color:rgba(201,168,76,.4);transform:translateY(-2px)}
+.nav-ch .ch-label{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px}
+.nav-ch .ch-name{font-size:.82rem;font-weight:600;color:var(--white)}
+footer{text-align:center;padding:32px 20px;border-top:1px solid rgba(255,255,255,.05);font-size:.7rem;color:var(--muted)}footer span{color:var(--gold)}
+</style>
+</head>
+<body>
+<nav class="nav"><a class="nav-brand" href="signal-origin.html"><div class="nav-dot"></div>The <span>Signal</span></a><a class="nav-back" href="signal-origin.html">← Back to Hub</a></nav>
+<section class="hero">
+  <div class="eyebrow">Chapter 04 · Ideal Client Profile</div>
+  <h1>The Business <span class="gold it">Built for CELO</span></h1>
+  <p class="hero-sub">Defined precisely — so every outreach message, every piece of content, and every conversation <strong>attracts the right client.</strong></p>
+</section>
+<div class="body">
+
+  <div class="section">
+    <div class="section-label">Target Geography</div>
+    <div class="where-grid">
+      <div class="where-card"><div class="where-flag">🇺🇸</div><div class="where-label">United States</div><div class="where-desc">Primary market. Time zone overlap with EST/PST achievable. Largest pool of founder-led SMBs actively outsourcing.</div></div>
+      <div class="where-card"><div class="where-flag">🇬🇧</div><div class="where-label">United Kingdom</div><div class="where-desc">Strong outsourcing culture. GMT overlap with PH working hours manageable. Growing demand post-Brexit for cost efficiencies.</div></div>
+      <div class="where-card"><div class="where-flag">🇦🇺</div><div class="where-label">Australia</div><div class="where-desc">Best time zone alignment with Philippines. Culturally similar to PH workforce. High outsourcing adoption among SMBs.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Primary ICP — The Scaling Founder</div>
+    <div class="profile-card">
+      <div class="profile-name">The <span class="gold">Scaling Founder</span></div>
+      <div class="profile-tag">Core client · Dedicated team retainer · Highest LTV · Easiest to retain</div>
+      <div class="profile-grid">
+        <div><div class="pg-label">Company Profile</div><div class="pg-value">10–100 employees. $1M–$20M annual revenue. Growing faster than their team can keep up with.</div></div>
+        <div><div class="pg-label">Their Problem</div><div class="pg-value">Operations are breaking under growth. Founder is doing work that should be delegated. Hiring locally is too slow or too expensive.</div></div>
+        <div><div class="pg-label">Decision Maker</div><div class="pg-value">The founder or COO. Makes decisions quickly when they trust the solution. Has been burned by bad outsourcing before.</div></div>
+        <div><div class="pg-label">What They Need from CELO</div><div class="pg-value">A dedicated 2–5 person team embedded in their ops. Customer support, back office, admin, lead gen, or data management.</div></div>
+      </div>
+      <div class="signals-list">
+        <p style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px">Buying Signals — They're Ready When They Say:</p>
+        <div class="sig-item"><div class="sig-dot"></div><div class="sig-text">"We're spending too much time on tasks that aren't moving the needle"</div></div>
+        <div class="sig-item"><div class="sig-dot"></div><div class="sig-text">"We tried a VA through Upwork but it was inconsistent"</div></div>
+        <div class="sig-item"><div class="sig-dot"></div><div class="sig-text">"I need to hire 3 more people but I can't justify the cost in the US/UK"</div></div>
+        <div class="sig-item"><div class="sig-dot"></div><div class="sig-text">"We need someone reliable — not a freelancer, a real team member"</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Secondary ICP — The Operations Director</div>
+    <div class="profile-card">
+      <div class="profile-name">The <span class="gold">COO / Ops Director</span></div>
+      <div class="profile-tag">Mid-market · Larger team retainers · Higher deal value · Longer sales cycle</div>
+      <div class="profile-grid">
+        <div><div class="pg-label">Company Profile</div><div class="pg-value">100–500 employees. $10M–$100M revenue. Already outsourcing some functions — evaluating consolidation or expansion.</div></div>
+        <div><div class="pg-label">Their Problem</div><div class="pg-value">Current BPO provider underperforming. Or scaling a successful pilot program. Needs a partner with documented processes and SLA accountability.</div></div>
+        <div><div class="pg-label">Decision Maker</div><div class="pg-value">COO or VP Operations. Has a formal evaluation process. Responds to case studies, references, and specific SLA commitments.</div></div>
+        <div><div class="pg-label">What They Need from CELO</div><div class="pg-value">Proven track record, documented QA processes, clear reporting, and a dedicated account manager. Proof that CELO has done this at their scale before.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Anti-Profile — Who to Pass On</div>
+    <div class="anti-profile">
+      <div class="ap-title">Not CELO's Client</div>
+      <p><strong>The price-only buyer</strong> — if the only question is "what's your hourly rate?", they'll leave the moment someone is $1/hour cheaper. &nbsp;·&nbsp; <strong>Pre-revenue startups</strong> — no budget, no process, no ability to onboard and manage a team. &nbsp;·&nbsp; <strong>Highly regulated industries without prior BPO experience</strong> (healthcare, legal, financial services at compliance-heavy scale) — these require specialist compliance infrastructure that needs to be built before accepting these clients. &nbsp;·&nbsp; <strong>Clients who want a contractor, not a team</strong> — one-off projects with no intention of a retainer relationship. The economics don't work for either party.</p>
+    </div>
+  </div>
+
+  <div class="nav-chapters">
+    <a class="nav-ch" href="positioning-blueprint.html"><div class="ch-label">Chapter 03</div><div class="ch-name">← Positioning Blueprint</div></a>
+    <a class="nav-ch" href="lead-reactivation.html"><div class="ch-label">Chapter 05</div><div class="ch-name">Lead Reactivation →</div></a>
+  </div>
+</div>
+<footer><p>The <span>Signal</span> · CELO Business Solutions · Chapter 04 of 09</p></footer>
+</body>
+</html>

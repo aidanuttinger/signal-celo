@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Blueprint — CELO Business Solutions · The Signal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#07080f;--navy:#0b0f1e;--card:#111624;--gold:#c9a84c;--gold-border:rgba(201,168,76,0.22);--white:#f2f2f5;--grey:#7a84a0;--muted:#4a5270;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',-apple-system,sans-serif;}
+body{font-family:var(--sans);background:var(--navy);color:var(--white);line-height:1.7;margin:0}
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(7,8,15,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.12);height:52px;display:flex;align-items:center;padding:0 32px;gap:16px}
+.nav-brand{font-family:var(--serif);font-size:.85rem;font-weight:700;color:var(--white);display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}.nav-brand span{color:var(--gold)}
+.nav-back{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:all .15s;border:1px solid rgba(201,168,76,.3);padding:5px 14px;border-radius:20px;background:rgba(201,168,76,.07);font-weight:600}.nav-back:hover{background:rgba(201,168,76,.15);border-color:rgba(201,168,76,.6);color:#e0c068}
+.hero{padding:88px 40px 52px;text-align:center;position:relative;overflow:hidden;background:var(--black);border-bottom:1px solid rgba(201,168,76,.1)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(201,168,76,.07) 0%,transparent 65%);pointer-events:none}
+.eyebrow{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px;display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before,.eyebrow::after{content:'';width:22px;height:1px;background:rgba(201,168,76,.5)}
+h1{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.1;margin-bottom:16px}
+h1 .gold{color:var(--gold)}h1 .it{font-style:italic}
+.hero-sub{font-size:.82rem;color:var(--grey);max-width:520px;margin:0 auto;line-height:1.85}.hero-sub strong{color:var(--white)}
+.body{max-width:780px;margin:0 auto;padding:52px 32px 80px}
+.section{margin-bottom:52px}
+.section-label{font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.section-label::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.15)}
+h2{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--white);margin-bottom:14px;line-height:1.2}
+h2 .gold{color:var(--gold);font-style:italic}
+p{font-size:.88rem;color:var(--grey);line-height:1.85;margin-bottom:14px}p strong{color:var(--white)}
+.page-block{background:var(--card);border:1px solid rgba(201,168,76,.15);border-radius:12px;padding:24px 28px;margin-bottom:14px;position:relative;overflow:hidden}
+.page-block::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--gold)}
+.page-label{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px}
+.page-name{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:10px}
+.page-content{font-size:.82rem;color:var(--grey);line-height:1.7}
+.page-content strong{color:var(--white)}
+.page-content ul{padding-left:16px;margin-top:6px}
+.page-content ul li{margin-bottom:5px}
+.hero-copy-box{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.2);border-radius:10px;padding:22px 26px;margin:20px 0}
+.hcb-label{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px}
+.hcb-headline{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--white);line-height:1.3;margin-bottom:8px}
+.hcb-sub{font-size:.84rem;color:var(--grey);line-height:1.7;margin-bottom:10px}
+.hcb-cta{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--black);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:10px 20px;border-radius:6px}
+.nav-chapters{display:flex;gap:10px;margin-top:40px;flex-wrap:wrap}
+.nav-ch{flex:1;min-width:160px;background:var(--card);border:1px solid rgba(201,168,76,.15);border-radius:8px;padding:14px 18px;text-decoration:none;transition:all .2s}
+.nav-ch:hover{border-color:rgba(201,168,76,.4);transform:translateY(-2px)}
+.nav-ch .ch-label{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px}
+.nav-ch .ch-name{font-size:.82rem;font-weight:600;color:var(--white)}
+footer{text-align:center;padding:32px 20px;border-top:1px solid rgba(255,255,255,.05);font-size:.7rem;color:var(--muted)}footer span{color:var(--gold)}
+</style>
+</head>
+<body>
+<nav class="nav"><a class="nav-brand" href="signal-origin.html"><div class="nav-dot"></div>The <span>Signal</span></a><a class="nav-back" href="signal-origin.html">← Back to Hub</a></nav>
+<section class="hero">
+  <div class="eyebrow">Chapter 06 · Website Blueprint</div>
+  <h1>From <span class="gold it">Careers Page</span><br>to Client Machine</h1>
+  <p class="hero-sub">The full content architecture for a website that works for <strong>CELO's revenue — not just its recruitment.</strong></p>
+</section>
+<div class="body">
+
+  <div class="section">
+    <div class="section-label">Current State vs. Required State</div>
+    <p><strong>Current:</strong> celoph.com is a careers portal. The homepage leads with job listings, social media follows, and membership badges with no context. A potential client who lands on it has no idea what CELO does for businesses, what results they've delivered, or how to get started.</p>
+    <p><strong>Required:</strong> A client-facing B2B website with a clear value proposition, service pages, social proof, a case study section, and a low-friction way to start a conversation. The careers section moves to a subdirectory (/careers) and stops leading the brand.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Homepage — Recommended Copy</div>
+    <div class="hero-copy-box">
+      <div class="hcb-label">Homepage Hero (Above the Fold)</div>
+      <div class="hcb-headline">Your business is ready to scale.<br>Your operations aren't. We fix that.</div>
+      <div class="hcb-sub">CELO Business Solutions builds dedicated remote teams for founder-led businesses in the US, UK, and Australia — handling customer support, back office, lead generation, and admin so your core team can focus on growth.</div>
+      <div class="hcb-cta">Book a Free 30-Min Diagnostic →</div>
+    </div>
+    <p>Below the hero: 3 trust badges (PHILCALL, Philippine Chamber of Commerce, PABC) with one line of context each. Then: "Trusted by businesses in [US / UK / AU]" with client logos if available, or industry icons if not.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Page Architecture</div>
+    <h2>Six pages that <span class="gold">convert strangers into clients</span></h2>
+
+    <div class="page-block">
+      <div class="page-label">Page 1</div>
+      <div class="page-name">Homepage</div>
+      <div class="page-content">Hero → Trust signals → "Who we help" (ICP summary) → Services overview (3 cards) → One case study highlight → Testimonial → CTA to diagnostic call. Every section answers one question: "Why CELO over anyone else?"</div>
+    </div>
+
+    <div class="page-block">
+      <div class="page-label">Page 2</div>
+      <div class="page-name">Services</div>
+      <div class="page-content">Three service lanes, each with its own section:
+        <ul>
+          <li><strong>Customer Support & CX</strong> — inbound/outbound, live chat, email, ticket management</li>
+          <li><strong>Back Office & Admin</strong> — data entry, scheduling, document management, reporting</li>
+          <li><strong>Sales Support & Lead Generation</strong> — prospecting, CRM management, follow-up sequences</li>
+        </ul>
+        Each section: what's included, who it's for, a result statement ("clients typically save X hours/week"). Ends with pricing context ("dedicated team from $X/month") and a CTA.</div>
+    </div>
+
+    <div class="page-block">
+      <div class="page-label">Page 3</div>
+      <div class="page-name">Case Studies</div>
+      <div class="page-content">The most important page CELO doesn't have yet. Each case study follows the same format: Industry → Challenge → What CELO did → Result (specific metric). Start with one — even an anonymised one. "A US-based e-commerce brand reduced their support ticket backlog by 73% in 60 days after building a dedicated CELO team." One real result is worth 10 capability claims.</div>
+    </div>
+
+    <div class="page-block">
+      <div class="page-label">Page 4</div>
+      <div class="page-name">How We Work</div>
+      <div class="page-content">The process page — answers "what happens after I say yes?" Four steps: Discovery call → Team matching → Onboarding (2 weeks) → Ongoing partnership. Removes fear and ambiguity. Include: SLA commitments, reporting cadence, account manager structure, what happens if a team member underperforms. Specificity = trust.</div>
+    </div>
+
+    <div class="page-block">
+      <div class="page-label">Page 5</div>
+      <div class="page-name">About CELO</div>
+      <div class="page-content">Not a founder bio — a mission statement about why CELO exists. "We believe that the best businesses in the world shouldn't be limited by what they can afford to hire locally." Membership bodies with proper context. Team photos if available. Philippine pride — not hidden, celebrated. The workforce IS the differentiator.</div>
+    </div>
+
+    <div class="page-block">
+      <div class="page-label">Page 6</div>
+      <div class="page-name">Book a Diagnostic</div>
+      <div class="page-content">A single-purpose landing page. Headline: "Tell us what's breaking in your operations. We'll tell you in 30 minutes if and how we can fix it." Calendly embed or simple contact form. No distractions, no navigation, no exit points. This page is the bottom of every funnel.</div>
+    </div>
+  </div>
+
+  <div class="nav-chapters">
+    <a class="nav-ch" href="lead-reactivation.html"><div class="ch-label">Chapter 05</div><div class="ch-name">← Lead Reactivation</div></a>
+    <a class="nav-ch" href="outbound-system.html"><div class="ch-label">Chapter 07</div><div class="ch-name">Outbound System →</div></a>
+  </div>
+</div>
+<footer><p>The <span>Signal</span> · CELO Business Solutions · Chapter 06 of 09</p></footer>
+</body>
+</html>

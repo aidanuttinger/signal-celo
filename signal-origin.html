@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal Origin — CELO Business Solutions · March 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#07080f;--navy:#0b0f1e;--card:#111624;--gold:#c9a84c;--gold-dim:rgba(201,168,76,0.08);--gold-border:rgba(201,168,76,0.22);--white:#f2f2f5;--grey:#7a84a0;--muted:#4a5270;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',-apple-system,sans-serif;}
+html{scroll-behavior:smooth}body{font-family:var(--sans);background:var(--black);color:var(--white);overflow-x:hidden;line-height:1.7;margin:0}
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(7,8,15,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.12);height:52px;display:flex;align-items:center;padding:0 32px}
+.nav-brand{font-family:var(--serif);font-size:.85rem;font-weight:700;color:var(--white);display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0;padding-right:16px;border-right:1px solid rgba(255,255,255,.07);margin-right:12px}
+.nav-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px rgba(201,168,76,.5)}
+.nav-brand span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none;flex:1}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-link{font-size:.57rem;letter-spacing:.07em;text-transform:uppercase;font-weight:600;color:var(--muted);text-decoration:none;padding:5px 10px;border-radius:3px;white-space:nowrap;transition:all .15s}
+.nav-link:hover{color:var(--gold);background:rgba(201,168,76,.08)}
+.hero{text-align:center;padding:92px 40px 48px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 55% 45% at 50% 40%,rgba(201,168,76,.07) 0%,transparent 65%)}
+.eyebrow{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px;display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before,.eyebrow::after{content:'';width:22px;height:1px;background:rgba(201,168,76,.5)}
+.hero-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.1;margin-bottom:14px}
+.hero-title .gold{color:var(--gold)}.hero-title .it{font-style:italic}
+.hero-body{font-size:.86rem;color:var(--grey);line-height:1.9;max-width:500px;margin:0 auto 22px}
+.hero-body strong{color:var(--white)}
+.hero-sub{font-size:.72rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.hero-sub span{color:var(--gold)}
+.chapters{max-width:860px;margin:0 auto;padding:0 32px 20px}
+.section-label{font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700;margin:36px 0 16px;display:flex;align-items:center;gap:12px}
+.section-label::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.15)}
+.ch{border:1px solid rgba(201,168,76,.12);border-radius:8px;background:var(--card);margin-bottom:10px;overflow:hidden;transition:border-color .25s,transform .2s,box-shadow .25s;display:flex;align-items:stretch}
+.ch:hover{border-color:rgba(201,168,76,.32);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.35)}
+.ch-bar{width:4px;background:rgba(201,168,76,.2);flex-shrink:0;transition:background .2s}
+.ch:hover .ch-bar{background:var(--gold)}
+.ch-inner{padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex:1}
+.ch-left{flex:1}
+.ch-top{display:flex;align-items:baseline;gap:12px;margin-bottom:5px}
+.ch-num{font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;white-space:nowrap}
+.ch-title{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--white);line-height:1.2}
+.ch-title .gold{color:var(--gold);font-style:italic}
+.ch-desc{font-size:.78rem;color:var(--grey);line-height:1.6;max-width:520px}
+.ch-btn{flex-shrink:0;display:inline-flex;align-items:center;gap:7px;background:rgba(201,168,76,.07);border:1px solid var(--gold-border);color:var(--gold);font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:10px 18px;border-radius:4px;text-decoration:none;white-space:nowrap;transition:all .2s}
+.ch-btn:hover{background:rgba(201,168,76,.15);border-color:rgba(201,168,76,.45)}
+.divider{height:1px;background:rgba(255,255,255,.05);margin:28px auto;max-width:860px}
+.code-sec{text-align:center;padding:52px 40px 64px;position:relative;overflow:hidden}
+.code-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 40% at 50% 50%,rgba(201,168,76,.08) 0%,transparent 65%);pointer-events:none}
+.code-eye{font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:18px;display:inline-flex;align-items:center;gap:12px}
+.code-eye::before,.code-eye::after{content:'';width:22px;height:1px;background:rgba(201,168,76,.5)}
+.badge{display:inline-flex;align-items:center;gap:7px;background:rgba(201,168,76,.08);border:1px solid var(--gold-border);border-radius:40px;padding:7px 18px;margin-bottom:20px;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.badge-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:bdot 2s ease-in-out infinite}
+@keyframes bdot{0%,100%{opacity:1}50%{opacity:.25}}
+.code-title{font-family:var(--serif);font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:700;line-height:1.1;margin-bottom:12px;max-width:560px;margin-left:auto;margin-right:auto}
+.code-title .gold{color:var(--gold);font-style:italic}
+.code-intro{font-size:.82rem;color:var(--grey);line-height:1.85;max-width:420px;margin:0 auto 28px}
+.code-intro strong{color:var(--white)}
+.gift{display:flex;flex-direction:column;align-items:center;cursor:pointer;margin:0 auto 28px;position:relative;padding:36px 64px;border:2px solid rgba(201,168,76,.4);border-radius:14px;background:rgba(201,168,76,.06);max-width:420px;transition:all .3s;text-align:center}
+.gift:hover{background:rgba(201,168,76,.12);border-color:rgba(201,168,76,.7);transform:translateY(-4px);box-shadow:0 0 60px rgba(201,168,76,.2),0 16px 40px rgba(0,0,0,.5)}
+.gift.gone{display:none}
+.gift-pulse{position:absolute;inset:-2px;border-radius:14px;border:2px solid rgba(201,168,76,.35);animation:gpulse 2s ease-in-out infinite;pointer-events:none}
+@keyframes gpulse{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:0;transform:scale(1.015)}}
+.gift-icon{font-size:2.2rem;margin-bottom:12px}
+.gift-label{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px}
+.gift-prompt{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--white);margin-bottom:6px}
+.gift-hint{font-size:.72rem;color:var(--muted)}
+.reveal{display:none;flex-direction:column;align-items:center;gap:14px;max-width:480px;margin:0 auto 28px;animation:fadeIn .5s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.reveal.show{display:flex}
+.code-display{font-family:var(--serif);font-size:2.4rem;font-weight:700;color:var(--gold);letter-spacing:.14em;text-shadow:0 0 40px rgba(201,168,76,.4)}
+.code-meaning{font-size:.8rem;color:var(--grey);text-align:center;line-height:1.75;max-width:380px}
+.code-meaning strong{color:var(--white)}
+.input-row{display:flex;gap:10px;margin-top:4px;width:100%;max-width:380px}
+.code-input{flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.25);color:var(--white);font-size:.9rem;padding:12px 16px;border-radius:6px;outline:none;letter-spacing:.12em;text-transform:uppercase;transition:border-color .2s}
+.code-input:focus{border-color:var(--gold)}
+.code-input::placeholder{color:var(--muted);text-transform:none;letter-spacing:0}
+.code-submit{background:var(--gold);border:none;color:var(--black);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:12px 20px;border-radius:6px;cursor:pointer;transition:opacity .2s;white-space:nowrap}
+.code-submit:hover{opacity:.85}
+.code-err{font-size:.72rem;color:#e05c5c;display:none;margin-top:4px}
+.code-err.show{display:block}
+footer{text-align:center;padding:40px 20px;border-top:1px solid rgba(255,255,255,.05);font-size:.7rem;color:var(--muted)}
+footer span{color:var(--gold)}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="nav-brand" href="index.html"><div class="nav-dot"></div>The <span>Signal</span></a><a style="font-size:.6rem;color:var(--gold);text-decoration:none;border:1px solid rgba(201,168,76,.28);padding:4px 12px;border-radius:20px" href="index.html">← CELO Hub</a>
+  <div class="nav-links">
+    <a class="nav-link" href="#chapters">Chapters</a>
+    <a class="nav-link" href="#code">Your Code</a>
+  </div>
+</nav>
+<section class="hero">
+  <div class="eyebrow">Signal Origin · March 2026</div>
+  <h1 class="hero-title">CELO, your team delivers<br>world-class work.<br><span class="gold it">Almost no one knows it.</span></h1>
+  <p class="hero-body">You have the credentials, the membership bodies, the social following, and the talent. <strong>What you don't have is a broadcast</strong> — a systematic, compelling way to reach the clients who would pay well to work with you. That ends here.</p>
+  <div class="hero-sub">Nine deliverables · Gifted to CELO · <span>$20,000 value</span></div>
+</section>
+
+<div class="chapters" id="chapters">
+  <div class="section-label">Your Signal Session — 9 Chapters</div>
+
+  <div class="ch"><div class="ch-bar"></div><div class="ch-inner"><div class="ch-left"><div class="ch-top"><span class="ch-num">01</span><h3 class="ch-title">What We <span class="gold">Found</span></h3></div><div class="ch-desc">The full diagnostic — what's working, what's invisble, and the shift that unlocks your next revenue tier.</div></div><a class="ch-btn" href="session-summary.html">Open →</a></div></div>
+
+  <div class="ch"><div class="ch-bar"></div><div class="ch-inner"><div class="ch-left"><div class="ch-top"><span class="ch-num">02</span><h3 class="ch-title">Revenue <span class="gold">Architecture</span></h3></div><div class="ch-desc">A full audit of your BPO revenue model — where money is leaking, and the path to predictable enterprise clients.</div></div><a class="ch-btn" href="revenue-architecture.html">Open →</a></div></div>
+
+  <div class="ch"><div class="ch-bar"></div><div class="ch-inner"><div class="ch-left"><div class="ch-top"><span class="ch-num">03</span><h3 class="ch-title">The <span class="gold">CELO Signal</span></h3></div><div class="ch-desc">Your positioning reframe. What makes CELO different from every other BPO — and how to say it so clients immediately feel it.</div></div><a class="ch-btn" href="positioning-blueprint.html">Open →</a></div></div>
+
+  <div class="ch"><div class="ch-bar"></div><div class="ch-inner"><div class="ch-left"><div class="ch-top"><span class="ch-num">04</span><h3 class="ch-title">Ideal Client <span class="gold">Profile</span></h3></div><div class="ch-desc">The exact business that gets the most from CELO — defined so precisely that every message attracts them and repels the wrong fit.</div></div><a class="ch-btn" href="icp-profile.html">Open →</a></div></div>
+
+  <div class="ch"><div class="ch-bar"></div><div class="ch-inner"><div class="ch-left"><div class="ch-top"><span class="ch-num">05</span><h3 class="ch-title">Lead <span class="gold">Reactivation</span></h3></div><div class="ch-desc">A 4-step system to re-engage dormant prospects, past clients, and cold conversations — and turn them into signed contracts.</div></div><a class="ch-btn" href="lead-reactivation.html">Open →</a></div></div>
+
+  <div class="ch"><div class="ch-bar"></div><div class="ch-inner"><div class="ch-left"><div class="ch-top"><span class="ch-num">06</span><h3 class="ch-title">Website <span class="gold">Blueprint</span></h3></div><div class="ch-desc">Your current website rebuilt for client acquisition — not job seekers. Full page-by-page content architecture.</div></div><a class="ch-btn" href="website-blueprint.html">Open →</a></div></div>
+
+  <div class="ch"><div class="ch-bar"></div><div class="ch-inner"><div class="ch-left"><div class="ch-top"><span class="ch-num">07</span><h3 class="ch-title">Outbound <span class="gold">System</span></h3></div><div class="ch-desc">LinkedIn + cold email acquisition — targeting the decision-makers in US, UK, and Australian markets who need what you do.</div></div><a class="ch-btn" href="outbound-system.html">Open →</a></div></div>
+
+  <div class="ch"><div class="ch-bar"></div><div class="ch-inner"><div class="ch-left"><div class="ch-top"><span class="ch-num">08</span><h3 class="ch-title">Referral <span class="gold">Partner Strategy</span></h3></div><div class="ch-desc">The agencies, consultants, and coaches who work with your ideal clients — and how to turn them into a consistent referral pipeline.</div></div><a class="ch-btn" href="outbound-system.html#referral">Open →</a></div></div>
+
+  <div class="ch"><div class="ch-bar"></div><div class="ch-inner"><div class="ch-left"><div class="ch-top"><span class="ch-num">09</span><h3 class="ch-title">90-Day <span class="gold">Activation Plan</span></h3></div><div class="ch-desc">Week by week — from invisible to pipeline-full. No overwhelm. Just the next move, sequenced for maximum momentum.</div></div><a class="ch-btn" href="activation-plan.html">Open →</a></div></div>
+
+  <div class="section-label" style="margin-top:28px">Bonus Deliverables · Built From Your Signal</div>
+
+  <div class="ch" style="border-color:rgba(201,168,76,.28);background:linear-gradient(135deg,#141a12,var(--card));margin-bottom:10px">
+    <div class="ch-bar" style="background:var(--gold)"></div>
+    <div class="ch-inner">
+      <div class="ch-left">
+        <div class="ch-top"><span class="ch-num" style="color:var(--gold)">✦ BONUS A</span><h3 class="ch-title">Your New <span class="gold">Website</span></h3></div>
+        <div class="ch-desc">The full client-facing redesign — moving celoph.com from careers portal to revenue engine. Dark forest green hero, alternating sections, pain-first messaging, all three service lines, the AI partnership section, case study, testimonials, and a diagnostic booking form. Built to convert the COO who finds you through LinkedIn.</div>
+      </div>
+      <a class="ch-btn" href="website-redesign.html" style="background:rgba(201,168,76,.12);border-color:rgba(201,168,76,.4)">Preview Site <span class="ch-arrow">→</span></a>
+    </div>
+  </div>
+
+  <div class="ch" style="border-color:rgba(201,168,76,.28);background:linear-gradient(135deg,#141a12,var(--card))">
+    <div class="ch-bar" style="background:var(--gold)"></div>
+    <div class="ch-inner">
+      <div class="ch-left">
+        <div class="ch-top"><span class="ch-num" style="color:var(--gold)">✦ BONUS B</span><h3 class="ch-title">The <span class="gold">AI Partnership</span> Proposition</h3></div>
+        <div class="ch-desc">The strategic differentiator that separates CELO from every other BPO: an in-house AI development division built into CELO's infrastructure — not a referral, not an external partner. One company that handles both execution and intelligent automation. CELO sees what no outside consultant ever can, and now has the in-house capability to act on it. Full section in the website and ready for your sales deck.</div>
+      </div>
+      <a class="ch-btn" href="website-redesign.html#partnership" style="background:rgba(201,168,76,.12);border-color:rgba(201,168,76,.4)">View Section <span class="ch-arrow">→</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<section class="code-sec" id="code">
+  <div class="code-eye">Your Signal Code</div>
+  <div class="badge"><div class="badge-dot"></div>Personally Assigned · CELO Business Solutions</div>
+  <h2 class="code-title">One word.<br>Your whole <span class="gold">signal</span>.</h2>
+  <p class="code-intro">This code was chosen after studying CELO's work, your market position, and the gap between where you are and where you're going. Enter it below.</p>
+  <div class="gift" id="gift" onclick="showInput()">
+    <div class="gift-pulse"></div>
+    <div class="gift-icon">📡</div>
+    <div class="gift-label">Your Code Is Waiting</div>
+    <div class="gift-prompt">Click to reveal</div>
+    <div class="gift-hint">Enter the word that defines your signal</div>
+  </div>
+  <div id="inputArea" style="display:none;flex-direction:column;align-items:center;gap:10px;max-width:380px;margin:0 auto 28px">
+    <div class="input-row">
+      <input class="code-input" id="codeInput" type="text" placeholder="Enter your code..." autocomplete="off" onkeydown="if(event.key==='Enter')checkCode()">
+      <button class="code-submit" onclick="checkCode()">Unlock</button>
+    </div>
+    <div class="code-err" id="codeErr">That's not it. Think about where CELO is going — not where it's been.</div>
+  </div>
+  <div class="reveal" id="reveal">
+    <div class="code-display">ELEVATE</div>
+    <div class="code-meaning"><strong>Elevate</strong> — because that's what CELO does for every business it partners with. You take their operations off the ground. You elevate their capacity. And now it's time to elevate your own signal so the world knows it.</div>
+  </div>
+</section>
+
+<footer><p>The <span>Signal</span> · Revenue Architecture · March 2026</p><p style="margin-top:6px;font-size:.65rem">This session was gifted personally. Nine documents. The full architecture of what's possible for CELO.</p></footer>
+<script>
+function showInput(){document.getElementById('gift').classList.add('gone');var a=document.getElementById('inputArea');a.style.display='flex';setTimeout(function(){document.getElementById('codeInput').focus()},100);}
+function checkCode(){var v=document.getElementById('codeInput').value.trim().toUpperCase();if(v==='ELEVATE'){document.getElementById('inputArea').style.display='none';document.getElementById('reveal').classList.add('show');}else{var e=document.getElementById('codeErr');e.classList.add('show');document.getElementById('codeInput').value='';setTimeout(function(){e.classList.remove('show')},3000);}}
+</script>
+</body>
+</html>

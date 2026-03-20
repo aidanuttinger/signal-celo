@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revenue Architecture — CELO Business Solutions · The Signal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#07080f;--navy:#0b0f1e;--card:#111624;--gold:#c9a84c;--gold-border:rgba(201,168,76,0.22);--white:#f2f2f5;--grey:#7a84a0;--muted:#4a5270;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',-apple-system,sans-serif;}
+body{font-family:var(--sans);background:var(--navy);color:var(--white);line-height:1.7;margin:0}
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(7,8,15,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.12);height:52px;display:flex;align-items:center;padding:0 32px;gap:16px}
+.nav-brand{font-family:var(--serif);font-size:.85rem;font-weight:700;color:var(--white);display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}.nav-brand span{color:var(--gold)}
+.nav-back{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:all .15s;border:1px solid rgba(201,168,76,.3);padding:5px 14px;border-radius:20px;background:rgba(201,168,76,.07);font-weight:600}.nav-back:hover{background:rgba(201,168,76,.15);border-color:rgba(201,168,76,.6);color:#e0c068}
+.hero{padding:88px 40px 52px;text-align:center;position:relative;overflow:hidden;background:var(--black);border-bottom:1px solid rgba(201,168,76,.1)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(201,168,76,.07) 0%,transparent 65%);pointer-events:none}
+.eyebrow{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px;display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before,.eyebrow::after{content:'';width:22px;height:1px;background:rgba(201,168,76,.5)}
+h1{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.1;margin-bottom:16px}
+h1 .gold{color:var(--gold)}h1 .it{font-style:italic}
+.hero-sub{font-size:.82rem;color:var(--grey);max-width:520px;margin:0 auto;line-height:1.85}.hero-sub strong{color:var(--white)}
+.body{max-width:780px;margin:0 auto;padding:52px 32px 80px}
+.section{margin-bottom:52px}
+.section-label{font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.section-label::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.15)}
+h2{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--white);margin-bottom:14px;line-height:1.2}
+h2 .gold{color:var(--gold);font-style:italic}
+p{font-size:.88rem;color:var(--grey);line-height:1.85;margin-bottom:14px}p strong{color:var(--white)}
+.tier-card{background:var(--card);border:1px solid rgba(201,168,76,.15);border-radius:12px;padding:26px 30px;margin-bottom:14px;position:relative;overflow:hidden}
+.tier-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--gold)}
+.tier-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;gap:16px;flex-wrap:wrap}
+.tier-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--white)}
+.tier-name .gold{color:var(--gold)}
+.tier-price{font-size:.76rem;font-weight:700;color:var(--gold);background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:5px 14px;border-radius:20px;white-space:nowrap}
+.tier-desc{font-size:.82rem;color:var(--grey);line-height:1.7}
+.math-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+@media(max-width:580px){.math-grid{grid-template-columns:1fr 1fr}}
+.math-card{background:var(--card);border:1px solid rgba(201,168,76,.12);border-radius:8px;padding:18px 20px;text-align:center}
+.math-num{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--gold);margin-bottom:4px}
+.math-label{font-size:.7rem;color:var(--grey);line-height:1.4}
+.leak-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px}
+.leak-dot{width:8px;height:8px;border-radius:50%;background:#e05c5c;flex-shrink:0;margin-top:6px}
+.leak-content .title{font-size:.85rem;font-weight:600;color:var(--white);margin-bottom:4px}
+.leak-content .body{font-size:.8rem;color:var(--grey);line-height:1.65}
+.highlight{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.2);border-radius:10px;padding:22px 26px;margin:20px 0}
+.highlight h3{font-family:var(--serif);font-size:1.05rem;color:var(--white);margin-bottom:8px}
+.highlight h3 .gold{color:var(--gold)}
+.highlight p{margin-bottom:0;font-size:.84rem}
+.nav-chapters{display:flex;gap:10px;margin-top:40px;flex-wrap:wrap}
+.nav-ch{flex:1;min-width:160px;background:var(--card);border:1px solid rgba(201,168,76,.15);border-radius:8px;padding:14px 18px;text-decoration:none;transition:all .2s}
+.nav-ch:hover{border-color:rgba(201,168,76,.4);transform:translateY(-2px)}
+.nav-ch .ch-label{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px}
+.nav-ch .ch-name{font-size:.82rem;font-weight:600;color:var(--white)}
+footer{text-align:center;padding:32px 20px;border-top:1px solid rgba(255,255,255,.05);font-size:.7rem;color:var(--muted)}footer span{color:var(--gold)}
+</style>
+</head>
+<body>
+<nav class="nav"><a class="nav-brand" href="signal-origin.html"><div class="nav-dot"></div>The <span>Signal</span></a><a class="nav-back" href="signal-origin.html">← Back to Hub</a></nav>
+<section class="hero">
+  <div class="eyebrow">Chapter 02 · Revenue Architecture</div>
+  <h1>Where the <span class="gold it">Money Is</span></h1>
+  <p class="hero-sub">A full audit of CELO's revenue model — and the <strong>path to predictable, scalable enterprise revenue.</strong></p>
+</section>
+<div class="body">
+
+  <div class="section">
+    <div class="section-label">The BPO Revenue Model</div>
+    <h2>Three tiers. <span class="gold">One missing.</span></h2>
+    <div class="tier-card">
+      <div class="tier-header"><div class="tier-name">Tier 1: <span class="gold">Project-Based</span></div><div class="tier-price">$500–$5,000 per project</div></div>
+      <div class="tier-desc">One-off tasks — data entry, virtual assistance for a campaign, short-term customer support coverage. Low commitment for the client, low value for CELO. High churn, high re-acquisition cost. Useful as a trial entry point, dangerous as a primary revenue model.</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-header"><div class="tier-name">Tier 2: <span class="gold">Dedicated Team Retainer</span></div><div class="tier-price">$3,000–$15,000/month</div></div>
+      <div class="tier-desc">A committed team of 2–10 agents, fully embedded in a client's operations. Recurring, predictable, high-retention. This is the engine of BPO revenue. One client at $8K/month is better than 16 project clients at $500. CELO's growth lives in this tier.</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-header"><div class="tier-name">Tier 3: <span class="gold">Enterprise Partnership</span></div><div class="tier-price">$20,000–$100,000+/month</div></div>
+      <div class="tier-desc">Large-scale outsourcing relationships with mid-market companies. Multi-department support, SLA-driven, often with custom tech integrations. Requires proven track record and case studies — the investment in Tier 2 client success is what unlocks Tier 3 relationships.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Opportunity Sizing</div>
+    <h2>What the <span class="gold">numbers</span> look like</h2>
+    <div class="math-grid">
+      <div class="math-card"><div class="math-num">5</div><div class="math-label">Dedicated team clients at $6K/mo = $360K ARR</div></div>
+      <div class="math-card"><div class="math-num">10</div><div class="math-label">At $5K/mo = $600K ARR — realistic 12-month target</div></div>
+      <div class="math-card"><div class="math-num">25</div><div class="math-label">At $7K/mo = $2.1M ARR — 24-month horizon</div></div>
+    </div>
+    <p>These aren't fantasy numbers. The Philippines BPO industry supports thousands of companies at this revenue level and beyond. The constraint isn't the market — it's the client acquisition system. Every deliverable in this session is designed to build that system.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Revenue Leaks</div>
+    <h2>Where money <span class="gold">escapes</span> every month</h2>
+    <div class="leak-item"><div class="leak-dot"></div><div class="leak-content"><div class="title">No client-facing website means no inbound</div><div class="body">Every month without a proper client website is a month of zero organic inbound leads. Prospects who find CELO through a referral or LinkedIn visit a careers page and leave. The cost of this is immeasurable and ongoing.</div></div></div>
+    <div class="leak-item"><div class="leak-dot"></div><div class="leak-content"><div class="title">Referral-only acquisition has a ceiling</div><div class="body">Word of mouth is unpredictable. It can't be forecast, managed, or scaled. Every business that relies on it eventually hits the ceiling of its founder's network — and stops growing there.</div></div></div>
+    <div class="leak-item"><div class="leak-dot"></div><div class="leak-content"><div class="title">No packaged service tiers means every deal is bespoke</div><div class="body">Custom proposals for every prospect create friction, delay, and inconsistency. Packaged tiers with clear scope and pricing let clients self-select, reduce sales cycle time, and signal professionalism.</div></div></div>
+    <div class="leak-item"><div class="leak-dot"></div><div class="leak-content"><div class="title">No case studies means every sale starts from zero trust</div><div class="body">In outsourcing, the biggest client objection is risk — "what if this doesn't work?" Case studies are the proof that eliminates this objection before it's raised. Without them, every sales conversation is an uphill trust-building exercise.</div></div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The Fix</div>
+    <div class="highlight"><h3>The <span class="gold">Revenue Priority Stack</span></h3><p>Fix in this order: (1) Client-facing website with service pages and one case study. (2) Defined service tiers with pricing ranges. (3) Outbound system to LinkedIn decision-makers. (4) Reactivation campaign to dormant prospects. (5) Referral partner programme. Each step feeds the next. Start with the website — everything else points back to it.</p></div>
+  </div>
+
+  <div class="nav-chapters">
+    <a class="nav-ch" href="session-summary.html"><div class="ch-label">Chapter 01</div><div class="ch-name">← What We Found</div></a>
+    <a class="nav-ch" href="positioning-blueprint.html"><div class="ch-label">Chapter 03</div><div class="ch-name">Positioning Blueprint →</div></a>
+  </div>
+</div>
+<footer><p>The <span>Signal</span> · CELO Business Solutions · Chapter 02 of 09</p></footer>
+</body>
+</html>

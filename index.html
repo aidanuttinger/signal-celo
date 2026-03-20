@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CELO Business Solutions — Signal Workspace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#07080f;--navy:#0b0f1e;--card:#111624;--card2:#0e1220;
+  --gold:#c9a84c;--gold-b:rgba(201,168,76,.22);--gold-dim:rgba(201,168,76,.08);
+  --white:#f2f2f5;--grey:#7a84a0;--muted:#4a5270;
+  --celo-green:#2e7b52;--celo-bright:#35a05f;--celo-light:#6fc896;
+  --celo-forest:#1c2e1e;
+  --serif:'Playfair Display',Georgia,serif;--sans:'Inter',-apple-system,sans-serif;
+  --max:1080px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--black);color:var(--white);margin:0;line-height:1.7;overflow-x:hidden}
+
+/* ─── NAV ─── */
+.nav{position:sticky;top:0;z-index:99;background:rgba(7,8,15,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.1);height:52px;display:flex;align-items:center;padding:0 40px;justify-content:space-between;gap:16px}
+.nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.nav-brand-text{font-family:var(--serif);font-size:.9rem;font-weight:700;color:var(--white)}
+.nav-brand-text span{color:var(--gold)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-crumb{font-size:.62rem;color:var(--muted);letter-spacing:.08em}
+.nav-sep{color:var(--muted);font-size:.7rem}
+.nav-crumb-active{font-size:.62rem;color:var(--grey);font-weight:600}
+
+/* ─── HERO ─── */
+.hero{padding:64px 40px 0;max-width:var(--max);margin:0 auto}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.hero-tag{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:4px 12px;border-radius:20px}
+.ht-signal{background:var(--gold-dim);border:1px solid var(--gold-b);color:var(--gold)}
+.ht-celo{background:rgba(46,123,82,.1);border:1px solid rgba(46,123,82,.25);color:var(--celo-light)}
+.ht-sep{color:var(--muted);font-size:.65rem}
+.hero-title{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;line-height:1.1;margin-bottom:10px}
+.hero-title .it{font-style:italic;color:var(--celo-bright)}
+.hero-sub{font-size:.86rem;color:var(--grey);max-width:560px;line-height:1.8;margin-bottom:28px}
+.hero-sub strong{color:var(--white)}
+.hero-meta{display:flex;gap:20px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.05)}
+.hm-item{display:flex;align-items:center;gap:6px;font-size:.7rem;color:var(--muted)}
+.hm-dot{width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.hm-item strong{color:var(--grey)}
+
+/* ─── MAIN LAYOUT ─── */
+.workspace{max-width:var(--max);margin:0 auto;padding:40px 40px 80px;display:flex;flex-direction:column;gap:40px}
+
+/* ─── SECTION ─── */
+.ws-section{}
+.ws-section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;gap:12px}
+.ws-section-left{display:flex;align-items:center;gap:12px}
+.ws-section-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.wsi-signal{background:var(--gold-dim);border:1px solid var(--gold-b)}
+.wsi-site{background:rgba(53,160,95,.08);border:1px solid rgba(53,160,95,.18)}
+.wsi-clients{background:rgba(122,180,232,.07);border:1px solid rgba(122,180,232,.18)}
+.wsi-brand{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.15)}
+.ws-section-title{font-size:.9rem;font-weight:700;color:var(--white)}
+.ws-section-sub{font-size:.68rem;color:var(--muted);margin-top:2px}
+.ws-count{font-size:.62rem;color:var(--muted);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);padding:3px 9px;border-radius:10px}
+
+/* ─── SIGNAL SESSION GRID ─── */
+.chapter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:800px){.chapter-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.chapter-grid{grid-template-columns:1fr}}
+.ch-card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:16px;text-decoration:none;display:flex;flex-direction:column;gap:0;transition:all .18s;position:relative;overflow:hidden}
+.ch-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);opacity:0;transition:opacity .18s}
+.ch-card:hover{border-color:var(--gold-b);background:#141a2a;transform:translateY(-2px)}
+.ch-card:hover::before{opacity:1}
+.ch-num{font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px}
+.ch-title{font-size:.82rem;font-weight:700;color:var(--white);margin-bottom:5px;line-height:1.2}
+.ch-desc{font-size:.7rem;color:var(--grey);line-height:1.55;flex:1}
+.ch-arrow{font-size:.7rem;color:var(--gold);margin-top:8px;display:block}
+
+/* bonus cards */
+.bonus-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+@media(max-width:600px){.bonus-grid{grid-template-columns:1fr}}
+.bonus-card{background:linear-gradient(135deg,#12160e,var(--card));border:1px solid var(--gold-b);border-radius:10px;padding:16px;text-decoration:none;display:flex;gap:12px;align-items:flex-start;transition:all .18s}
+.bonus-card:hover{border-color:rgba(201,168,76,.5);background:linear-gradient(135deg,#181f12,#171d2e);transform:translateY(-2px)}
+.bc-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+.bc-label{font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px}
+.bc-title{font-size:.82rem;font-weight:700;color:var(--white);margin-bottom:4px;line-height:1.2}
+.bc-desc{font-size:.7rem;color:var(--grey);line-height:1.55}
+
+/* ─── CLIENT CARDS ─── */
+.client-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:800px){.client-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.client-grid{grid-template-columns:1fr}}
+.client-card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden;transition:all .2s;display:flex;flex-direction:column}
+.client-card:hover{border-color:rgba(53,160,95,.3);transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.3)}
+.cc-stripe{height:3px}
+.cc-body{padding:18px 16px;flex:1;display:flex;flex-direction:column;gap:0}
+.cc-eyebrow{font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px}
+.cc-name{font-size:.96rem;font-weight:700;color:var(--white);margin-bottom:4px;line-height:1.2}
+.cc-tagline{font-size:.7rem;color:var(--grey);line-height:1.5;margin-bottom:12px;flex:1}
+.cc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px}
+.cc-tag{font-size:.58rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:var(--muted);padding:2px 7px;border-radius:4px}
+.cc-links{border-top:1px solid rgba(255,255,255,.05);padding:10px 16px;display:flex;gap:6px;flex-wrap:wrap}
+.cc-link{font-size:.64rem;font-weight:600;text-decoration:none;padding:5px 12px;border-radius:5px;transition:all .15s}
+.ccl-primary{background:rgba(53,160,95,.12);border:1px solid rgba(53,160,95,.25);color:var(--celo-light)}
+.ccl-primary:hover{background:rgba(53,160,95,.2)}
+.ccl-sec{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:var(--grey)}
+.ccl-sec:hover{color:var(--white);border-color:rgba(255,255,255,.15)}
+
+/* placeholder card */
+.client-card-new{background:transparent;border:1.5px dashed rgba(255,255,255,.08);border-radius:12px;padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;min-height:160px;cursor:default}
+.cn-icon{font-size:1.4rem;opacity:.3}
+.cn-title{font-size:.78rem;font-weight:600;color:var(--muted)}
+.cn-sub{font-size:.66rem;color:var(--muted);opacity:.6;line-height:1.6;max-width:180px}
+
+/* ─── BRAND CARD ─── */
+.brand-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:680px){.brand-row{grid-template-columns:1fr}}
+.brand-swatch-card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px;text-decoration:none;transition:all .18s}
+.brand-swatch-card:hover{border-color:rgba(255,255,255,.14);transform:translateY(-2px)}
+.bsc-label{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.bsc-swatches{display:flex;gap:5px}
+.bsc-s{flex:1;height:28px;border-radius:5px}
+.bsc-title{font-size:.8rem;font-weight:700;color:var(--white)}
+.bsc-sub{font-size:.68rem;color:var(--grey)}
+
+/* ─── CODE STRIP ─── */
+.code-strip{background:var(--gold-dim);border:1px solid var(--gold-b);border-radius:10px;padding:16px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.cs-label{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;flex-shrink:0}
+.cs-code{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--white);flex-shrink:0}
+.cs-meaning{font-size:.76rem;color:var(--grey);flex:1;line-height:1.6}
+.cs-meaning strong{color:var(--white)}
+
+/* ─── QUICK ACTIONS ─── */
+.qa-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:800px){.qa-row{grid-template-columns:repeat(2,1fr)}}
+.qa-item{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:9px;padding:14px;text-decoration:none;display:flex;align-items:center;gap:10px;transition:all .18s}
+.qa-item:hover{border-color:rgba(201,168,76,.2);background:#141a2a}
+.qa-icon{font-size:1rem;flex-shrink:0}
+.qa-text{font-size:.74rem;font-weight:600;color:var(--white);line-height:1.3}
+.qa-sub{font-size:.62rem;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-brand" href="../../signal-origin.html">
+    <div class="nav-dot"></div>
+    <div class="nav-brand-text">The <span>Signal</span></div>
+  </a>
+  <div class="nav-right">
+    <span class="nav-crumb">Clients</span>
+    <span class="nav-sep">›</span>
+    <span class="nav-crumb-active">CELO Business Solutions</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">
+    <div class="hero-tag ht-signal">The Signal · Revenue Architecture</div>
+    <span class="ht-sep">×</span>
+    <div class="hero-tag ht-celo">CELO Business Solutions</div>
+  </div>
+  <h1 class="hero-title">CELO <span class="it">Workspace</span></h1>
+  <p class="hero-sub">Everything for CELO — their Signal session, client-facing website, and every client they bring through the door. <strong>One place. Always organised.</strong></p>
+  <div class="hero-meta">
+    <div class="hm-item"><div class="hm-dot"></div><strong>Signal Code:</strong>&nbsp;ELEVATE</div>
+    <div class="hm-item"><div class="hm-dot"></div><strong>Session:</strong>&nbsp;March 2026</div>
+    <div class="hm-item"><div class="hm-dot"></div><strong>Market:</strong>&nbsp;Philippines BPO · US / UK / AU</div>
+    <div class="hm-item"><div class="hm-dot"></div><strong>Active Clients:</strong>&nbsp;1 (Metropolis)</div>
+    <div class="hm-item"><div class="hm-dot"></div><strong>Status:</strong>&nbsp;Active</div>
+  </div>
+</div>
+
+<div class="workspace">
+
+  <!-- ─── SIGNAL SESSION ─── -->
+  <div class="ws-section">
+    <div class="ws-section-header">
+      <div class="ws-section-left">
+        <div class="ws-section-icon wsi-signal">📡</div>
+        <div>
+          <div class="ws-section-title">CELO Signal Session</div>
+          <div class="ws-section-sub">9 chapters · Revenue architecture · March 2026</div>
+        </div>
+      </div>
+      <a href="signal-origin.html" style="font-size:.68rem;color:var(--gold);text-decoration:none;border:1px solid var(--gold-b);padding:6px 14px;border-radius:20px;transition:all .15s" onmouseover="this.style.background='rgba(201,168,76,.08)'" onmouseout="this.style.background='transparent'">Open Hub →</a>
+    </div>
+
+    <div class="chapter-grid">
+      <a class="ch-card" href="session-summary.html"><div class="ch-num">Chapter 01</div><div class="ch-title">What We Found</div><div class="ch-desc">Full diagnostic — what's working, what's invisible, and the shift that unlocks the next revenue tier.</div><span class="ch-arrow">→</span></a>
+      <a class="ch-card" href="revenue-architecture.html"><div class="ch-num">Chapter 02</div><div class="ch-title">Revenue Architecture</div><div class="ch-desc">Full audit of the BPO revenue model — where money is leaking and the path to enterprise clients.</div><span class="ch-arrow">→</span></a>
+      <a class="ch-card" href="positioning-blueprint.html"><div class="ch-num">Chapter 03</div><div class="ch-title">The CELO Signal</div><div class="ch-desc">Positioning reframe. What makes CELO different from every other BPO — and how to say it.</div><span class="ch-arrow">→</span></a>
+      <a class="ch-card" href="icp-profile.html"><div class="ch-num">Chapter 04</div><div class="ch-title">Ideal Client Profile</div><div class="ch-desc">The exact business that gets the most from CELO — defined precisely enough to attract and repel.</div><span class="ch-arrow">→</span></a>
+      <a class="ch-card" href="lead-reactivation.html"><div class="ch-num">Chapter 05</div><div class="ch-title">Lead Reactivation</div><div class="ch-desc">4-step system to re-engage dormant prospects, past clients, and cold conversations.</div><span class="ch-arrow">→</span></a>
+      <a class="ch-card" href="website-blueprint.html"><div class="ch-num">Chapter 06</div><div class="ch-title">Website Blueprint</div><div class="ch-desc">The current site rebuilt for client acquisition — full page-by-page content architecture.</div><span class="ch-arrow">→</span></a>
+      <a class="ch-card" href="outbound-system.html"><div class="ch-num">Chapter 07</div><div class="ch-title">Outbound System</div><div class="ch-desc">LinkedIn + cold email targeting US, UK, and AU decision-makers who need what CELO does.</div><span class="ch-arrow">→</span></a>
+      <a class="ch-card" href="outbound-system.html#referral"><div class="ch-num">Chapter 08</div><div class="ch-title">Referral Partner Strategy</div><div class="ch-desc">Agencies, consultants, and coaches who work with ideal clients — turned into a referral pipeline.</div><span class="ch-arrow">→</span></a>
+      <a class="ch-card" href="activation-plan.html"><div class="ch-num">Chapter 09</div><div class="ch-title">90-Day Activation Plan</div><div class="ch-desc">Week by week — from invisible to pipeline-full. No overwhelm, just the next move.</div><span class="ch-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- ─── BONUS DELIVERABLES ─── -->
+  <div class="ws-section">
+    <div class="ws-section-header">
+      <div class="ws-section-left">
+        <div class="ws-section-icon wsi-site">🌐</div>
+        <div>
+          <div class="ws-section-title">Bonus Deliverables</div>
+          <div class="ws-section-sub">Client-facing assets built from the Signal session — CELO brand colors</div>
+        </div>
+      </div>
+      <div class="ws-count">2 assets</div>
+    </div>
+    <div class="bonus-grid">
+      <a class="bonus-card" href="website-redesign.html">
+        <div class="bc-icon">🖥️</div>
+        <div>
+          <div class="bc-label">✦ Bonus A — Client-Facing Website</div>
+          <div class="bc-title">CELO Website Redesign</div>
+          <div class="bc-desc">Full redesign of celoph.com — dark forest hero, alternating sections, pain-first messaging, all 3 service lines, AI division section, case study, testimonials, and booking form.</div>
+        </div>
+      </a>
+      <a class="bonus-card" href="website-redesign.html#partnership">
+        <div class="bc-icon">🤖</div>
+        <div>
+          <div class="bc-label">✦ Bonus B — AI Division Section</div>
+          <div class="bc-title">CELO AI Division Proposition</div>
+          <div class="bc-desc">The in-house AI development division story — embedded intelligence, root-cause automation, the differentiator no other BPO can claim. Ready for sales deck and website.</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ─── CELO CLIENTS ─── -->
+  <div class="ws-section">
+    <div class="ws-section-header">
+      <div class="ws-section-left">
+        <div class="ws-section-icon wsi-clients">🏢</div>
+        <div>
+          <div class="ws-section-title">CELO's Clients</div>
+          <div class="ws-section-sub">AI solutions &amp; proposals built for businesses CELO serves</div>
+        </div>
+      </div>
+      <div class="ws-count">1 active · 2 slots open</div>
+    </div>
+
+    <div class="client-grid">
+
+      <!-- METROPOLIS -->
+      <div class="client-card">
+        <div class="cc-stripe" style="background:linear-gradient(90deg,var(--celo-bright),rgba(53,160,95,.2))"></div>
+        <div class="cc-body">
+          <div class="cc-eyebrow">Active Client · Largest US Parking Operator</div>
+          <div class="cc-name">Metropolis.io</div>
+          <div class="cc-tagline">Artificial intelligence for the real world. 4,500+ locations. 1M+ new members/month. CELO has 3 years of operational data on their customers.</div>
+          <div class="cc-tags">
+            <div class="cc-tag">AI Forecasting</div>
+            <div class="cc-tag">Workforce Management</div>
+            <div class="cc-tag">Predictive AI</div>
+            <div class="cc-tag">Churn Prevention</div>
+          </div>
+        </div>
+        <div class="cc-links">
+          <a class="cc-link ccl-primary" href="metropolis/proposal.html">AI Proposal →</a>
+          <a class="cc-link ccl-primary" href="metropolis/forecasting-tool.html">Live Tool →</a>
+          <a class="cc-link ccl-sec" href="https://www.metropolis.io" target="_blank">Website ↗</a>
+        </div>
+      </div>
+
+      <!-- PLACEHOLDERS -->
+      <div class="client-card-new">
+        <div class="cn-icon">＋</div>
+        <div class="cn-title">Next CELO Client</div>
+        <div class="cn-sub">When CELO brings in a new client, their folder and assets go here.</div>
+      </div>
+      <div class="client-card-new">
+        <div class="cn-icon">＋</div>
+        <div class="cn-title">Future Client</div>
+        <div class="cn-sub">Each client gets their own subfolder with proposals, tools, and deliverables.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ─── BRAND REFERENCE ─── -->
+  <div class="ws-section">
+    <div class="ws-section-header">
+      <div class="ws-section-left">
+        <div class="ws-section-icon wsi-brand">🎨</div>
+        <div>
+          <div class="ws-section-title">Brand Reference</div>
+          <div class="ws-section-sub">CELO's color palette — used on all client-facing deliverables</div>
+        </div>
+      </div>
+      <a href="../_brand-palettes.html#celo" style="font-size:.68rem;color:var(--celo-light);text-decoration:none;border:1px solid rgba(111,200,150,.25);padding:6px 14px;border-radius:20px;transition:all .15s" onmouseover="this.style.background='rgba(111,200,150,.06)'" onmouseout="this.style.background='transparent'">Full Palettes →</a>
+    </div>
+    <div class="brand-row">
+      <div class="brand-swatch-card" style="text-decoration:none">
+        <div class="bsc-label">CELO Client Brand</div>
+        <div class="bsc-swatches">
+          <div class="bsc-s" style="background:#1c2e1e" title="#1c2e1e"></div>
+          <div class="bsc-s" style="background:#2e7b52" title="#2e7b52"></div>
+          <div class="bsc-s" style="background:#35a05f" title="#35a05f"></div>
+          <div class="bsc-s" style="background:#6fc896" title="#6fc896"></div>
+          <div class="bsc-s" style="background:#f5f9f5;border:1px solid rgba(255,255,255,.1)" title="#f5f9f5"></div>
+          <div class="bsc-s" style="background:#ffffff;border:1px solid rgba(255,255,255,.1)" title="#ffffff"></div>
+        </div>
+        <div class="bsc-title">Forest · Brand Green · Bright · Light · Page BG · White</div>
+        <div class="bsc-sub">Used on website-redesign.html and all CELO client-facing pages</div>
+      </div>
+      <div class="code-strip">
+        <div class="cs-label">Signal Code</div>
+        <div class="cs-code">ELEVATE</div>
+        <div class="cs-meaning"><strong>CELO elevates every business it touches.</strong> Elevate their capacity. Elevate their operations. Now elevate the signal so the world knows it.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── QUICK ACTIONS ─── -->
+  <div class="ws-section">
+    <div class="ws-section-header">
+      <div class="ws-section-left">
+        <div class="ws-section-icon wsi-signal">⚡</div>
+        <div>
+          <div class="ws-section-title">Quick Access</div>
+          <div class="ws-section-sub">Most-used files at a glance</div>
+        </div>
+      </div>
+    </div>
+    <div class="qa-row">
+      <a class="qa-item" href="signal-origin.html">
+        <div class="qa-icon">📡</div>
+        <div><div class="qa-text">Signal Hub</div><div class="qa-sub">Full session portal</div></div>
+      </a>
+      <a class="qa-item" href="website-redesign.html">
+        <div class="qa-icon">🌐</div>
+        <div><div class="qa-text">CELO Website</div><div class="qa-sub">Client-facing redesign</div></div>
+      </a>
+      <a class="qa-item" href="metropolis/proposal.html">
+        <div class="qa-icon">🏢</div>
+        <div><div class="qa-text">Metropolis Proposal</div><div class="qa-sub">AI solutions deck</div></div>
+      </a>
+      <a class="qa-item" href="metropolis/forecasting-tool.html">
+        <div class="qa-icon">📊</div>
+        <div><div class="qa-text">Forecasting Tool</div><div class="qa-sub">Live Metropolis demo</div></div>
+      </a>
+    </div>
+  </div>
+
+</div><!-- /workspace -->
+
+</body>
+</html>
