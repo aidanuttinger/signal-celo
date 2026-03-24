@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CELO Business Solutions — Your Operations Team, Based in the Philippines</title>
+<meta name="description" content="CELO builds dedicated remote teams for founder-led businesses in the US, UK, and Australia. Customer support, back office, sales admin. PHILCALL certified. Philippines-based.">
+<meta property="og:title" content="CELO Business Solutions — Your Operations Team, Based in the Philippines">
+<meta property="og:description" content="For growing businesses that can't afford to get outsourcing wrong. Dedicated remote teams. Accountability-first. Philippines-based.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232e7b52'/><text x='16' y='23' text-anchor='middle' font-family='Georgia' font-size='18' font-weight='700' fill='white'>C</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════
+   CELO BUSINESS SOLUTIONS — PRODUCTION WEBSITE
+   Design system: Forest green / Playfair Display + Inter
+   Images: Replace all Unsplash/placeholder URLs with
+   real CELO photos before go-live.
+   ═══════════════════════════════════════════════════════ */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --white:#ffffff;
+  --bg:#f5f9f5;
+  --surface:#eef6f0;
+  --forest:#1c2e1e;
+  --forest-mid:#243d26;
+  --forest-card:rgba(255,255,255,.04);
+  --forest-border:rgba(255,255,255,.08);
+  --forest-text:#f0f7f2;
+  --forest-body:rgba(240,247,242,.72);
+  --forest-grey:rgba(240,247,242,.45);
+  --deep:#1a2e1e;
+  --body:#364d39;
+  --grey:#607060;
+  --muted:#8fa48f;
+  --border:rgba(46,123,82,.1);
+  --border-light:rgba(46,123,82,.06);
+  --green:#2e7b52;
+  --green-dark:#235f40;
+  --green-bright:#35a05f;
+  --green-light:#6fc896;
+  --green-soft:rgba(46,123,82,.07);
+  --green-border:rgba(46,123,82,.18);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Inter',-apple-system,sans-serif;
+  --max:1100px;
+  --shadow:0 2px 16px rgba(28,46,30,.06);
+  --shadow-md:0 4px 24px rgba(28,46,30,.09);
+  --shadow-lg:0 8px 40px rgba(28,46,30,.13);
+}
+
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{font-family:var(--sans);background:var(--white);color:var(--deep);overflow-x:hidden;line-height:1.7;margin:0}
+
+/* ─── SCROLL ANIMATIONS ─── */
+.animate-in{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.animate-in.visible{opacity:1;transform:translateY(0)}
+.animate-in:nth-child(2){transition-delay:.1s}
+.animate-in:nth-child(3){transition-delay:.2s}
+.animate-in:nth-child(4){transition-delay:.3s}
+.animate-in:nth-child(5){transition-delay:.4s}
+.animate-in:nth-child(6){transition-delay:.5s}
+.slide-left{opacity:0;transform:translateX(-28px);transition:opacity .75s ease,transform .75s ease}
+.slide-left.visible{opacity:1;transform:translateX(0)}
+.slide-right{opacity:0;transform:translateX(28px);transition:opacity .75s ease,transform .75s ease}
+.slide-right.visible{opacity:1;transform:translateX(0)}
+
+/* ─── NAV ─── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(28,46,30,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.07);height:64px;display:flex;align-items:center;padding:0 48px;justify-content:space-between;transition:all .3s}
+.nav.scrolled{height:56px;background:rgba(28,46,30,.99)}
+.nav-left{display:flex;align-items:center;gap:36px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-mark{width:32px;height:32px;background:var(--green-bright);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-weight:700;font-size:.9rem;flex-shrink:0}
+.nav-logo-text{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--forest-text)}
+.nav-logo-text span{color:var(--green-light)}
+.nav-links{display:flex;gap:2px}
+.nav-link{font-size:.7rem;letter-spacing:.04em;font-weight:500;color:var(--forest-grey);text-decoration:none;padding:6px 13px;border-radius:5px;transition:all .15s;white-space:nowrap}
+.nav-link:hover{color:var(--forest-text);background:rgba(255,255,255,.06)}
+.nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--green-bright);color:#fff;font-family:var(--sans);font-size:.72rem;font-weight:600;padding:10px 22px;border-radius:6px;text-decoration:none;transition:background .15s;white-space:nowrap}
+.nav-cta:hover{background:var(--green-dark)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.nav-hamburger span{display:block;width:24px;height:1.5px;background:var(--forest-text);transition:all .3s}
+.celo-mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(28,46,30,.99);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.08);padding:20px 24px 28px;z-index:998;flex-direction:column;gap:4px}
+.celo-mobile-menu.open{display:flex}
+.celo-mobile-menu a{font-size:.9rem;font-weight:500;color:var(--forest-body);padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);transition:color .2s;text-decoration:none}
+.celo-mobile-menu a:last-child{border-bottom:none}
+.celo-mobile-menu a:hover{color:var(--forest-text)}
+@media(max-width:900px){.nav-links{display:none}.nav-hamburger{display:flex}}
+@media(max-width:780px){.nav{padding:0 24px}}
+
+/* ─── SHARED ─── */
+.section{padding:96px 48px}
+@media(max-width:720px){.section{padding:72px 24px}}
+.inner{max-width:var(--max);margin:0 auto}
+
+.label{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.label::after{content:'';flex:1;height:1px;background:rgba(46,123,82,.15)}
+.label-d{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.label-d::after{content:'';flex:1;height:1px;background:rgba(111,200,150,.15)}
+
+.text-center .label,.text-center .label-d{justify-content:center}
+.text-center .label::before,.text-center .label-d::before{content:'';flex:1;height:1px;background:rgba(46,123,82,.15)}
+.text-center .label-d::before{background:rgba(111,200,150,.15)}
+.text-center .section-body,.text-center .section-body-d{margin:0 auto}
+
+.section-title{font-family:var(--serif);font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:700;line-height:1.08;margin-bottom:16px;color:var(--deep)}
+.section-title-d{font-family:var(--serif);font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:700;line-height:1.08;margin-bottom:16px;color:var(--forest-text)}
+.it{font-style:italic}
+.green{color:var(--green)}
+.green-d{color:var(--green-bright)}
+.section-body{font-size:.92rem;color:var(--grey);line-height:1.9;max-width:600px}
+.section-body strong{color:var(--body)}
+.section-body-d{font-size:.92rem;color:var(--forest-body);line-height:1.9;max-width:600px}
+.section-body-d strong{color:var(--forest-text)}
+
+.btn-white{display:inline-flex;align-items:center;gap:7px;background:#fff;color:var(--green-dark);font-family:var(--sans);font-size:.76rem;font-weight:700;padding:14px 28px;border-radius:6px;text-decoration:none;transition:opacity .15s}
+.btn-white:hover{opacity:.9}
+.btn-green{display:inline-flex;align-items:center;gap:7px;background:var(--green-bright);color:#fff;font-family:var(--sans);font-size:.76rem;font-weight:700;padding:14px 28px;border-radius:6px;text-decoration:none;transition:background .15s}
+.btn-green:hover{background:var(--green-dark)}
+.btn-outline-d{display:inline-flex;align-items:center;gap:7px;border:1.5px solid rgba(255,255,255,.2);color:rgba(240,247,242,.85);font-family:var(--sans);font-size:.76rem;font-weight:600;padding:14px 28px;border-radius:6px;text-decoration:none;transition:all .15s}
+.btn-outline-d:hover{border-color:rgba(255,255,255,.45);color:#fff}
+
+.section-white{background:var(--white)}
+.section-bg{background:var(--bg)}
+.section-forest{background:var(--forest);position:relative;overflow:hidden}
+.section-forest::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 50% 60% at 80% 50%,rgba(46,160,95,.09) 0%,transparent 60%)}
+
+/* ─── HERO — CENTERED ─── */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 48px 96px;background:var(--forest);position:relative;overflow:hidden;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 50% 30%,rgba(46,160,95,.14) 0%,transparent 65%),radial-gradient(ellipse 40% 40% at 15% 80%,rgba(46,160,95,.07) 0%,transparent 55%),radial-gradient(ellipse 35% 35% at 88% 75%,rgba(46,160,95,.06) 0%,transparent 55%)}
+.hero-grid{position:absolute;inset:0;opacity:.025;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.8) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.8) 1px,transparent 1px);background-size:60px 60px}
+.hero-inner{max-width:820px;margin:0 auto;position:relative}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(53,160,95,.12);border:1px solid rgba(53,160,95,.3);color:var(--green-light);font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:7px 16px;border-radius:20px;margin-bottom:28px}
+.hero-eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--green-light);animation:qdot 2s ease-in-out infinite}
+@keyframes qdot{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-headline{font-family:var(--serif);font-size:clamp(2.8rem,6vw,4.8rem);font-weight:700;line-height:1.04;color:var(--forest-text);margin-bottom:28px;letter-spacing:-.02em}
+.hero-headline .hl1{display:block}
+.hero-headline .hl2{display:block;font-style:italic;color:var(--green-bright)}
+.hero-headline .hl3{display:block}
+.hero-sub{font-size:1.05rem;color:var(--forest-body);line-height:1.85;margin:0 auto 40px;max-width:580px}
+.hero-sub strong{color:var(--forest-text)}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center;margin-bottom:48px}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;max-width:780px;margin:0 auto 36px}
+@media(max-width:680px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
+.hs-item{padding:20px 16px;text-align:center;background:rgba(255,255,255,.03)}
+.hs-num{font-family:var(--serif);font-size:1.9rem;font-weight:700;color:var(--green-light);line-height:1;margin-bottom:5px}
+.hs-label{font-size:.7rem;color:var(--forest-grey);line-height:1.35}
+.hero-trust{display:flex;gap:20px;flex-wrap:wrap;align-items:center;justify-content:center}
+.ht-item{display:flex;align-items:center;gap:6px;font-size:.7rem;color:var(--forest-grey)}
+.ht-dot{width:3px;height:3px;border-radius:50%;background:rgba(111,200,150,.5)}
+
+/* ─── TRUST STRIP ─── */
+.trust-strip{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:22px 48px}
+.ts-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.ts-label{font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600;white-space:nowrap}
+.ts-badges{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.ts-badge{display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:9px 16px;box-shadow:var(--shadow)}
+.ts-icon{width:22px;height:22px;border-radius:50%;background:var(--green-soft);border:1px solid var(--green-border);display:flex;align-items:center;justify-content:center;font-size:.65rem;color:var(--green);font-weight:700}
+.ts-text{font-size:.72rem;font-weight:600;color:var(--body)}
+.ts-markets{display:flex;gap:8px}
+.ts-market{font-size:.7rem;color:var(--grey);background:var(--bg);border:1px solid var(--border);padding:5px 12px;border-radius:20px}
+
+/* ─── PROBLEM SECTION ─── */
+.problem-intro{font-family:var(--serif);font-size:clamp(1.05rem,1.9vw,1.3rem);font-style:italic;color:var(--body);border-left:4px solid var(--green);padding:18px 24px;background:var(--green-soft);border-radius:0 10px 10px 0;margin-bottom:40px;line-height:1.7;max-width:720px}
+.problem-lede{font-size:.92rem;color:var(--grey);line-height:1.95;margin-bottom:44px;max-width:760px}
+.problem-lede p{margin-bottom:14px}
+.problem-lede strong{color:var(--body)}
+.problem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:44px}
+@media(max-width:700px){.problem-grid{grid-template-columns:1fr}}
+.problem-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:26px;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow);transition:all .22s}
+.problem-card:hover{border-color:var(--green-border);box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.pc-icon{width:44px;height:44px;border-radius:10px;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.pc-title{font-size:.9rem;font-weight:700;color:var(--deep);margin-bottom:6px;line-height:1.25}
+.pc-body{font-size:.8rem;color:var(--grey);line-height:1.7}
+.problem-cost{background:var(--deep);border-radius:14px;padding:32px 36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+@media(max-width:640px){.problem-cost{grid-template-columns:1fr}}
+.pcost-num{font-family:var(--serif);font-size:clamp(2.8rem,5vw,4.2rem);font-weight:700;color:var(--green-bright);line-height:1;white-space:nowrap}
+.pcost-label{font-size:.72rem;color:rgba(240,247,242,.4);text-transform:uppercase;letter-spacing:.12em;margin-top:6px}
+.pcost-body{font-size:.88rem;color:rgba(240,247,242,.7);line-height:1.9}
+.pcost-body strong{color:#fff}
+
+/* ─── CELO DIFFERENCE ─── */
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start;margin-top:48px}
+@media(max-width:800px){.diff-grid{grid-template-columns:1fr}}
+.diff-body p{font-size:.92rem;color:var(--forest-body);line-height:1.9;margin-bottom:18px}
+.diff-body p strong{color:var(--forest-text)}
+.diff-body .pull{font-family:var(--serif);font-size:1.05rem;font-style:italic;color:var(--forest-text);border-left:4px solid var(--green-bright);padding:16px 22px;background:rgba(53,160,95,.08);border-radius:0 10px 10px 0;margin:24px 0;line-height:1.65}
+.diff-list{display:flex;flex-direction:column;gap:14px}
+.diff-item{display:flex;gap:14px;align-items:flex-start;padding:20px 22px;background:var(--forest-card);border:1px solid var(--forest-border);border-radius:10px;transition:all .2s}
+.diff-item:hover{border-color:rgba(53,160,95,.3);background:rgba(255,255,255,.06)}
+.diff-num{width:32px;height:32px;border-radius:50%;background:var(--green-bright);color:#fff;font-size:.76rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.di-title{font-size:.88rem;font-weight:700;color:var(--forest-text);margin-bottom:4px}
+.di-body{font-size:.78rem;color:var(--forest-body);line-height:1.65}
+
+/* ─── SERVICES ─── */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+@media(max-width:960px){.services-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.services-grid{grid-template-columns:1fr}}
+.service-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:32px 26px;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:all .22s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green-bright),rgba(46,123,82,.2))}
+.service-card:hover{border-color:var(--green-border);box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.svc-icon{width:50px;height:50px;border-radius:13px;background:var(--green-soft);border:1px solid var(--green-border);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:18px}
+.svc-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--deep);margin-bottom:10px;line-height:1.2}
+.svc-desc{font-size:.82rem;color:var(--grey);line-height:1.8;margin-bottom:16px;flex:1}
+.svc-bullets{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
+.svc-bullets li{display:flex;gap:8px;font-size:.77rem;color:var(--grey);align-items:flex-start;line-height:1.5}
+.svc-bullets li .ck{color:var(--green-bright);font-weight:700;flex-shrink:0}
+.svc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px}
+.svc-tag{font-size:.62rem;background:var(--bg);border:1px solid var(--border);color:var(--muted);padding:3px 9px;border-radius:4px}
+.svc-price{font-size:.78rem;color:var(--green);font-weight:700;padding-top:14px;border-top:1px solid var(--border-light)}
+.services-callout{margin-top:32px;background:var(--green);border-radius:12px;padding:24px 28px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.sc-body{flex:1;font-size:.88rem;color:rgba(255,255,255,.88);line-height:1.75;min-width:200px}
+.sc-body strong{color:#fff}
+
+/* ─── HOW IT WORKS ─── */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;position:relative}
+@media(max-width:900px){.process-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.process-grid{grid-template-columns:1fr}}
+.process-line{position:absolute;top:38px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,var(--green-border),var(--green),var(--green-border));z-index:0;pointer-events:none}
+@media(max-width:900px){.process-line{display:none}}
+.process-step{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:26px 20px;text-align:center;box-shadow:var(--shadow);position:relative;z-index:1;transition:all .22s}
+.process-step:hover{border-color:var(--green-border);box-shadow:var(--shadow-md);transform:translateY(-3px)}
+.ps-num{width:42px;height:42px;border-radius:50%;background:var(--green);color:#fff;font-family:var(--serif);font-size:1.1rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.ps-name{font-size:.9rem;font-weight:700;color:var(--deep);margin-bottom:4px}
+.ps-timing{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:10px}
+.ps-desc{font-size:.76rem;color:var(--grey);line-height:1.65}
+.process-sla{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:700px){.process-sla{grid-template-columns:1fr}}
+.sla-item{background:var(--forest);border-radius:14px;padding:36px 28px;text-align:center;transition:transform 0.3s}
+.sla-item:hover{transform:translateY(-4px)}
+.sla-icon{width:56px;height:56px;border-radius:50%;background:var(--green-bright);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin:0 auto 20px;box-shadow:0 4px 20px rgba(53,160,95,0.3)}
+.sla-title{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:#f0f7f2;margin-bottom:10px}
+.sla-body{font-size:.82rem;color:rgba(240,247,242,0.65);line-height:1.7}
+
+/* ─── WHO WE SERVE ─── */
+.icp-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:44px}
+@media(max-width:760px){.icp-grid{grid-template-columns:1fr}}
+.icp-card{background:var(--forest-card);border:1px solid var(--forest-border);border-radius:16px;padding:32px 28px;position:relative;overflow:hidden}
+.icp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green-bright),rgba(53,160,95,.2))}
+.icp-label{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:8px}
+.icp-title{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--forest-text);margin-bottom:5px}
+.icp-tag{font-size:.7rem;color:var(--green-light);font-weight:600;margin-bottom:18px;display:block}
+.icp-meta{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.im-label{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,247,242,.32);font-weight:700;margin-bottom:3px}
+.im-value{font-size:.8rem;color:var(--forest-text);line-height:1.45}
+.icp-signals{list-style:none}
+.icp-signals li{display:flex;gap:8px;font-size:.78rem;color:var(--forest-body);margin-bottom:7px;align-items:flex-start;line-height:1.5}
+.icp-signals li .sd{width:5px;height:5px;border-radius:50%;background:var(--green-bright);flex-shrink:0;margin-top:7px}
+.icp-geos{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.icp-geo{background:var(--forest-card);border:1px solid var(--forest-border);border-radius:10px;padding:18px 20px;flex:1;min-width:160px;text-align:center}
+.ig-flag{font-size:1.6rem;margin-bottom:7px}
+.ig-name{font-size:.82rem;font-weight:700;color:var(--forest-text);margin-bottom:4px}
+.ig-desc{font-size:.72rem;color:var(--forest-grey);line-height:1.4}
+.icp-anti{margin-top:24px;background:rgba(220,80,80,.05);border:1px solid rgba(220,80,80,.15);border-radius:10px;padding:22px 26px}
+.ia-title{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:#d96060;font-weight:700;margin-bottom:8px}
+.ia-body{font-size:.8rem;color:var(--forest-body);line-height:1.75}
+
+/* ─── PROOF ─── */
+.proof-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:48px}
+@media(max-width:900px){.proof-stats{grid-template-columns:repeat(2,1fr)}}
+.proof-stat{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:24px 20px;text-align:center}
+.pstat-num{font-family:var(--serif);font-size:2.3rem;font-weight:700;color:var(--green);line-height:1;margin-bottom:6px}
+.pstat-label{font-size:.72rem;color:var(--grey);line-height:1.35}
+.case-study{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:36px 32px;position:relative;overflow:hidden;margin-bottom:20px}
+.case-study::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--green-bright)}
+.cs-eyebrow{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:12px}
+.cs-title{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:var(--deep);margin-bottom:8px;line-height:1.3}
+.cs-industry{font-size:.72rem;background:var(--white);border:1px solid var(--border);color:var(--grey);padding:4px 12px;border-radius:4px;display:inline-block;margin-bottom:22px}
+.cs-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin:0 0 22px}
+@media(max-width:640px){.cs-grid{grid-template-columns:1fr}}
+.cs-cl{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:7px}
+.cs-cb{font-size:.82rem;color:var(--grey);line-height:1.7}
+.cs-results{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-top:24px;border-top:1px solid var(--border)}
+.cs-results>div{background:var(--forest);border-radius:8px;padding:20px 16px;text-align:center}
+.cs-rval{font-family:var(--serif);font-size:1.8rem;font-weight:700;color:var(--green-bright);line-height:1;margin-bottom:6px}
+.cs-rlabel{font-size:.72rem;color:rgba(255,255,255,0.6);line-height:1.4}
+@media(max-width:640px){.cs-results{grid-template-columns:1fr 1fr}}
+.cs-placeholder{background:var(--surface);border:1.5px dashed rgba(46,123,82,.2);border-radius:12px;padding:24px;text-align:center}
+.cs-ptext{font-size:.82rem;color:var(--grey);line-height:1.75}
+.cs-ptext strong{color:var(--green)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:44px}
+@media(max-width:680px){.testimonials-grid{grid-template-columns:1fr}}
+.testi-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:28px;transition:all .22s;position:relative;overflow:hidden}
+.testi-card:hover{background:rgba(255,255,255,.08);border-color:rgba(53,160,95,.3)}
+.testi-card::before{content:'\201C';position:absolute;top:8px;right:16px;font-family:var(--serif);font-size:5.5rem;color:rgba(53,160,95,.1);line-height:1;font-weight:700}
+.tc-stars{display:flex;gap:2px;margin-bottom:14px}
+.tc-star{color:var(--green-bright);font-size:.8rem}
+.tc-quote{font-family:var(--serif);font-size:.9rem;font-style:italic;color:rgba(240,247,242,.8);line-height:1.8;margin-bottom:18px}
+.tc-name{font-size:.82rem;font-weight:700;color:#f0f7f2}
+.tc-role{font-size:.72rem;color:rgba(240,247,242,.45)}
+
+/* ─── PHILIPPINES ─── */
+.ph-intro{font-size:.92rem;color:var(--grey);line-height:1.95;max-width:700px;margin-bottom:52px}
+.ph-intro strong{color:var(--body)}
+.ph-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:44px}
+@media(max-width:860px){.ph-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.ph-grid{grid-template-columns:1fr}}
+.ph-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:28px 24px;box-shadow:var(--shadow);transition:all .22s}
+.ph-card:hover{border-color:var(--green-border);box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.ph-icon{font-size:1.8rem;margin-bottom:14px}
+.ph-title{font-size:.9rem;font-weight:700;color:var(--deep);margin-bottom:8px}
+.ph-body{font-size:.78rem;color:var(--grey);line-height:1.7}
+.ph-stat{font-size:.84rem;font-weight:700;color:var(--green);margin-top:12px}
+.ph-banner{background:var(--forest);border-radius:16px;padding:40px 44px;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+@media(max-width:700px){.ph-banner{grid-template-columns:1fr;padding:32px 28px}}
+.phb-title{font-family:var(--serif);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;color:var(--forest-text);line-height:1.2;margin-bottom:14px}
+.phb-title .git{color:var(--green-bright);font-style:italic}
+.phb-body{font-size:.86rem;color:var(--forest-body);line-height:1.9}
+.phb-body p+p{margin-top:12px}
+.phb-body strong{color:var(--forest-text)}
+.phb-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.phb-stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:18px 14px;text-align:center}
+.phbs-num{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--green-bright);margin-bottom:5px}
+.phbs-label{font-size:.7rem;color:var(--forest-grey);line-height:1.35}
+
+/* ─── ABOUT ─── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+@media(max-width:820px){.about-grid{grid-template-columns:1fr}}
+.about-body p{font-size:.92rem;color:var(--grey);line-height:1.9;margin-bottom:18px}
+.about-body p strong{color:var(--body)}
+.about-body .pull{font-family:var(--serif);font-size:1.05rem;font-style:italic;color:var(--deep);border-left:4px solid var(--green);padding:16px 22px;background:var(--green-soft);border-radius:0 10px 10px 0;margin:24px 0;line-height:1.65}
+.cert-badges{display:flex;gap:40px;flex-wrap:wrap;margin-top:0;align-items:center;justify-content:center;padding:48px 0 0;border-top:1px solid var(--border)}
+.cert-badge{display:flex;align-items:center;gap:14px;font-size:.85rem;font-weight:700;color:var(--deep);letter-spacing:.03em;padding:0;background:none;border:none;box-shadow:none}
+.cert-badge::before{content:'✓';display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:var(--green-bright);color:white;font-size:1rem;font-weight:700;flex-shrink:0;box-shadow:0 4px 12px rgba(53,160,95,0.25)}
+/* NOTE: Replace this dark box with a real photo of the CELO Philippines office / team */
+.about-image-placeholder{width:100%;min-height:400px;background:linear-gradient(135deg,var(--forest) 0%,var(--green-dark) 100%);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:40px;text-align:center}
+.aip-label{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green-light);font-weight:700}
+.aip-text{font-family:var(--serif);font-size:1.1rem;color:var(--forest-text);line-height:1.5}
+
+/* ─── CTA / BOOK ─── */
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+@media(max-width:820px){.book-grid{grid-template-columns:1fr}}
+.book-label{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.book-label::after{content:'';flex:1;height:1px;background:rgba(111,200,150,.15)}
+.book-title{font-family:var(--serif);font-size:clamp(2rem,3.5vw,2.9rem);font-weight:700;color:var(--forest-text);line-height:1.08;margin-bottom:16px}
+.book-title .git{color:var(--green-bright);font-style:italic}
+.book-sub{font-size:.92rem;color:var(--forest-body);line-height:1.9;margin-bottom:28px;max-width:460px}
+.book-sub strong{color:var(--forest-text)}
+.book-promises{display:flex;flex-direction:column;gap:11px;margin-bottom:32px}
+.book-p{display:flex;gap:10px;font-size:.82rem;color:var(--forest-grey);align-items:center}
+.bp-dot{width:6px;height:6px;border-radius:50%;background:var(--green-bright);flex-shrink:0}
+.book-form{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:36px 32px}
+.bf-title{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--forest-text);margin-bottom:6px}
+.bf-sub{font-size:.78rem;color:var(--forest-grey);margin-bottom:24px;line-height:1.6}
+.bf-form{display:flex;flex-direction:column;gap:12px}
+.bf-input,.bf-select,.bf-textarea{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:var(--forest-text);font-family:var(--sans);font-size:.86rem;padding:13px 16px;border-radius:8px;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.bf-input:focus,.bf-select:focus,.bf-textarea:focus{border-color:rgba(53,160,95,.45)}
+.bf-input::placeholder,.bf-textarea::placeholder{color:rgba(240,247,242,.28)}
+.bf-select option{background:#1c2e1e;color:#f0f7f2}
+.bf-textarea{resize:vertical;min-height:80px}
+.bf-btn{background:var(--green-bright);border:none;color:#fff;font-family:var(--sans);font-size:.78rem;font-weight:700;padding:15px 20px;border-radius:8px;cursor:pointer;transition:background .15s}
+.bf-btn:hover{background:var(--green-dark)}
+.bf-note{font-size:.64rem;color:rgba(240,247,242,.28);text-align:center;line-height:1.5}
+
+/* ─── FOOTER ─── */
+.footer{background:#101e11;padding:60px 48px 36px}
+@media(max-width:720px){.footer{padding:48px 24px 28px}}
+.footer-top{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px}
+@media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.footer-top{grid-template-columns:1fr}}
+.fb-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.fb-mark{width:30px;height:30px;background:var(--green);border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-weight:700;font-size:.85rem}
+.fb-text{font-family:var(--serif);font-size:.95rem;font-weight:700;color:var(--forest-text)}
+.fb-text span{color:var(--green-bright)}
+.fb-desc{font-size:.75rem;color:rgba(240,247,242,.33);line-height:1.75;max-width:230px;margin-bottom:16px}
+.fb-certs{display:flex;flex-direction:column;gap:5px}
+.fb-cert{font-size:.68rem;color:rgba(240,247,242,.26)}
+.fc-title{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,247,242,.28);font-weight:700;margin-bottom:14px}
+.fc-links{list-style:none;display:flex;flex-direction:column;gap:9px}
+.fc-links li a{font-size:.76rem;color:rgba(240,247,242,.4);text-decoration:none;transition:color .15s}
+.fc-links li a:hover{color:rgba(240,247,242,.82)}
+.footer-bottom{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.05);gap:16px;flex-wrap:wrap}
+.footer-copy{font-size:.67rem;color:rgba(240,247,242,.2)}
+.footer-badges{display:flex;gap:8px;flex-wrap:wrap}
+.footer-badge{font-size:.61rem;color:rgba(240,247,242,.26);background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);padding:3px 10px;border-radius:4px}
+
+/* ─── SIGNAL HUB BACK BUTTON (remove before go-live) ─── */
+.hub-back{position:fixed;bottom:24px;left:24px;z-index:1000;display:inline-flex;align-items:center;gap:8px;background:rgba(7,8,15,.88);backdrop-filter:blur(14px);border:1px solid rgba(201,168,76,.35);color:#c9a84c;font-family:'Inter',-apple-system,sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:10px 18px;border-radius:30px;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,.35);transition:all .2s}
+.hub-back:hover{background:rgba(201,168,76,.15);border-color:rgba(201,168,76,.7);color:#e0c068;transform:translateY(-2px)}
+.hub-back-dot{width:5px;height:5px;border-radius:50%;background:#c9a84c;flex-shrink:0}
+
+@media(max-width:560px){.hero-headline{font-size:clamp(2.2rem,8vw,3rem)}.hero{padding:100px 24px 72px}}
+</style>
+</head>
+<body>
+
+<!-- Remove before go-live -->
+<a class="hub-back" href="signal-origin.html"><div class="hub-back-dot"></div>Signal Hub</a>
+
+<!-- ─── NAV ─── -->
+<nav class="nav" id="nav">
+  <div class="nav-left">
+    <a class="nav-logo" href="#hero">
+      <div class="nav-logo-mark">C</div>
+      <div class="nav-logo-text">CELO <span>Business</span></div>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="#services">Services</a>
+      <a class="nav-link" href="#how-it-works">How It Works</a>
+      <a class="nav-link" href="#who-we-serve">Who We Serve</a>
+      <a class="nav-link" href="#proof">Results</a>
+      <a class="nav-link" href="#philippines">Why Philippines</a>
+      <a class="nav-link" href="#about">About</a>
+    </div>
+  </div>
+  <a class="nav-cta" href="#book">Book a Free Diagnostic →</a>
+  <button class="nav-hamburger" id="celo-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="celo-mobile-menu" id="celo-mobile-menu">
+  <a href="#services" onclick="closeCeloMenu()">Services</a>
+  <a href="#how-it-works" onclick="closeCeloMenu()">How It Works</a>
+  <a href="#who-we-serve" onclick="closeCeloMenu()">Who We Serve</a>
+  <a href="#proof" onclick="closeCeloMenu()">Results</a>
+  <a href="#philippines" onclick="closeCeloMenu()">Why Philippines</a>
+  <a href="#about" onclick="closeCeloMenu()">About</a>
+  <a href="#book" onclick="closeCeloMenu()" style="color:var(--green-light);font-weight:700;">Book a Free Diagnostic</a>
+</div>
+
+<!-- ═══════════════════════
+     1. HERO — CENTERED
+     ═══════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow animate-in">
+      <div class="dot"></div>Philippines-Based · Serving US / UK / AU
+    </div>
+    <h1 class="hero-headline animate-in">
+      <span class="hl1">Your business is ready to scale.</span>
+      <span class="hl2">Your operations aren't.</span>
+      <span class="hl3">We fix that.</span>
+    </h1>
+    <p class="hero-sub animate-in">
+      CELO builds <strong>dedicated remote teams</strong> for founder-led businesses — handling customer support, back-office operations, and sales admin so your core team can focus on what actually grows the company.
+    </p>
+    <div class="hero-ctas animate-in">
+      <a class="btn-white" href="#book">Book a Free 30-Min Diagnostic →</a>
+      <a class="btn-outline-d" href="#services">See What We Do</a>
+    </div>
+    <div class="hero-stats animate-in">
+      <div class="hs-item">
+        <div class="hs-num" data-counter="8" data-suffix="+">8+</div>
+        <div class="hs-label">Years in operation</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-num" data-counter="200" data-suffix="+">200+</div>
+        <div class="hs-label">Team members placed</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-num" data-counter="98" data-suffix="%">98%</div>
+        <div class="hs-label">Client retention rate</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-num">3</div>
+        <div class="hs-label">Countries: US, UK, AU</div>
+      </div>
+    </div>
+    <div class="hero-trust animate-in">
+      <div class="ht-item"><div class="ht-dot"></div>PHILCALL Certified</div>
+      <div class="ht-item"><div class="ht-dot"></div>Philippine Chamber of Commerce</div>
+      <div class="ht-item"><div class="ht-dot"></div>PABC Accredited</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRUST STRIP ─── -->
+<div class="trust-strip">
+  <div class="ts-inner">
+    <div class="ts-label">Certified &amp; Accredited</div>
+    <div class="ts-badges">
+      <div class="ts-badge animate-in"><div class="ts-icon">✓</div><div class="ts-text">PHILCALL Member</div></div>
+      <div class="ts-badge animate-in"><div class="ts-icon">✓</div><div class="ts-text">Philippine Chamber of Commerce</div></div>
+      <div class="ts-badge animate-in"><div class="ts-icon">✓</div><div class="ts-text">PABC Accredited</div></div>
+    </div>
+    <div class="ts-markets">
+      <div class="ts-market">🇺🇸 US</div>
+      <div class="ts-market">🇬🇧 UK</div>
+      <div class="ts-market">🇦🇺 AU</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════
+     2. THE PROBLEM
+     ═══════════════════════ -->
+<section class="section section-white" id="problem">
+  <div class="inner">
+    <div class="label animate-in">Why Most Outsourcing Fails</div>
+    <h2 class="section-title animate-in">There are over 1,000 BPOs<br>in the Philippines. They all say<br><span class="green it">the same thing.</span></h2>
+
+    <div class="problem-intro animate-in">
+      "World-class service. Seamless integration. Cost-effective solutions." — these words appear on the homepage of nearly every BPO in existence. They mean nothing. And a COO who's been burned before knows it.
+    </div>
+
+    <div class="problem-lede animate-in">
+      <p>The Philippines BPO industry employs over 1.5 million people. It is one of the largest in the world. The infrastructure, the talent, the English proficiency — all of it is real. <strong>The problem isn't the country. The problem is how most BPOs sell access to it.</strong></p>
+      <p>Generic capability claims. Shared agent pools. Hollow account management. Promises made on the sales call that dissolve in the first 90 days. For a growing business betting real money on an outsourcing partner, this isn't just disappointing — <strong>it's a business risk.</strong> Getting outsourcing wrong costs more than not outsourcing at all: onboarding time lost, customers poorly served, internal team demoralised, months of momentum reversed.</p>
+      <p>The businesses that need outsourcing most — founder-led, fast-growing, operationally stretched — are also the ones least able to absorb a failed engagement. They need it done right the first time, by a partner with real accountability behind every promise. Not a vendor. A team.</p>
+    </div>
+
+    <div class="problem-grid">
+      <div class="problem-card animate-in">
+        <div class="pc-icon">📮</div>
+        <div>
+          <div class="pc-title">Support tickets piling up faster than you can clear them</div>
+          <div class="pc-body">Your customers are waiting too long. First response times are slipping. The experience you worked hard to build is eroding while your team scrambles to handle volume they were never designed to manage at this scale.</div>
+        </div>
+      </div>
+      <div class="problem-card animate-in">
+        <div class="pc-icon">🗂️</div>
+        <div>
+          <div class="pc-title">Your best people are buried in work they shouldn't be doing</div>
+          <div class="pc-body">Scheduling. Data entry. Inbox management. Reporting. High-value people doing low-value work — because there's no one else to do it yet. You're paying expensive salaries for tasks that should cost a fraction.</div>
+        </div>
+      </div>
+      <div class="problem-card animate-in">
+        <div class="pc-icon">📉</div>
+        <div>
+          <div class="pc-title">Hiring locally takes months and costs more than you can justify</div>
+          <div class="pc-body">The interview process is slow. Salary expectations in the US, UK, and Australia have never been higher. By the time someone is onboarded and productive, you've lost three to four months — and paid market rate for it.</div>
+        </div>
+      </div>
+      <div class="problem-card animate-in">
+        <div class="pc-icon">🔍</div>
+        <div>
+          <div class="pc-title">You've tried outsourcing before and it didn't stick</div>
+          <div class="pc-body">Generic agencies. Freelancers who disappear. Offshore teams with no accountability. The concept was right but the execution failed. You need a partner — not a vendor — with real skin in the game and a track record to show it.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="problem-cost animate-in">
+      <div>
+        <div class="pcost-num" data-counter="60" data-suffix="%">60%</div>
+        <div class="pcost-label">Avg. cost savings vs. local hire</div>
+      </div>
+      <div class="pcost-body">
+        <strong>The cost argument is real — but it's not the only argument.</strong> A senior customer support agent in the US or UK costs $50,000–$70,000 per year in salary alone, before benefits, office space, and management overhead. The equivalent dedicated CELO team member costs a fraction of that. But the clients who stay with CELO long-term don't stay because it's cheaper. They stay because it works — because the team is embedded, accountable, and genuinely invested in their outcomes. The savings fund the growth. The quality drives the retention.
+      </div>
+    </div>
+
+    <div class="animate-in" style="display:flex;justify-content:center;gap:48px;margin-top:52px;padding-top:40px;border-top:1px solid var(--border);align-items:center;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:40px;height:40px;border-radius:50%;background:var(--green-bright);color:white;font-size:1rem;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(53,160,95,0.25);">✓</div>
+        <span style="font-size:.88rem;font-weight:700;color:var(--deep);">PHILCALL Certified</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:40px;height:40px;border-radius:50%;background:var(--green-bright);color:white;font-size:1rem;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(53,160,95,0.25);">✓</div>
+        <span style="font-size:.88rem;font-weight:700;color:var(--deep);">Philippine Chamber of Commerce</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:40px;height:40px;border-radius:50%;background:var(--green-bright);color:white;font-size:1rem;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(53,160,95,0.25);">✓</div>
+        <span style="font-size:.88rem;font-weight:700;color:var(--deep);">PABC Accredited</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════
+     3. THE CELO DIFFERENCE
+     ═══════════════════════ -->
+<section class="section section-forest" id="difference">
+  <div class="inner">
+    <div class="label-d animate-in">The CELO Difference</div>
+    <h2 class="section-title-d animate-in">We're not a vendor.<br>We're your operations team —<br><span class="green-d it">just based in the Philippines.</span></h2>
+    <div class="diff-grid">
+      <div class="diff-body slide-left">
+        <p>That distinction matters more than it sounds. A vendor delivers a service and sends an invoice. A team member learns your business, cares about the outcome, and raises problems before you have to find them yourself.</p>
+        <p>CELO builds embedded teams — not agent pools. Every person we place works exclusively for you, full-time, learning your brand voice, your processes, your quality standards. They sit in your Slack. They attend your standups. They know your customer base the way your own staff does.</p>
+        <p><strong>That's the product. Not the hours — the relationship.</strong> It's the reason CELO's client retention rate is 98%, and the reason most CELO clients expand their team within the first 90 days.</p>
+        <p>PHILCALL certification, Philippine Chamber of Commerce membership, and PABC accreditation are not decorative badges. They are standards CELO is held to — standards that most BPOs don't meet and couldn't claim. For a client evaluating outsourcing partners with no easy way to verify quality, these memberships are the shortcut to trust.</p>
+        <div class="pull">"Don't compete on cost. Compete on certainty. The clients worth having don't want cheaper — they want to be certain it will work."</div>
+        <p>The outsourcing market is full of companies that are good at selling and average at delivering. CELO is built the other way around — we lead with what we've already done, what our clients say happened, and what we can promise on paper. The conversation always starts with: "Here's the evidence. Now let's talk about whether we're the right fit for your situation."</p>
+      </div>
+      <div class="diff-list slide-right">
+        <div class="diff-item animate-in">
+          <div class="diff-num">1</div>
+          <div>
+            <div class="di-title">Dedicated teams, not a shared pool</div>
+            <div class="di-body">Your agents work for you full-time, exclusively. They learn your business, your tone, your standards. Not rotated between 10 other clients. Yours.</div>
+          </div>
+        </div>
+        <div class="diff-item animate-in">
+          <div class="diff-num">2</div>
+          <div>
+            <div class="di-title">Certified and accountable — not just trusted</div>
+            <div class="di-body">PHILCALL, Philippine Chamber of Commerce, PABC. Real standards. Real accountability. The industry bodies that separate professional operations from generic staffing.</div>
+          </div>
+        </div>
+        <div class="diff-item animate-in">
+          <div class="diff-num">3</div>
+          <div>
+            <div class="di-title">Transparent by design, not by request</div>
+            <div class="di-body">Weekly reports. Proactive communication. You hear about problems from us — before they become yours. No black boxes. No chasing for updates.</div>
+          </div>
+        </div>
+        <div class="diff-item animate-in">
+          <div class="diff-num">4</div>
+          <div>
+            <div class="di-title">Results before contracts — always</div>
+            <div class="di-body">The diagnostic call is exactly that: a diagnosis. We tell you honestly if we can help and how. If CELO isn't the right fit, we say so. We're not pitching everyone — we're qualifying for fit.</div>
+          </div>
+        </div>
+        <div class="diff-item animate-in">
+          <div class="diff-num">5</div>
+          <div>
+            <div class="di-title">In-house AI development division</div>
+            <div class="di-body">CELO's embedded teams see your operational patterns from the inside. Our AI division translates that intelligence into automation and systems — fixing root causes, not just managing symptoms. One company. One relationship.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════
+     4. SERVICES
+     ═══════════════════════ -->
+<section class="section section-bg" id="services">
+  <div class="inner">
+    <div class="label animate-in">What We Do</div>
+    <h2 class="section-title animate-in">Six service lines.<br>One <span class="green it">reliable partner.</span></h2>
+    <p class="section-body animate-in" style="margin-bottom:0">We build dedicated remote teams across the areas where growing businesses feel the most operational strain. Not shared agents. Not a call centre. Your people — based in the Philippines, embedded in your operations.</p>
+    <div class="services-grid">
+
+      <div class="service-card animate-in">
+        <div class="svc-icon">🎧</div>
+        <div class="svc-name">Customer Support &amp; CX</div>
+        <div class="svc-desc">Dedicated support agents handling your inbound volume — live chat, email, tickets, social messaging — with your brand voice and quality standards. Customers get fast, consistent answers. Your team gets its time back.</div>
+        <ul class="svc-bullets">
+          <li><span class="ck">✓</span>Inbound and outbound customer contact</li>
+          <li><span class="ck">✓</span>Live chat, email, and ticket management</li>
+          <li><span class="ck">✓</span>Social media response and moderation</li>
+          <li><span class="ck">✓</span>Escalation protocols and SLA tracking</li>
+          <li><span class="ck">✓</span>CRM updates and customer data management</li>
+        </ul>
+        <div class="svc-tags">
+          <span class="svc-tag">Zendesk</span><span class="svc-tag">Intercom</span><span class="svc-tag">Freshdesk</span><span class="svc-tag">HubSpot</span>
+        </div>
+        <div class="svc-price">From $2,500/month · Dedicated agent</div>
+      </div>
+
+      <div class="service-card animate-in">
+        <div class="svc-icon">🗄️</div>
+        <div class="svc-name">Admin &amp; Back-Office Support</div>
+        <div class="svc-desc">The work that keeps a business running but shouldn't run through your highest-paid people. Data entry, scheduling, document management, reporting — handled thoroughly, quietly, and reliably every single day.</div>
+        <ul class="svc-bullets">
+          <li><span class="ck">✓</span>Data entry and database management</li>
+          <li><span class="ck">✓</span>Scheduling and calendar coordination</li>
+          <li><span class="ck">✓</span>Document preparation and file management</li>
+          <li><span class="ck">✓</span>Reporting, dashboards, and weekly summaries</li>
+          <li><span class="ck">✓</span>Inbox triage and email management</li>
+        </ul>
+        <div class="svc-tags">
+          <span class="svc-tag">Google Workspace</span><span class="svc-tag">Microsoft 365</span><span class="svc-tag">Notion</span><span class="svc-tag">Asana</span>
+        </div>
+        <div class="svc-price">From $2,000/month · Dedicated admin</div>
+      </div>
+
+      <div class="service-card animate-in">
+        <div class="svc-icon">🤝</div>
+        <div class="svc-name">Virtual Assistants</div>
+        <div class="svc-desc">A dedicated VA embedded in your workflow — handling the daily operational and personal admin that consumes a founder's time. Research, scheduling, correspondence, and coordination, handled proactively before you have to ask.</div>
+        <ul class="svc-bullets">
+          <li><span class="ck">✓</span>Executive and founder-level support</li>
+          <li><span class="ck">✓</span>Research, analysis, and summaries</li>
+          <li><span class="ck">✓</span>Travel, event, and meeting coordination</li>
+          <li><span class="ck">✓</span>Project management support</li>
+          <li><span class="ck">✓</span>Communications drafting and inbox management</li>
+        </ul>
+        <div class="svc-tags">
+          <span class="svc-tag">Slack</span><span class="svc-tag">Monday.com</span><span class="svc-tag">Calendly</span><span class="svc-tag">Trello</span>
+        </div>
+        <div class="svc-price">From $1,800/month · Dedicated VA</div>
+      </div>
+
+      <div class="service-card animate-in">
+        <div class="svc-icon">📊</div>
+        <div class="svc-name">Data Entry &amp; Processing</div>
+        <div class="svc-desc">Accurate, high-volume data handling for businesses that run on clean records. Inventory management, order processing, product listings, database hygiene — done with precision, delivered to spec, consistently.</div>
+        <ul class="svc-bullets">
+          <li><span class="ck">✓</span>E-commerce product listing and updates</li>
+          <li><span class="ck">✓</span>Order processing and fulfilment support</li>
+          <li><span class="ck">✓</span>Database cleaning and deduplication</li>
+          <li><span class="ck">✓</span>Inventory tracking and management</li>
+          <li><span class="ck">✓</span>Invoice and financial data processing</li>
+        </ul>
+        <div class="svc-tags">
+          <span class="svc-tag">Shopify</span><span class="svc-tag">WooCommerce</span><span class="svc-tag">QuickBooks</span><span class="svc-tag">Excel</span>
+        </div>
+        <div class="svc-price">From $1,800/month · Dedicated specialist</div>
+      </div>
+
+      <div class="service-card animate-in">
+        <div class="svc-icon">📈</div>
+        <div class="svc-name">Sales Support &amp; Lead Generation</div>
+        <div class="svc-desc">Prospecting, CRM management, follow-up sequences, appointment setting. Your sales team focuses on closing — CELO handles the pipeline work that fills their calendar. More conversations. More qualified leads. Less grunt work.</div>
+        <ul class="svc-bullets">
+          <li><span class="ck">✓</span>Lead research and targeted list building</li>
+          <li><span class="ck">✓</span>CRM data entry and pipeline management</li>
+          <li><span class="ck">✓</span>Outbound sequence management</li>
+          <li><span class="ck">✓</span>Appointment setting and calendar booking</li>
+          <li><span class="ck">✓</span>Follow-up and nurture communications</li>
+        </ul>
+        <div class="svc-tags">
+          <span class="svc-tag">Salesforce</span><span class="svc-tag">HubSpot</span><span class="svc-tag">Pipedrive</span><span class="svc-tag">LinkedIn</span>
+        </div>
+        <div class="svc-price">From $2,500/month · Dedicated SDR</div>
+      </div>
+
+      <div class="service-card animate-in">
+        <div class="svc-icon">💻</div>
+        <div class="svc-name">Technical Support</div>
+        <div class="svc-desc">Tier 1 and Tier 2 technical support for SaaS, e-commerce, and digital service businesses. Troubleshooting, escalation, bug reporting, and product feedback loops — all handled by your dedicated CELO technical team.</div>
+        <ul class="svc-bullets">
+          <li><span class="ck">✓</span>Tier 1 and Tier 2 support coverage</li>
+          <li><span class="ck">✓</span>Bug reporting and escalation documentation</li>
+          <li><span class="ck">✓</span>Knowledge base management and updates</li>
+          <li><span class="ck">✓</span>User onboarding and activation support</li>
+          <li><span class="ck">✓</span>User feedback collection and reporting</li>
+        </ul>
+        <div class="svc-tags">
+          <span class="svc-tag">Jira</span><span class="svc-tag">Zendesk</span><span class="svc-tag">Linear</span><span class="svc-tag">GitHub</span>
+        </div>
+        <div class="svc-price">From $2,800/month · Dedicated technical agent</div>
+      </div>
+
+    </div>
+    <div class="services-callout animate-in">
+      <div class="sc-body"><strong>Most CELO clients build multi-function teams.</strong> A customer support agent plus a back-office admin. A VA plus a sales development rep. We structure the team around what you actually need — and our AI consulting division identifies exactly where the highest-ROI additions are.</div>
+      <a class="btn-white" href="#book" style="white-space:nowrap;flex-shrink:0">Discuss Your Needs →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════
+     5. HOW IT WORKS
+     ═══════════════════════ -->
+<section class="section section-white text-center" id="how-it-works">
+  <div class="inner">
+    <div class="label animate-in">The Process</div>
+    <h2 class="section-title animate-in">From conversation to <span class="green it">running team</span> in two weeks.</h2>
+    <h3 class="animate-in" style="font-family:var(--serif);font-size:1.3rem;font-style:italic;font-weight:400;color:var(--grey);max-width:580px;margin:0 auto 52px;line-height:1.6;">"You say yes. We handle everything else. Here's exactly how."</h3>
+    <div class="process-grid">
+      <div class="process-line"></div>
+      <div class="process-step animate-in">
+        <div class="ps-num">1</div>
+        <div class="ps-name">Free Diagnostic Call</div>
+        <div class="ps-timing">30 Minutes</div>
+        <div class="ps-desc">We ask about your operations, your team, and your pain points. You tell us what's breaking. We tell you honestly — in plain language — whether and how we can fix it. No pitch. No pressure. No obligation.</div>
+      </div>
+      <div class="process-step animate-in">
+        <div class="ps-num">2</div>
+        <div class="ps-name">Team Matching</div>
+        <div class="ps-timing">3–5 Business Days</div>
+        <div class="ps-desc">We match you with agents who have the skills, industry experience, and communication style your business needs. You meet your team before anyone starts — and you approve the match.</div>
+      </div>
+      <div class="process-step animate-in">
+        <div class="ps-num">3</div>
+        <div class="ps-name">Onboarding</div>
+        <div class="ps-timing">7–14 Days</div>
+        <div class="ps-desc">Your team learns your systems, tools, processes, and quality standards. We handle the training coordination. Most CELO teams are fully operational within two weeks of their start date.</div>
+      </div>
+      <div class="process-step animate-in">
+        <div class="ps-num">4</div>
+        <div class="ps-name">Ongoing Partnership</div>
+        <div class="ps-timing">Indefinitely</div>
+        <div class="ps-desc">Weekly reporting. A dedicated account manager who knows your account. Regular performance reviews. If something isn't working, we fix it — that's the commitment, not the exception.</div>
+      </div>
+    </div>
+    <div class="process-sla animate-in">
+      <div class="sla-item">
+        <div class="sla-icon">📋</div>
+        <div>
+          <div class="sla-title">Weekly Reporting — Always</div>
+          <div class="sla-body">You receive a structured weekly report on everything your team accomplished. No black boxes. Full visibility as standard, not on request.</div>
+        </div>
+      </div>
+      <div class="sla-item">
+        <div class="sla-icon">👤</div>
+        <div>
+          <div class="sla-title">Dedicated Account Manager</div>
+          <div class="sla-body">One person who owns your account. A real relationship with someone accountable for your results — not a shared inbox or a ticketing system.</div>
+        </div>
+      </div>
+      <div class="sla-item">
+        <div class="sla-icon">🔄</div>
+        <div>
+          <div class="sla-title">Performance Guarantee</div>
+          <div class="sla-body">If a team member isn't performing to your standard, we replace them. That's our responsibility — not something you should have to manage.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════
+     6. WHO WE SERVE
+     ═══════════════════════ -->
+<section class="section section-forest" id="who-we-serve">
+  <div class="inner">
+    <div class="label-d animate-in">Who We Serve</div>
+    <h2 class="section-title-d animate-in">Built for founder-led businesses<br>that are growing faster than<br><span class="green-d it">their operations can keep up.</span></h2>
+    <p class="section-body-d animate-in" style="max-width:680px;margin-bottom:44px">CELO is not for every business. We're built for a specific kind of company — one that's growing, one where the founder is still close to operations, and one where operational failures are visible and painful. If that's you, we're likely the right fit.</p>
+
+    <div style="font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:28px;text-align:center;" class="animate-in">Our Ideal Client Profiles</div>
+
+    <div class="icp-grid">
+      <div class="icp-card animate-in">
+        <div class="icp-label">Growing Businesses</div>
+        <div class="icp-title">The Scaling Founder</div>
+        <span class="icp-tag">10–100 employees · $1M–$20M revenue · Dedicated teams of 2–10</span>
+        <div style="font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.75;margin:16px 0 20px;">
+          Operations are breaking under growth. The founder is doing work that should be delegated. Hiring locally is too slow or too expensive. They need a reliable, embedded team — not freelancers.
+        </div>
+        <div style="font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:10px">They're ready when they say:</div>
+        <ul class="icp-signals">
+          <li><div class="sd"></div>"We're spending too much time on tasks that aren't moving the needle"</li>
+          <li><div class="sd"></div>"I need to hire 3 more people but can't justify the local cost"</li>
+          <li><div class="sd"></div>"We tried a VA through Upwork but it was inconsistent and unreliable"</li>
+        </ul>
+      </div>
+
+      <div class="icp-card animate-in">
+        <div class="icp-label">Enterprise & Mid-Market</div>
+        <div class="icp-title">The Operations Leader</div>
+        <span class="icp-tag">100–5,000+ employees · $20M–$500M+ revenue · Teams of 10–100+</span>
+        <div style="font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.75;margin:16px 0 20px;">
+          Large-scale operations needing dedicated teams with documented QA, SLA accountability, and proven track record. Companies like Metropolis and Johnson Fitness trust CELO to run critical operational functions at scale.
+        </div>
+        <div style="font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:10px">They're ready when they say:</div>
+        <ul class="icp-signals">
+          <li><div class="sd"></div>"Our current BPO is underperforming — we need a partner, not a vendor"</li>
+          <li><div class="sd"></div>"We need to scale operations without scaling headcount costs"</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:32px">
+      <div class="label-d animate-in" style="margin-bottom:18px">Markets We Serve</div>
+      <div class="icp-geos">
+        <div class="icp-geo animate-in">
+          <div class="ig-flag">🇺🇸</div>
+          <div class="ig-name">United States</div>
+          <div class="ig-desc">Primary market. Time zone overlap achievable across EST and PST. Largest pool of founder-led SMBs actively seeking trusted outsourcing partners.</div>
+        </div>
+        <div class="icp-geo animate-in">
+          <div class="ig-flag">🇬🇧</div>
+          <div class="ig-name">United Kingdom</div>
+          <div class="ig-desc">Strong outsourcing culture. GMT overlap with Philippine working hours is manageable. Growing demand post-Brexit for operational cost efficiencies.</div>
+        </div>
+        <div class="icp-geo animate-in">
+          <div class="ig-flag">🇦🇺</div>
+          <div class="ig-name">Australia</div>
+          <div class="ig-desc">Best natural time zone alignment with the Philippines. Culturally similar workforce. High outsourcing adoption rate among Australian SMBs.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════
+     7. PROOF / RESULTS
+     ═══════════════════════ -->
+<section class="section section-white" id="proof">
+  <div class="inner">
+    <div class="label animate-in">Client Results</div>
+    <h2 class="section-title animate-in">We let the work<br><span class="green it">speak for itself.</span></h2>
+    <h3 class="animate-in" style="font-family:var(--serif);font-size:1.4rem;font-style:italic;font-weight:400;color:var(--grey);max-width:680px;line-height:1.6;margin-bottom:44px;">"Any BPO can claim quality. The ones that earn long-term contracts prove it. Here's what happens when CELO shows up."</h3>
+
+    <div class="proof-stats">
+      <div class="proof-stat animate-in">
+        <div class="pstat-num" data-counter="73" data-suffix="%">73%</div>
+        <div class="pstat-label">Average reduction in support ticket backlog within 60 days</div>
+      </div>
+      <div class="proof-stat animate-in">
+        <div class="pstat-num" data-counter="89" data-suffix="%">89%</div>
+        <div class="pstat-label">Faster first response times after CELO team deployment</div>
+      </div>
+      <div class="proof-stat animate-in">
+        <div class="pstat-num">60–70%</div>
+        <div class="pstat-label">Cost savings versus equivalent local hire across all roles</div>
+      </div>
+      <div class="proof-stat animate-in">
+        <div class="pstat-num" data-counter="98" data-suffix="%">98%</div>
+        <div class="pstat-label">Client retention rate across all service lines</div>
+      </div>
+    </div>
+
+    <div class="case-study animate-in">
+      <div class="cs-eyebrow">Case Study</div>
+      <div class="cs-title">US-Based E-Commerce Brand — Customer Support Transformation</div>
+      <span class="cs-industry">E-Commerce · United States · 3-person dedicated CELO team</span>
+      <div class="cs-grid">
+        <div>
+          <div class="cs-cl">The Challenge</div>
+          <div class="cs-cb">Ticket backlog growing 40% month-on-month. Core team spending 60% of their time on customer support. Satisfaction scores falling. Average first response time: 18 hours. Founder personally handling escalations every week.</div>
+        </div>
+        <div>
+          <div class="cs-cl">What CELO Did</div>
+          <div class="cs-cb">Built a dedicated 3-person support team in 10 days. Created triage system and response playbooks tailored to their product. Integrated directly into Zendesk and their internal Slack. Weekly reporting from day one.</div>
+        </div>
+        <div>
+          <div class="cs-cl">The Outcome</div>
+          <div class="cs-cb">Backlog cleared in 6 weeks. First response time under 2 hours. Core team fully refocused on product and growth. Client expanded team to 5 agents within 90 days. Founder stopped handling escalations within 30 days.</div>
+        </div>
+      </div>
+      <div class="cs-results">
+        <div><div class="cs-rval">73%</div><div class="cs-rlabel">Ticket backlog reduction</div></div>
+        <div><div class="cs-rval">89%</div><div class="cs-rlabel">Faster first response</div></div>
+        <div><div class="cs-rval">90 days</div><div class="cs-rlabel">To team expansion</div></div>
+        <div><div class="cs-rval">30 days</div><div class="cs-rlabel">Until founder stopped managing escalations</div></div>
+      </div>
+    </div>
+
+    <div class="cs-placeholder animate-in">
+      <div class="cs-ptext">More case studies available on request. <strong>Tell us your industry and challenge</strong> — we'll share the most relevant client results on your diagnostic call. Every engagement looks different; we match you to the story that's most relevant to your situation.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section class="section section-forest">
+  <div class="inner">
+    <div class="label-d animate-in">What Clients Say</div>
+    <h2 class="section-title-d animate-in">The headaches are gone.<br><span class="green-d it">Here's what happened.</span></h2>
+    <div class="testimonials-grid">
+      <div class="testi-card animate-in">
+        <div class="tc-stars"><span class="tc-star">★</span><span class="tc-star">★</span><span class="tc-star">★</span><span class="tc-star">★</span><span class="tc-star">★</span></div>
+        <div class="tc-quote">"I was sceptical — we'd tried outsourcing twice before and it never stuck. CELO was completely different. Our team felt like our team from week two. The reporting, the communication, the quality — exactly what we were promised. I haven't had to think about customer support since."</div>
+        <div class="tc-name">Operations Director</div>
+        <div class="tc-role">SaaS Company · United States &nbsp;·&nbsp; [Real quote to be added before go-live]</div>
+      </div>
+      <div class="testi-card animate-in">
+        <div class="tc-stars"><span class="tc-star">★</span><span class="tc-star">★</span><span class="tc-star">★</span><span class="tc-star">★</span><span class="tc-star">★</span></div>
+        <div class="tc-quote">"What I didn't expect was how much cognitive load this would remove from my week. I stopped thinking about support. It just got handled. My account manager is proactive — they flag things before I even notice them. That's the difference between a vendor and a team."</div>
+        <div class="tc-name">Founder &amp; CEO</div>
+        <div class="tc-role">E-Commerce Brand · Australia &nbsp;·&nbsp; [Real quote to be added before go-live]</div>
+      </div>
+      <div class="testi-card animate-in">
+        <div class="tc-stars"><span class="tc-star">★</span><span class="tc-star">★</span><span class="tc-star">★</span><span class="tc-star">★</span><span class="tc-star">★</span></div>
+        <div class="tc-quote">"The onboarding was faster than I thought possible. Within two weeks they were handling our back-office at the same quality level as our in-house team — at about 30% of the cost. We expanded to a second function within 60 days."</div>
+        <div class="tc-name">COO</div>
+        <div class="tc-role">Professional Services · United Kingdom &nbsp;·&nbsp; [Real quote to be added before go-live]</div>
+      </div>
+      <div class="testi-card animate-in">
+        <div class="tc-stars"><span class="tc-star">★</span><span class="tc-star">★</span><span class="tc-star">★</span><span class="tc-star">★</span><span class="tc-star">★</span></div>
+        <div class="tc-quote">"We were growing too fast for our operations to keep up. CELO gave us the breathing room to focus on growth instead of firefighting. Six months in, our CELO team is four people. I don't see us ever going back to doing it ourselves."</div>
+        <div class="tc-name">Founder</div>
+        <div class="tc-role">Digital Agency · United States &nbsp;·&nbsp; [Real quote to be added before go-live]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════
+     8. THE PHILIPPINES ADVANTAGE
+     ═══════════════════════ -->
+<section class="section section-white" id="philippines">
+  <div class="inner">
+    <div class="label animate-in">Why the Philippines</div>
+    <h2 class="section-title animate-in">Not apologetic about the geography.<br><span class="green it">Proud of it.</span></h2>
+    <div class="ph-intro animate-in">
+      The Philippines is not a cost-cutting shortcut. It is one of the world's most mature, most educated, most English-proficient business outsourcing markets — built over 25 years, supported by government policy, and refined by over 1.5 million professionals who made it their career. CELO was built on this foundation. Here's why it matters to your business.
+    </div>
+
+    <div class="ph-grid">
+      <div class="ph-card animate-in">
+        <div class="ph-icon">🗣️</div>
+        <div class="ph-title">English Proficiency</div>
+        <div class="ph-body">The Philippines is the third-largest English-speaking country in the world. English is an official language and the primary language of business, education, and government. Your CELO team communicates in natural, confident English — with your customers and with you.</div>
+        <div class="ph-stat">#3 English-speaking country globally</div>
+      </div>
+      <div class="ph-card animate-in">
+        <div class="ph-icon">🎓</div>
+        <div class="ph-title">Educated Workforce</div>
+        <div class="ph-body">The Philippines produces over 500,000 college graduates per year. The country has a strong tradition of academic achievement and professional development. CELO selects from the top of this talent pool — agents with genuine qualifications, not just availability.</div>
+        <div class="ph-stat">500,000+ graduates per year</div>
+      </div>
+      <div class="ph-card animate-in">
+        <div class="ph-icon">🌍</div>
+        <div class="ph-title">Cultural Alignment</div>
+        <div class="ph-body">Decades of exposure to US, UK, and Australian media, business culture, and consumer norms means Filipino professionals genuinely understand the markets they serve. The communication style, customer service ethos, and work culture align naturally with Western business expectations.</div>
+        <div class="ph-stat">Decades of Western business alignment</div>
+      </div>
+      <div class="ph-card animate-in">
+        <div class="ph-icon">🕐</div>
+        <div class="ph-title">Time Zone Coverage</div>
+        <div class="ph-body">Philippine Standard Time (GMT+8) overlaps directly with Australian business hours, and enables extended evening coverage for US and UK markets. For businesses needing support beyond standard hours, the Philippines provides coverage that European or US-based teams cannot match at comparable cost.</div>
+        <div class="ph-stat">Direct AU overlap · Extended US/UK coverage</div>
+      </div>
+      <div class="ph-card animate-in">
+        <div class="ph-icon">🏛️</div>
+        <div class="ph-title">Industry Maturity</div>
+        <div class="ph-body">The Philippine BPO sector has been growing for over 25 years. It is government-supported, institutionally organised, and professionally structured. PHILCALL — the industry body CELO belongs to — sets standards of practice that the market is held to. This isn't a gig economy. It's a profession.</div>
+        <div class="ph-stat">25+ years of industry development</div>
+      </div>
+      <div class="ph-card animate-in">
+        <div class="ph-icon">💰</div>
+        <div class="ph-title">Genuine Cost Advantage</div>
+        <div class="ph-body">A senior customer support agent in the US or UK costs $50,000–$70,000 per year in salary alone. The equivalent dedicated CELO team member delivers comparable quality at 60–70% less. That's not a race to the bottom — it's a structural economic advantage that the Philippines built over decades.</div>
+        <div class="ph-stat">60–70% cost savings vs. local hire</div>
+      </div>
+    </div>
+
+    <div class="ph-banner animate-in">
+      <div>
+        <div class="phb-title">The workforce is the differentiator.<br><span class="git">It always has been.</span></div>
+        <div class="phb-body">
+          <p>CELO doesn't hide the fact that your team is based in the Philippines. We lead with it — because the Philippines workforce is the reason the quality is what it is. The English proficiency. The work ethic. The cultural alignment with US, UK, and Australian business. The professional infrastructure built over 25 years of being one of the world's premier outsourcing destinations.</p>
+          <p><strong>Your team being based in the Philippines isn't the compromise. It's the advantage.</strong></p>
+        </div>
+      </div>
+      <div class="phb-stats">
+        <div class="phb-stat">
+          <div class="phbs-num">1.5M+</div>
+          <div class="phbs-label">BPO professionals in the Philippines</div>
+        </div>
+        <div class="phb-stat">
+          <div class="phbs-num">$29B</div>
+          <div class="phbs-label">Philippine BPO export revenue annually</div>
+        </div>
+        <div class="phb-stat">
+          <div class="phbs-num">25+</div>
+          <div class="phbs-label">Years of industry maturity and development</div>
+        </div>
+        <div class="phb-stat">
+          <div class="phbs-num">#3</div>
+          <div class="phbs-label">English-speaking country in the world</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════
+     9. ABOUT / ORIGIN
+     ═══════════════════════ -->
+<section class="section section-bg" id="about">
+  <div class="inner">
+    <div class="label animate-in" style="text-align:center;justify-content:center;">About CELO</div>
+    <h2 class="section-title animate-in" style="text-align:center;margin-bottom:60px;max-width:700px;margin-left:auto;margin-right:auto;">We believe the best businesses shouldn't be <span class="green it">limited</span> by what they can afford to hire locally.</h2>
+    <div class="about-grid">
+      <div class="about-body slide-left">
+        <p>CELO Business Solutions was built on a simple but powerful observation: great businesses — the founder-led, fast-moving, genuinely valuable ones — are being slowed down by operational problems that have a straightforward solution. The talent exists. The infrastructure exists. The expertise exists. What was missing was a partner willing to stand behind the quality with real accountability instead of generic capability claims.</p>
+        <p>The Philippines BPO industry is one of the most mature and professionally developed outsourcing markets in the world — built over more than 25 years, supported by a government that recognised its strategic value, and refined by over 1.5 million professionals who chose it as their career. <strong>We built a company around it.</strong></p>
+        <p>CELO connects growing businesses in the US, UK, and Australia with the operational talent they need — with the transparency, accountability, and embedded partnership model that the outsourcing industry has historically been too transactional to provide. We joined PHILCALL, the Philippine Chamber of Commerce, and PABC not as a marketing exercise but because being held to professional standards is what separates serious operations from generic staffing agencies.</p>
+        <p>The businesses we work with aren't looking for the cheapest option. They're looking for the option that works — the first time, every time. That's the company we built. That's what CELO is.</p>
+        <div class="pull">"We're not a vendor. We're your operations team — just based in the Philippines."</div>
+        <p>Today, CELO places dedicated teams for businesses across three continents. Our team members are embedded in operations from New York to Melbourne, from London to Los Angeles. They handle the work that frees founders to grow their businesses — not just manage them.</p>
+      </div>
+      <div class="slide-right">
+        <!-- NOTE: Replace this placeholder with a real CELO Philippines office or team photo -->
+        <div class="about-image-placeholder">
+          <div class="aip-label">Replace with CELO Philippines team photo</div>
+          <div class="aip-text">CELO Business Solutions<br>Philippines</div>
+        </div>
+        <div style="margin-top:24px;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:26px;box-shadow:var(--shadow)">
+          <div style="font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:18px">Why CELO Clients Stay</div>
+          <div style="display:flex;flex-direction:column;gap:13px">
+            <div style="display:flex;gap:10px;align-items:flex-start">
+              <div style="width:5px;height:5px;border-radius:50%;background:var(--green-bright);flex-shrink:0;margin-top:8px"></div>
+              <div style="font-size:.82rem;color:var(--grey);line-height:1.6"><strong style="color:var(--body)">98% retention rate</strong> — because the team feels like their own</div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start">
+              <div style="width:5px;height:5px;border-radius:50%;background:var(--green-bright);flex-shrink:0;margin-top:8px"></div>
+              <div style="font-size:.82rem;color:var(--grey);line-height:1.6"><strong style="color:var(--body)">Most clients expand within 90 days</strong> — because it works</div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start">
+              <div style="width:5px;height:5px;border-radius:50%;background:var(--green-bright);flex-shrink:0;margin-top:8px"></div>
+              <div style="font-size:.82rem;color:var(--grey);line-height:1.6"><strong style="color:var(--body)">2-week onboarding</strong> — from agreement to fully operational team</div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start">
+              <div style="width:5px;height:5px;border-radius:50%;background:var(--green-bright);flex-shrink:0;margin-top:8px"></div>
+              <div style="font-size:.82rem;color:var(--grey);line-height:1.6"><strong style="color:var(--body)">Weekly reporting, always</strong> — as standard, not on request</div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start">
+              <div style="width:5px;height:5px;border-radius:50%;background:var(--green-bright);flex-shrink:0;margin-top:8px"></div>
+              <div style="font-size:.82rem;color:var(--grey);line-height:1.6"><strong style="color:var(--body)">Dedicated account manager</strong> — one relationship, full accountability</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:24px;background:var(--forest);border-radius:14px;padding:28px;color:white;">
+          <div style="font-family:var(--serif);font-size:1.15rem;font-style:italic;line-height:1.6;margin-bottom:14px;color:rgba(255,255,255,0.85);">
+            "We don't succeed unless our clients forget we're in a different country. That's the standard — and it's the reason most of them expand their team within 90 days."
+          </div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--green-bright);">— CELO Leadership Team</div>
+        </div>
+
+        <div style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center;">
+            <div style="font-family:var(--serif);font-size:1.8rem;font-weight:700;color:var(--green);line-height:1;">3</div>
+            <div style="font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);margin-top:4px;">Continents served</div>
+          </div>
+          <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center;">
+            <div style="font-family:var(--serif);font-size:1.8rem;font-weight:700;color:var(--green);line-height:1;">10 days</div>
+            <div style="font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);margin-top:4px;">Average team deployment</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUR STEPS TIMELINE -->
+<section style="background:#f0f5f0;padding:80px 0;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 40px;">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div style="font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:12px;">Your Journey</div>
+      <h3 style="font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--forest);line-height:1.3;">Four steps to your dedicated team.</h3>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:0;position:relative;">
+      <div style="position:absolute;top:24px;left:60px;right:60px;height:2px;background:linear-gradient(90deg,var(--green-bright),var(--green));opacity:0.3;z-index:0;"></div>
+      <div style="flex:1;text-align:center;position:relative;z-index:1;padding:0 16px;">
+        <div style="width:48px;height:48px;border-radius:50%;background:var(--green-bright);color:white;font-family:var(--serif);font-weight:700;font-size:1.1rem;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 4px 16px rgba(53,160,95,0.25);">1</div>
+        <div style="font-weight:600;color:var(--forest);font-size:.88rem;margin-bottom:6px;">Confirmation</div>
+        <div style="font-size:.8rem;color:var(--grey);line-height:1.6;">Calendar link to choose your preferred time slot</div>
+      </div>
+      <div style="flex:1;text-align:center;position:relative;z-index:1;padding:0 16px;">
+        <div style="width:48px;height:48px;border-radius:50%;background:var(--green-bright);color:white;font-family:var(--serif);font-weight:700;font-size:1.1rem;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 4px 16px rgba(53,160,95,0.25);">2</div>
+        <div style="font-weight:600;color:var(--forest);font-size:.88rem;margin-bottom:6px;">Discovery</div>
+        <div style="font-size:.8rem;color:var(--grey);line-height:1.6;">We learn about your operations, team size, and pain points</div>
+      </div>
+      <div style="flex:1;text-align:center;position:relative;z-index:1;padding:0 16px;">
+        <div style="width:48px;height:48px;border-radius:50%;background:var(--green-bright);color:white;font-family:var(--serif);font-weight:700;font-size:1.1rem;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 4px 16px rgba(53,160,95,0.25);">3</div>
+        <div style="font-weight:600;color:var(--forest);font-size:.88rem;margin-bottom:6px;">Clarity</div>
+        <div style="font-size:.8rem;color:var(--grey);line-height:1.6;">Can we help? How? What does it cost? How fast can we start?</div>
+      </div>
+      <div style="flex:1;text-align:center;position:relative;z-index:1;padding:0 16px;">
+        <div style="width:48px;height:48px;border-radius:50%;background:var(--green-bright);color:white;font-family:var(--serif);font-weight:700;font-size:1.1rem;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 4px 16px rgba(53,160,95,0.25);">4</div>
+        <div style="font-weight:600;color:var(--forest);font-size:.88rem;margin-bottom:6px;">Your Team</div>
+        <div style="font-size:.8rem;color:var(--grey);line-height:1.6;">Options in 3–5 days. No fit — no pressure, no follow-up</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════
+     10. CTA / BOOK DIAGNOSTIC
+     ═══════════════════════ -->
+<section class="section section-forest" id="book">
+  <div class="inner">
+    <div class="book-grid">
+      <div>
+        <div class="book-label animate-in">Free 30-Minute Diagnostic</div>
+        <h2 class="book-title animate-in">Tell us what's breaking<br>in your <span class="git">operations.</span></h2>
+        <p class="book-sub animate-in">We'll tell you in 30 minutes <strong>if and how we can fix it.</strong> No pitch. No generic proposal. A direct conversation about your specific situation — and an honest answer about whether CELO is the right fit for your business right now.</p>
+        <div class="book-promises animate-in">
+          <div class="book-p"><div class="bp-dot"></div>30 minutes. No obligation. No pressure.</div>
+          <div class="book-p"><div class="bp-dot"></div>We'll tell you honestly if we're not the right fit.</div>
+          <div class="book-p"><div class="bp-dot"></div>Walk away with clarity regardless of what you decide.</div>
+          <div class="book-p"><div class="bp-dot"></div>Response within 24 hours — usually the same day.</div>
+          <div class="book-p"><div class="bp-dot"></div>No contract until you've met your team and approved the match.</div>
+        </div>
+
+        <div class="animate-in" style="margin-top:40px;padding:28px 24px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;">
+          <div style="font-family:var(--serif);font-size:1.1rem;font-style:italic;color:rgba(255,255,255,.8);line-height:1.65;margin-bottom:12px;">
+            "We were sceptical after two failed outsourcing attempts. CELO was completely different — our team felt like our team from week two."
+          </div>
+          <div style="font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green-bright);">— Operations Director, US SaaS Company</div>
+        </div>
+
+        <div class="animate-in" style="margin-top:20px;display:flex;gap:24px;">
+          <div style="text-align:center;">
+            <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--green-bright);line-height:1;">98%</div>
+            <div style="font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:4px;">Client retention</div>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,.1);"></div>
+          <div style="text-align:center;">
+            <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--green-bright);line-height:1;">24hr</div>
+            <div style="font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:4px;">Response time</div>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,.1);"></div>
+          <div style="text-align:center;">
+            <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--green-bright);line-height:1;">2 wks</div>
+            <div style="font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:4px;">To fully operational</div>
+          </div>
+        </div>
+      </div>
+      <div class="book-form animate-in">
+        <div class="bf-title">Book Your Free Diagnostic</div>
+        <div class="bf-sub">Takes 2 minutes. We'll confirm your time slot within 24 hours — usually same day.</div>
+        <form class="bf-form" name="celo-diagnostic" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="celo-diagnostic">
+          <input class="bf-input" type="text" name="name" placeholder="Your name" required>
+          <input class="bf-input" type="email" name="email" placeholder="Business email address" required>
+          <input class="bf-input" type="text" name="company" placeholder="Company name">
+          <input class="bf-input" type="text" name="website" placeholder="Company website (optional)">
+          <select class="bf-select" name="challenge" required onchange="document.getElementById('challenge-details').style.display = this.value === 'Other' ? 'block' : 'none'">
+            <option value="" disabled selected>What's your biggest operational challenge?</option>
+            <option>Customer support / ticket volume overwhelming the team</option>
+            <option>Back office admin consuming too much time</option>
+            <option>Sales pipeline / lead generation needs support</option>
+            <option>Need a dedicated VA for executive / founder support</option>
+            <option>Data entry and processing backlog</option>
+            <option>Technical support coverage gaps</option>
+            <option>Multiple areas — need a broader conversation</option>
+            <option value="Other">Other — I'll describe below</option>
+          </select>
+          <textarea class="bf-textarea" id="challenge-details" name="challenge-details" placeholder="Tell us what's breaking in your operations — the more detail, the better we can prepare for your call." style="display:none;"></textarea>
+          <input class="bf-input" type="text" name="team-size" placeholder="Current team size (approx.)">
+          <input class="bf-input" type="text" name="country" placeholder="Country (US / UK / AU / Other)">
+          <textarea class="bf-textarea" name="context" placeholder="Anything else that would help us prepare? (optional)"></textarea>
+          <button type="submit" class="bf-btn">Book My Free 30-Min Diagnostic →</button>
+          <div class="bf-note">No obligation. No pitch. No contract until you're ready. Just a straight conversation — and an honest answer.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════
+     11. FOOTER
+     ═══════════════════════ -->
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <div class="fb-logo">
+        <div class="fb-mark">C</div>
+        <div class="fb-text">CELO <span>Business Solutions</span></div>
+      </div>
+      <div class="fb-desc">Dedicated remote teams for founder-led businesses in the US, UK, and Australia. Philippines-based. Accountability-first. Results before contracts.</div>
+      <div class="fb-certs">
+        <div class="fb-cert">PHILCALL Certified</div>
+        <div class="fb-cert">Philippine Chamber of Commerce Member</div>
+        <div class="fb-cert">PABC Accredited</div>
+      </div>
+    </div>
+    <div>
+      <div class="fc-title">Services</div>
+      <ul class="fc-links">
+        <li><a href="#services">Customer Support &amp; CX</a></li>
+        <li><a href="#services">Admin &amp; Back Office</a></li>
+        <li><a href="#services">Virtual Assistants</a></li>
+        <li><a href="#services">Data Entry &amp; Processing</a></li>
+        <li><a href="#services">Sales Support &amp; Lead Gen</a></li>
+        <li><a href="#services">Technical Support</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fc-title">Company</div>
+      <ul class="fc-links">
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#who-we-serve">Who We Serve</a></li>
+        <li><a href="#proof">Client Results</a></li>
+        <li><a href="#philippines">Why Philippines</a></li>
+        <li><a href="#about">About CELO</a></li>
+        <li><a href="/careers">Careers</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fc-title">Get Started</div>
+      <ul class="fc-links">
+        <li><a href="#book">Book a Free Diagnostic</a></li>
+        <li><a href="mailto:hello@celoph.com">hello@celoph.com</a></li>
+        <li><a href="https://celoph.com" target="_blank">celoph.com</a></li>
+      </ul>
+      <div style="margin-top:20px">
+        <div class="fc-title">For Candidates</div>
+        <ul class="fc-links">
+          <li><a href="/careers">View Open Positions</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 CELO Business Solutions &middot; Philippines &middot; All rights reserved.</div>
+    <div class="footer-badges">
+      <span class="footer-badge">PHILCALL</span>
+      <span class="footer-badge">Philippine Chamber of Commerce</span>
+      <span class="footer-badge">PABC</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─── Nav scroll state ───
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
+});
+
+// ─── IntersectionObserver — fade + slide animations ───
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+
+document.querySelectorAll('.animate-in,.slide-left,.slide-right').forEach(el=>observer.observe(el));
+
+// ─── Animated counters ───
+function animateCounter(el){
+  const target=parseInt(el.dataset.counter,10);
+  const suffix=el.dataset.suffix||'';
+  if(isNaN(target))return;
+  const duration=1800;
+  let startTime=null;
+  const step=(ts)=>{
+    if(!startTime)startTime=ts;
+    const p=Math.min((ts-startTime)/duration,1);
+    const eased=1-Math.pow(1-p,3);
+    el.textContent=Math.floor(eased*target)+suffix;
+    if(p<1)requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+const counterObs=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){animateCounter(entry.target);counterObs.unobserve(entry.target);}
+  });
+},{threshold:0.5});
+
+document.querySelectorAll('[data-counter]').forEach(el=>counterObs.observe(el));
+
+// ─── Mobile nav ───
+const celoHamburger = document.getElementById('celo-hamburger');
+const celoMobileMenu = document.getElementById('celo-mobile-menu');
+
+if (celoHamburger && celoMobileMenu) {
+  celoHamburger.addEventListener('click', () => {
+    const isOpen = celoMobileMenu.classList.contains('open');
+    celoMobileMenu.classList.toggle('open');
+    celoHamburger.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  document.addEventListener('click', (e) => {
+    if (celoMobileMenu.classList.contains('open') && !celoMobileMenu.contains(e.target) && !celoHamburger.contains(e.target)) {
+      celoMobileMenu.classList.remove('open');
+      celoHamburger.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
+function closeCeloMenu() {
+  const menu = document.getElementById('celo-mobile-menu');
+  const btn = document.getElementById('celo-hamburger');
+  if (menu) menu.classList.remove('open');
+  if (btn) btn.setAttribute('aria-expanded', 'false');
+}
+
+// ─── Smooth anchor scrolling ───
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,2024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metropolis — The AI Operations Platform for Fitness & Wellness Networks</title>
+<meta name="description" content="Metropolis delivers $364.7M in Year 1 impact across 4,500 facilities. AI-powered staffing optimization, payment recovery, churn prevention, and revenue growth for fitness and wellness operators.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Metropolis — $364.7M Year 1 Impact">
+<meta property="og:description" content="The AI operations platform built for multi-location fitness and wellness networks. 3,658% ROI. 13-day payback.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%232e7b52'/><text y='.9em' x='50%' text-anchor='middle' font-size='58' fill='white' font-family='Georgia'>M</text></svg>">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!--
+  REFERENCE SITES STUDIED:
+  - linear.app — dark hero, crisp data presentation, animated counters, precise motion
+  - stripe.com — trust through design precision, data-forward sections, enterprise feel
+  - vercel.com — dark aesthetic, motion-rich, technical credibility
+  - fitness industry: mindbodyonline.com, clubready.com — functional clarity
+  - planetfitness.com/investors — enterprise financial presentation style
+
+  DESIGN DECISIONS:
+  - Forest green (#1c2e1e) hero — premium, tech-forward, distinctive in fitness space
+  - Playfair Display for headers: authoritative, premium, not typical SaaS
+  - Inter for body: clean, readable, enterprise-appropriate
+  - Data sections use dashboard-inspired layouts — numbers are the hero
+  - Split-screen sections alternate dark/light for rhythm
+  - Animated counters on scroll for the big financial numbers
+  - Feature cards with hover states and subtle green glows
+  - Timeline uses a visual progress track
+
+  IMAGES NEEDING REPLACEMENT:
+  - Hero background: aerial view of fitness facility or modern gym floor
+  - Platform section: screenshot of Metropolis dashboard UI
+  - Team/credibility section: CELO team photos
+  - Case study section: before/after operational metrics visual
+-->
+
+<style>
+/* ============================================================
+   RESET & CUSTOM PROPERTIES
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Dark palette */
+  --forest:       #1c2e1e;
+  --forest-deep:  #141f15;
+  --forest-mid:   #243d26;
+  --forest-card:  rgba(255,255,255,0.04);
+  --forest-card2: rgba(255,255,255,0.065);
+  --forest-border:rgba(255,255,255,0.08);
+  --forest-border2:rgba(255,255,255,0.12);
+  --forest-text:  #f0f7f2;
+  --forest-body:  rgba(240,247,242,0.72);
+  --forest-muted: rgba(240,247,242,0.42);
+
+  /* Light palette */
+  --bg:           #f5f9f5;
+  --bg-surface:   #eef6f0;
+  --text:         #1a2e1e;
+  --body:         #364d39;
+  --muted:        #5a7a5a;
+  --border:       rgba(46,123,82,0.12);
+  --border-light: rgba(46,123,82,0.07);
+
+  /* Brand greens */
+  --green:        #2e7b52;
+  --green-dark:   #235f40;
+  --green-bright: #35a05f;
+  --green-light:  #6fc896;
+  --green-pale:   #a8d9bc;
+  --green-soft:   rgba(46,123,82,0.08);
+  --green-glow:   rgba(53,160,95,0.15);
+  --green-border: rgba(46,123,82,0.2);
+
+  /* Accent */
+  --gold:         #c9a84c;
+  --gold-soft:    rgba(201,168,76,0.12);
+
+  /* Typography */
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans:  'Inter', -apple-system, sans-serif;
+
+  /* Layout */
+  --max:    1160px;
+  --max-wide: 1320px;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 68px; }
+
+body {
+  font-family: var(--sans);
+  background: var(--forest-deep);
+  color: var(--forest-text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up:nth-child(2) { transition-delay: 0.10s; }
+.fade-up:nth-child(3) { transition-delay: 0.20s; }
+.fade-up:nth-child(4) { transition-delay: 0.30s; }
+.fade-up:nth-child(5) { transition-delay: 0.40s; }
+.fade-up:nth-child(6) { transition-delay: 0.50s; }
+.fade-up:nth-child(7) { transition-delay: 0.60s; }
+.fade-up:nth-child(8) { transition-delay: 0.70s; }
+.fade-up:nth-child(9) { transition-delay: 0.80s; }
+
+.fade-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.fade-left.visible { opacity: 1; transform: translateX(0); }
+
+.fade-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.fade-right.visible { opacity: 1; transform: translateX(0); }
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+  background: rgba(20, 31, 21, 0.96);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  height: 68px;
+  display: flex; align-items: center;
+  padding: 0 48px;
+  justify-content: space-between;
+  transition: background 0.3s;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+}
+.nav-logo-mark {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--green), var(--green-bright));
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-weight: 700; font-size: 1rem;
+  color: #fff; flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(53,160,95,0.3);
+}
+.nav-wordmark {
+  font-family: var(--serif); font-size: 1.1rem; font-weight: 700;
+  color: var(--forest-text); letter-spacing: -0.01em;
+}
+.nav-wordmark span { color: var(--green-light); }
+.nav-links {
+  display: flex; align-items: center; gap: 4px;
+}
+.nav-link {
+  font-size: 0.72rem; letter-spacing: 0.02em; font-weight: 500;
+  color: var(--forest-muted); padding: 7px 14px; border-radius: 6px;
+  transition: all 0.15s; white-space: nowrap;
+}
+.nav-link:hover { color: var(--forest-text); background: rgba(255,255,255,0.06); }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green-bright); color: #fff;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.02em;
+  padding: 10px 22px; border-radius: 7px;
+  transition: background 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 16px rgba(53,160,95,0.3);
+}
+.nav-cta:hover { background: var(--green-dark); box-shadow: 0 4px 20px rgba(53,160,95,0.4); }
+@media(max-width:860px) {
+  .nav-links { display: none; }
+  .nav { padding: 0 24px; }
+}
+
+/* ============================================================
+   SHARED UTILITIES
+   ============================================================ */
+.inner { max-width: var(--max); margin: 0 auto; }
+.inner-wide { max-width: var(--max-wide); margin: 0 auto; }
+
+.section-d { padding: 100px 48px; background: var(--forest); }
+.section-l { padding: 100px 48px; background: var(--bg); }
+.section-deep { padding: 100px 48px; background: var(--forest-deep); }
+.section-surface { padding: 100px 48px; background: var(--bg-surface); }
+
+@media(max-width:720px) {
+  .section-d, .section-l, .section-deep, .section-surface { padding: 72px 24px; }
+}
+
+/* Labels */
+.label-d {
+  font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--green-light); font-weight: 700; margin-bottom: 20px;
+  display: flex; align-items: center; gap: 14px;
+}
+.label-d::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: rgba(111,200,150,0.25); }
+
+.label-l {
+  font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--green); font-weight: 700; margin-bottom: 20px;
+  display: flex; align-items: center; gap: 14px;
+}
+.label-l::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: rgba(46,123,82,0.2); }
+
+/* Headings */
+.h-d {
+  font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700; line-height: 1.1; color: var(--forest-text);
+  margin-bottom: 20px;
+}
+.h-l {
+  font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700; line-height: 1.1; color: var(--text);
+  margin-bottom: 20px;
+}
+.h-d .it, .h-l .it { font-style: italic; }
+.h-d .g { color: var(--green-bright); }
+.h-l .g { color: var(--green); }
+
+/* Body text */
+.body-d { font-size: 0.92rem; color: var(--forest-body); line-height: 1.9; }
+.body-d strong { color: var(--forest-text); }
+.body-l { font-size: 0.92rem; color: var(--body); line-height: 1.9; }
+.body-l strong { color: var(--text); }
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--green-bright); color: #fff;
+  font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em;
+  padding: 14px 30px; border-radius: 8px; border: none; cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s, transform 0.15s;
+  box-shadow: 0 4px 20px rgba(53,160,95,0.35);
+}
+.btn-primary:hover {
+  background: var(--green-dark);
+  box-shadow: 0 6px 28px rgba(53,160,95,0.45);
+  transform: translateY(-1px);
+}
+
+.btn-outline-d {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: transparent; color: var(--forest-text);
+  font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em;
+  padding: 13px 28px; border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.18); cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn-outline-d:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.3); }
+
+/* ============================================================
+   HERO — CENTERED, FULL VIEWPORT
+   ============================================================ */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 120px 48px 80px;
+  position: relative; overflow: hidden;
+  background: var(--forest-deep);
+}
+
+/* Radial glow */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 45%, rgba(46,123,82,0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 30% at 30% 70%, rgba(53,160,95,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 30% at 70% 20%, rgba(53,160,95,0.06) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+/* Grid lines */
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(46,123,82,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46,123,82,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative; z-index: 1;
+  max-width: 860px;
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(53,160,95,0.1); border: 1px solid rgba(53,160,95,0.25);
+  border-radius: 40px; padding: 7px 18px; margin-bottom: 32px;
+  font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--green-light); font-weight: 700;
+}
+.hero-badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green-bright);
+  box-shadow: 0 0 8px var(--green-bright);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  font-weight: 700; line-height: 1.05;
+  color: var(--forest-text);
+  margin-bottom: 28px; letter-spacing: -0.02em;
+}
+.hero-title .it { font-style: italic; }
+.hero-title .g {
+  color: var(--green-bright);
+  text-shadow: 0 0 60px rgba(53,160,95,0.4);
+}
+
+.hero-sub {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  color: var(--forest-body); line-height: 1.75;
+  max-width: 620px; margin: 0 auto 40px;
+}
+.hero-sub strong { color: var(--forest-text); }
+
+.hero-actions {
+  display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 64px;
+}
+
+/* Hero stats strip */
+.hero-stats {
+  display: flex; gap: 0;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px; overflow: hidden;
+  max-width: 720px; margin: 0 auto;
+}
+.hero-stat {
+  flex: 1; padding: 24px 20px; text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.2s;
+}
+.hero-stat:last-child { border-right: none; }
+.hero-stat:hover { background: rgba(255,255,255,0.03); }
+.hero-stat-num {
+  font-family: var(--serif); font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 700; color: var(--green-bright);
+  margin-bottom: 6px; line-height: 1;
+}
+.hero-stat-label {
+  font-size: 0.68rem; color: var(--forest-muted);
+  letter-spacing: 0.06em; line-height: 1.4;
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--forest-muted);
+}
+.hero-scroll-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, transparent, rgba(111,200,150,0.4), transparent);
+  animation: scroll-line 2s ease-in-out infinite;
+}
+@keyframes scroll-line {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(0.7); }
+}
+
+@media(max-width:600px) {
+  .hero { padding: 100px 24px 80px; }
+  .hero-stats { flex-direction: column; }
+  .hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .hero-stat:last-child { border-bottom: none; }
+}
+
+/* ============================================================
+   SECTION 2 — THE PROBLEM
+   ============================================================ */
+.problem-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 80px; align-items: start;
+  margin-top: 64px;
+}
+@media(max-width:900px) { .problem-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+.problem-intro { max-width: 460px; }
+.problem-intro p { margin-bottom: 18px; }
+
+.problem-cards {
+  display: grid; gap: 16px;
+}
+
+.problem-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px; padding: 24px 28px;
+  position: relative; overflow: hidden;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s;
+}
+.problem-card:hover {
+  border-color: rgba(53,160,95,0.25);
+  background: rgba(53,160,95,0.04);
+  transform: translateX(4px);
+}
+.problem-card::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--green-bright), var(--green));
+  opacity: 0; transition: opacity 0.25s;
+}
+.problem-card:hover::before { opacity: 1; }
+
+.problem-card-cost {
+  font-family: var(--serif); font-size: 1.5rem; font-weight: 700;
+  color: var(--green-light); margin-bottom: 8px;
+}
+.problem-card-title {
+  font-size: 0.9rem; font-weight: 600; color: var(--forest-text);
+  margin-bottom: 8px;
+}
+.problem-card-body {
+  font-size: 0.82rem; color: var(--forest-body); line-height: 1.7;
+}
+
+.problem-total {
+  background: linear-gradient(135deg, rgba(53,160,95,0.1), rgba(46,123,82,0.06));
+  border: 1px solid rgba(53,160,95,0.25);
+  border-radius: 14px; padding: 28px 32px; margin-top: 24px;
+  text-align: center;
+}
+.problem-total-label {
+  font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--green-light); font-weight: 700; margin-bottom: 8px;
+}
+.problem-total-num {
+  font-family: var(--serif); font-size: 2.8rem; font-weight: 700;
+  color: var(--forest-text); line-height: 1;
+  margin-bottom: 8px;
+}
+.problem-total-sub {
+  font-size: 0.8rem; color: var(--forest-muted);
+}
+
+/* ============================================================
+   SECTION 3 — THE PLATFORM
+   ============================================================ */
+.platform-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+  margin-bottom: 80px;
+}
+@media(max-width:900px) { .platform-intro-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+.platform-visual {
+  position: relative; border-radius: 16px; overflow: hidden;
+  background: var(--forest-mid);
+  border: 1px solid rgba(255,255,255,0.09);
+  min-height: 380px;
+}
+.platform-visual img {
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.75;
+}
+.platform-visual-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(28,46,30,0.7) 0%, transparent 60%);
+}
+.platform-visual-tag {
+  position: absolute; bottom: 20px; left: 20px;
+  background: rgba(28,46,30,0.9); border: 1px solid rgba(53,160,95,0.3);
+  border-radius: 8px; padding: 10px 16px;
+  font-size: 0.7rem; color: var(--green-light); font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+/* Feature grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media(max-width:960px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width:580px) { .features-grid { grid-template-columns: 1fr; } }
+
+.feature-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px; padding: 28px 26px;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
+  position: relative; overflow: hidden;
+}
+.feature-card::after {
+  content: '';
+  position: absolute; top: -40px; right: -40px;
+  width: 100px; height: 100px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(53,160,95,0.1), transparent 70%);
+  opacity: 0; transition: opacity 0.3s;
+}
+.feature-card:hover {
+  border-color: rgba(53,160,95,0.22);
+  background: rgba(53,160,95,0.04);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(53,160,95,0.1);
+}
+.feature-card:hover::after { opacity: 1; }
+
+.feature-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: rgba(53,160,95,0.12); border: 1px solid rgba(53,160,95,0.2);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px; font-size: 1.2rem;
+}
+.feature-name {
+  font-family: var(--serif); font-size: 1.05rem; font-weight: 700;
+  color: var(--forest-text); margin-bottom: 8px; line-height: 1.2;
+}
+.feature-impact {
+  font-size: 0.72rem; font-weight: 700; color: var(--green-bright);
+  letter-spacing: 0.06em; margin-bottom: 12px;
+}
+.feature-desc {
+  font-size: 0.8rem; color: var(--forest-body); line-height: 1.7;
+}
+
+/* ============================================================
+   SECTION 4 — THE NUMBERS (Financial Dashboard)
+   ============================================================ */
+.numbers-section {
+  padding: 100px 48px;
+  background: var(--forest-deep);
+  position: relative; overflow: hidden;
+}
+.numbers-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(46,123,82,0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+@media(max-width:720px) { .numbers-section { padding: 72px 24px; } }
+
+.numbers-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 72px;
+}
+
+.big-number {
+  font-family: var(--serif);
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 700;
+  color: var(--green-bright);
+  line-height: 1;
+  text-align: center;
+  margin-bottom: 12px;
+  text-shadow: 0 0 80px rgba(53,160,95,0.4);
+  letter-spacing: -0.02em;
+}
+.big-number-label {
+  text-align: center;
+  font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--forest-muted); font-weight: 600; margin-bottom: 64px;
+}
+
+/* Impact split */
+.impact-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+@media(max-width:700px) { .impact-split { grid-template-columns: 1fr; } }
+
+.impact-block {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px; padding: 36px 32px;
+  position: relative; overflow: hidden;
+}
+.impact-block-savings {
+  border-color: rgba(53,160,95,0.2);
+  background: rgba(53,160,95,0.04);
+}
+.impact-block-revenue {
+  border-color: rgba(201,168,76,0.2);
+  background: rgba(201,168,76,0.04);
+}
+.impact-block-label {
+  font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
+  font-weight: 700; margin-bottom: 10px;
+}
+.impact-block-savings .impact-block-label { color: var(--green-light); }
+.impact-block-revenue .impact-block-label { color: var(--gold); }
+
+.impact-block-total {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  font-weight: 700; color: var(--forest-text);
+  margin-bottom: 24px; line-height: 1;
+}
+
+.impact-rows { display: flex; flex-direction: column; gap: 10px; }
+
+.impact-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.impact-row-name {
+  font-size: 0.8rem; color: var(--forest-body); font-weight: 500;
+}
+.impact-row-value {
+  font-size: 0.85rem; font-weight: 700;
+  font-family: var(--serif);
+}
+.impact-block-savings .impact-row-value { color: var(--green-bright); }
+.impact-block-revenue .impact-row-value { color: var(--gold); }
+
+/* ROI strip */
+.roi-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 14px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+@media(max-width:700px) { .roi-strip { grid-template-columns: 1fr 1fr; } }
+
+.roi-cell {
+  background: var(--forest-deep);
+  padding: 28px 24px; text-align: center;
+  transition: background 0.2s;
+}
+.roi-cell:hover { background: rgba(53,160,95,0.05); }
+.roi-cell-num {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700; color: var(--green-bright); margin-bottom: 8px; line-height: 1;
+}
+.roi-cell-label {
+  font-size: 0.68rem; color: var(--forest-muted); letter-spacing: 0.06em; line-height: 1.4;
+}
+
+/* Accuracy table */
+.accuracy-table-wrap {
+  margin-top: 48px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px; overflow: hidden;
+}
+.acc-table {
+  width: 100%; border-collapse: collapse;
+}
+.acc-table th {
+  background: rgba(53,160,95,0.08);
+  padding: 14px 20px;
+  text-align: left;
+  font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--green-light); font-weight: 700;
+  border-bottom: 1px solid rgba(53,160,95,0.12);
+}
+.acc-table td {
+  padding: 14px 20px;
+  font-size: 0.85rem; color: var(--forest-body);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.acc-table tr:last-child td { border-bottom: none; }
+.acc-table tr.highlight-row td {
+  color: var(--forest-text); font-weight: 600;
+  background: rgba(53,160,95,0.06);
+}
+.acc-table td:nth-child(2), .acc-table td:nth-child(3) {
+  font-family: var(--serif); font-weight: 700; color: var(--green-bright);
+}
+.acc-guarantee {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--green-light); font-weight: 700;
+  background: rgba(53,160,95,0.12); border: 1px solid rgba(53,160,95,0.22);
+  border-radius: 4px; padding: 3px 10px;
+}
+
+@media(max-width:720px) {
+  .acc-table th, .acc-table td { padding: 12px 14px; }
+}
+
+/* ============================================================
+   SECTION 5 — HOW IT WORKS (Timeline)
+   ============================================================ */
+.timeline-header {
+  text-align: center; max-width: 600px; margin: 0 auto 72px;
+}
+
+.phases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+}
+.phases::before {
+  content: '';
+  position: absolute;
+  top: 52px; left: calc(16.66% + 20px); right: calc(16.66% + 20px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--green), var(--green-bright), var(--green));
+  opacity: 0.3;
+}
+@media(max-width:860px) {
+  .phases { grid-template-columns: 1fr; }
+  .phases::before { display: none; }
+}
+
+.phase-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px; padding: 28px 26px;
+  position: relative; text-align: center;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.phase-card:hover {
+  border-color: rgba(53,160,95,0.25);
+  transform: translateY(-6px);
+}
+
+.phase-num-ring {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--forest-deep);
+  border: 2px solid rgba(53,160,95,0.3);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  font-family: var(--serif); font-size: 1.1rem; font-weight: 700;
+  color: var(--green-bright);
+  box-shadow: 0 0 20px rgba(53,160,95,0.15);
+  position: relative; z-index: 1;
+}
+
+.phase-timeline {
+  font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--green-light); font-weight: 700; margin-bottom: 10px;
+}
+.phase-name {
+  font-family: var(--serif); font-size: 1.2rem; font-weight: 700;
+  color: var(--forest-text); margin-bottom: 12px;
+}
+.phase-impact {
+  font-family: var(--serif); font-size: 1.6rem; font-weight: 700;
+  color: var(--green-bright); margin-bottom: 16px; line-height: 1;
+}
+.phase-desc {
+  font-size: 0.8rem; color: var(--forest-body); line-height: 1.7;
+  margin-bottom: 20px;
+}
+.phase-items {
+  list-style: none; text-align: left;
+}
+.phase-item {
+  font-size: 0.78rem; color: var(--forest-body);
+  padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+  display: flex; align-items: flex-start; gap: 8px;
+}
+.phase-item:last-child { border-bottom: none; }
+.phase-item::before {
+  content: '';
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--green-bright); flex-shrink: 0; margin-top: 7px;
+}
+
+/* KPIs below phases */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+@media(max-width:720px) { .kpi-grid { grid-template-columns: 1fr 1fr; } }
+
+.kpi-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px; padding: 20px 22px;
+}
+.kpi-label {
+  font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--forest-muted); font-weight: 600; margin-bottom: 6px;
+}
+.kpi-before {
+  font-size: 0.8rem; color: rgba(224,90,90,0.8); text-decoration: line-through;
+  margin-bottom: 2px;
+}
+.kpi-after {
+  font-family: var(--serif); font-size: 1.2rem; font-weight: 700;
+  color: var(--green-bright);
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">M</div>
+    <span class="nav-wordmark">Metro<span>polis</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="#platform" class="nav-link">Platform</a>
+    <a href="#numbers" class="nav-link">The Numbers</a>
+    <a href="#implementation" class="nav-link">Implementation</a>
+    <a href="#investment" class="nav-link">Investment Case</a>
+    <a href="#who" class="nav-link">Who It's For</a>
+  </div>
+  <a href="#demo" class="nav-cta">
+    See Your Numbers
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-badge fade-up visible">
+      <div class="hero-badge-dot"></div>
+      AI Operations Platform · Fitness &amp; Wellness Networks
+    </div>
+
+    <h1 class="hero-title fade-up visible">
+      The operations layer<br>
+      your network is <span class="g it">missing.</span>
+    </h1>
+
+    <p class="hero-sub fade-up visible">
+      Metropolis is the AI platform built specifically for multi-location fitness and wellness operators.
+      <strong>$364.7M in Year 1 impact</strong> across 4,500 facilities —
+      through staffing optimization, payment recovery, churn prevention, and revenue growth.
+      Payback in 13 days.
+    </p>
+
+    <div class="hero-actions fade-up visible">
+      <a href="#demo" class="btn-primary">
+        See Your Numbers
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#numbers" class="btn-outline-d">View Financial Model</a>
+    </div>
+
+    <div class="hero-stats fade-up visible">
+      <div class="hero-stat">
+        <div class="hero-stat-num" data-counter="4500" data-suffix="">4,500</div>
+        <div class="hero-stat-label">Facilities</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">1.2M</div>
+        <div class="hero-stat-label">Active Members</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">$364.7M</div>
+        <div class="hero-stat-label">Year 1 Impact</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">13 days</div>
+        <div class="hero-stat-label">Payback Period</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 2 — THE PROBLEM
+     ============================================================ -->
+<section class="section-d" id="problem">
+  <div class="inner">
+    <div class="label-d fade-up">The Problem</div>
+    <div class="problem-grid">
+
+      <div class="problem-intro">
+        <h2 class="h-d fade-up">Fitness operators are leaving <span class="g it">hundreds of millions</span> on the table.</h2>
+        <p class="body-d fade-up">
+          You're running one of the most operationally complex businesses in the world. Multiple locations. Staff scheduling across peaks and valleys you can't predict. Members churning silently. Payments failing quietly. Each facility operating in isolation, without the data to know what's coming.
+        </p>
+        <p class="body-d fade-up">
+          The industry has accepted this as normal. Overstaffing to cover worst-case scenarios. Reactive payment recovery that chases members after they've already decided to leave. Scheduling based on gut feel instead of behavioral data. <strong>The cost of this operational blindness is enormous — and entirely preventable.</strong>
+        </p>
+        <p class="body-d fade-up">
+          The average 4,500-location network is losing over $375M per year across four compounding inefficiencies. Not because operators aren't trying. Because they've never had the tools to see it happening.
+        </p>
+      </div>
+
+      <div>
+        <div class="problem-cards">
+
+          <div class="problem-card fade-up">
+            <div class="problem-card-cost">$127.8M</div>
+            <div class="problem-card-title">Staffing Overspend</div>
+            <div class="problem-card-body">
+              The average facility runs 1.8 FTE call center agents scheduled against worst-case volume. During normal hours, 30% of that capacity sits idle. At $24/hour loaded cost across 4,500 facilities, overstaffing burns $127.8M annually. Every year. Without a single bad outcome to justify it.
+            </div>
+          </div>
+
+          <div class="problem-card fade-up">
+            <div class="problem-card-cost">$56.7M</div>
+            <div class="problem-card-title">Silent Payment Failures</div>
+            <div class="problem-card-body">
+              12% monthly cancellation rate across 1.2M members — and a significant portion is payment failures, not genuine cancellations. Members whose cards expire or decline are silently lost before anyone notices. Proactive detection and recovery can reclaim the majority of this revenue before the member even knows there's a problem.
+            </div>
+          </div>
+
+          <div class="problem-card fade-up">
+            <div class="problem-card-cost">$69.8M</div>
+            <div class="problem-card-title">Experience-Driven Churn</div>
+            <div class="problem-card-body">
+              Members leave when they feel like a number. Long wait times with no communication. Shift changes that drop context mid-interaction. Generic responses from agents who don't know their history. Each of these micro-failures compounds into churn. The revenue impact of even a 0.5% reduction in monthly churn across 1.2M members is transformational.
+            </div>
+          </div>
+
+          <div class="problem-card fade-up">
+            <div class="problem-card-cost">$120M+</div>
+            <div class="problem-card-title">Untapped Revenue Opportunities</div>
+            <div class="problem-card-body">
+              Dynamic pricing based on real-time occupancy. Ancillary services timed to member behavior patterns. Loyalty upgrade pathways triggered by engagement signals. These aren't future concepts — they're revenue channels that exist today in your member data. Without an intelligence layer to surface them, they remain invisible.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="problem-total fade-up">
+          <div class="problem-total-label">Total Annual Impact Available</div>
+          <div class="problem-total-num">$373.9M</div>
+          <div class="problem-total-sub">Across cost savings + new revenue · 4,500 facilities · 1.2M members</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3 — THE PLATFORM
+     ============================================================ -->
+<section class="section-l" id="platform">
+  <div class="inner">
+    <div class="label-l fade-up">The Metropolis Platform</div>
+
+    <div class="platform-intro-grid">
+      <div>
+        <h2 class="h-l fade-up">
+          The AI operations layer built for fitness networks at scale.
+        </h2>
+        <p class="body-l fade-up" style="margin-bottom:18px;">
+          Metropolis is not a generic AI tool applied to fitness. It is a purpose-built intelligence platform designed specifically for the operational realities of multi-location fitness and wellness operators — built by a team that has operated inside these networks.
+        </p>
+        <p class="body-l fade-up" style="margin-bottom:18px;">
+          The platform sits between your member data, your workforce, and your revenue systems. It forecasts demand. It optimizes staffing in real time. It identifies at-risk members before they cancel. It recovers failing payments before members notice. It surfaces revenue opportunities your team would never have time to find manually.
+        </p>
+        <p class="body-l fade-up" style="margin-bottom:32px;">
+          <strong>The result: right number of people, right information, right time — at every one of your 4,500 facilities simultaneously.</strong> That's not possible with the tools your teams use today. It is exactly what Metropolis was built to deliver.
+        </p>
+        <div class="fade-up">
+          <div style="display:flex;gap:32px;flex-wrap:wrap;">
+            <div>
+              <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--green);line-height:1;margin-bottom:4px;">90%</div>
+              <div style="font-size:0.72rem;color:var(--muted);">Forecasting accuracy guaranteed</div>
+            </div>
+            <div>
+              <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--green);line-height:1;margin-bottom:4px;">-30%</div>
+              <div style="font-size:0.72rem;color:var(--muted);">Staffing cost reduction</div>
+            </div>
+            <div>
+              <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--green);line-height:1;margin-bottom:4px;">6 mo.</div>
+              <div style="font-size:0.72rem;color:var(--muted);">Full network deployment</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="platform-visual fade-right">
+        <!-- REPLACE: Screenshot of Metropolis dashboard UI / analytics interface -->
+        <img
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
+          alt="Metropolis platform dashboard"
+          loading="lazy"
+        >
+        <div class="platform-visual-overlay"></div>
+        <div class="platform-visual-tag">AI Forecasting Engine · Live</div>
+      </div>
+    </div>
+
+    <!-- Feature cards -->
+    <div class="label-l fade-up" style="margin-bottom:28px;">Platform Capabilities</div>
+    <div class="features-grid">
+
+      <div class="feature-card fade-up">
+        <div class="feature-icon">&#x1F4CA;</div>
+        <div class="feature-name">Metropolis 1.0 — Staffing Optimization</div>
+        <div class="feature-impact">$122.8M Year 1 Savings</div>
+        <div class="feature-desc">
+          Hour-by-hour demand forecasting eliminates the 30% overstaffing every facility carries as a safety buffer. Agents scheduled to match actual volume — not worst-case assumptions. 1.8 FTE per facility drops to 1.26. Same service level. $25,728 saved per location annually.
+        </div>
+      </div>
+
+      <div class="feature-card fade-up">
+        <div class="feature-icon">&#x1F4B3;</div>
+        <div class="feature-name">Payment Recovery Engine</div>
+        <div class="feature-impact">$56.7M Year 1 Savings</div>
+        <div class="feature-desc">
+          Proactive payment failure detection identifies at-risk transactions before they become cancellations. Automated recovery sequences engage members in the optimal channel at the optimal moment. Recovery happens before the member decides to leave — not after.
+        </div>
+      </div>
+
+      <div class="feature-card fade-up">
+        <div class="feature-icon">&#x1F4CB;</div>
+        <div class="feature-name">Shift Intelligence Briefing</div>
+        <div class="feature-impact">$69.8M Combined Impact</div>
+        <div class="feature-desc">
+          Every agent starts every shift knowing exactly what to expect: call volume forecast, member issues trending, payment failures requiring outreach, and member profiles for scheduled interactions. Less firefighting. More proactive work. Lower burnout. Higher satisfaction scores.
+        </div>
+      </div>
+
+      <div class="feature-card fade-up">
+        <div class="feature-icon">&#x23F0;</div>
+        <div class="feature-name">Wait Time Alerts</div>
+        <div class="feature-impact">$34.1M Revenue Growth</div>
+        <div class="feature-desc">
+          Members who wait without information leave. Members who receive proactive updates stay. Metropolis monitors queue depth in real time and pushes personalized wait time notifications through existing SMS infrastructure — converting a frustration moment into a trust moment.
+        </div>
+      </div>
+
+      <div class="feature-card fade-up">
+        <div class="feature-icon">&#x1F501;</div>
+        <div class="feature-name">Intelligent Call Routing</div>
+        <div class="feature-impact">$32M Revenue Impact</div>
+        <div class="feature-desc">
+          Match each incoming interaction to the agent best equipped to handle it — based on member history, issue type, agent specialization, and real-time availability. First-contact resolution improves from 76% to 85%+. Escalations drop. Handle time decreases 12%.
+        </div>
+      </div>
+
+      <div class="feature-card fade-up">
+        <div class="feature-icon">&#x1F9E0;</div>
+        <div class="feature-name">Churn Prediction &amp; Prevention</div>
+        <div class="feature-impact">$10.6M Revenue Retention</div>
+        <div class="feature-desc">
+          Behavioral pattern analysis identifies at-risk members weeks before they cancel. Automated intervention sequences — personalized, timed, relevant — intercept churn at the point of maximum reversibility. Monthly churn rate drops from 12% to below 10%.
+        </div>
+      </div>
+
+      <div class="feature-card fade-up">
+        <div class="feature-icon">&#x1F4B0;</div>
+        <div class="feature-name">Dynamic Pricing Engine</div>
+        <div class="feature-impact">$12M Incremental Revenue</div>
+        <div class="feature-desc">
+          Real-time occupancy data powers intelligent pricing recommendations — premium tier incentives during low-demand windows, optimized promotion timing, upgrade triggers based on member engagement signals. Pilot with 500 facilities. Scale on results.
+        </div>
+      </div>
+
+      <div class="feature-card fade-up">
+        <div class="feature-icon">&#x1F91D;</div>
+        <div class="feature-name">Ancillary Services Platform</div>
+        <div class="feature-impact">$25.9M New Revenue</div>
+        <div class="feature-desc">
+          Surface partner services, premium add-ons, and cross-sell opportunities at the right moment in the member journey. Commission-based partner integrations. LTV uplift from incremental transactions. Start with 100 markets — scale to the full network on proven traction.
+        </div>
+      </div>
+
+      <div class="feature-card fade-up">
+        <div class="feature-icon">&#x1F3C6;</div>
+        <div class="feature-name">Loyalty Tier Optimization</div>
+        <div class="feature-impact">$2.95M → $8.4M Year 2+</div>
+        <div class="feature-desc">
+          Personalized upgrade recommendations delivered at peak engagement moments. Members who feel recognized stay longer and spend more. Tier progression pathways that reward loyalty with the perks that matter to each individual member — not generic discounts.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4 — THE NUMBERS
+     ============================================================ -->
+<section class="numbers-section" id="numbers">
+  <div class="inner">
+    <div class="numbers-header">
+      <div class="label-d fade-up" style="justify-content:center;">Financial Impact</div>
+      <h2 class="h-d fade-up" style="text-align:center;">The numbers operators need to see.</h2>
+      <p class="body-d fade-up" style="text-align:center;max-width:480px;margin:0 auto;">
+        Every figure below is derived from your actual network — 4,500 facilities, 1.2M members, real cost structures. Not projections from comparable markets. Your numbers.
+      </p>
+    </div>
+
+    <div class="big-number fade-up" id="big-counter">$364.7M</div>
+    <div class="big-number-label fade-up">Year 1 Total Impact · Cost Savings + Revenue Growth</div>
+
+    <!-- Split -->
+    <div class="impact-split">
+      <div class="impact-block impact-block-savings fade-left">
+        <div class="impact-block-label">Cost Savings</div>
+        <div class="impact-block-total">$170.1M</div>
+        <div class="impact-rows">
+          <div class="impact-row">
+            <span class="impact-row-name">Staffing Optimization (30% reduction)</span>
+            <span class="impact-row-value">$122.8M</span>
+          </div>
+          <div class="impact-row">
+            <span class="impact-row-name">Payment Recovery (proactive detection)</span>
+            <span class="impact-row-value">$56.7M</span>
+          </div>
+          <div class="impact-row">
+            <span class="impact-row-name">Call Efficiency (handle time + routing)</span>
+            <span class="impact-row-value">$27.3M</span>
+          </div>
+          <div class="impact-row">
+            <span class="impact-row-name">Churn Prevention (member retention)</span>
+            <span class="impact-row-value">$7.96M</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="impact-block impact-block-revenue fade-right">
+        <div class="impact-block-label">Revenue Growth</div>
+        <div class="impact-block-total">$203.8M</div>
+        <div class="impact-rows">
+          <div class="impact-row">
+            <span class="impact-row-name">Shift Briefing (experience + retention)</span>
+            <span class="impact-row-value">$42.5M</span>
+          </div>
+          <div class="impact-row">
+            <span class="impact-row-name">Wait Alerts (frustration churn reduction)</span>
+            <span class="impact-row-value">$34.1M</span>
+          </div>
+          <div class="impact-row">
+            <span class="impact-row-name">Call Routing (satisfaction + LTV)</span>
+            <span class="impact-row-value">$25.4M</span>
+          </div>
+          <div class="impact-row">
+            <span class="impact-row-name">Ancillary Services (partner ecosystem)</span>
+            <span class="impact-row-value">$25.9M</span>
+          </div>
+          <div class="impact-row">
+            <span class="impact-row-name">Dynamic Pricing (soft launch)</span>
+            <span class="impact-row-value">$12.0M</span>
+          </div>
+          <div class="impact-row">
+            <span class="impact-row-name">Churn Prevention (direct retention)</span>
+            <span class="impact-row-value">$10.6M</span>
+          </div>
+          <div class="impact-row">
+            <span class="impact-row-name">Member Prediction + Loyalty Tiers</span>
+            <span class="impact-row-value">$6.45M</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROI strip -->
+    <div class="roi-strip fade-up">
+      <div class="roi-cell">
+        <div class="roi-cell-num">3,658%</div>
+        <div class="roi-cell-label">ROI on $10M investment</div>
+      </div>
+      <div class="roi-cell">
+        <div class="roi-cell-num">13 days</div>
+        <div class="roi-cell-label">Payback period from deployment</div>
+      </div>
+      <div class="roi-cell">
+        <div class="roi-cell-num">$1.22B</div>
+        <div class="roi-cell-label">3-year cumulative impact</div>
+      </div>
+      <div class="roi-cell">
+        <div class="roi-cell-num">$81,044</div>
+        <div class="roi-cell-label">Per-facility Year 1 impact</div>
+      </div>
+    </div>
+
+    <!-- Accuracy table -->
+    <div style="margin-top:48px;">
+      <div class="label-d fade-up">Accuracy = Savings</div>
+      <h3 class="fade-up" style="font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--forest-text);margin-bottom:8px;">
+        Every 1% improvement in forecasting accuracy = $257K in additional fleet-wide savings.
+      </h3>
+      <p class="body-d fade-up" style="margin-bottom:24px;">
+        We guarantee 90% accuracy from day one. Most networks reach 95% within 6–12 months as the model learns your member behavioral patterns.
+      </p>
+      <div class="accuracy-table-wrap fade-up">
+        <table class="acc-table">
+          <thead>
+            <tr>
+              <th>Forecasting Accuracy</th>
+              <th>Annual Savings/Location</th>
+              <th>Fleet-Wide ($)</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>50% — Current guessing</td>
+              <td>$4,288</td>
+              <td>$19.3M</td>
+              <td style="color:rgba(224,90,90,0.8);font-size:0.75rem;font-weight:600;">Where you are now</td>
+            </tr>
+            <tr>
+              <td>75% — After initial tuning</td>
+              <td>$19,296</td>
+              <td>$86.9M</td>
+              <td style="color:var(--gold);font-size:0.75rem;font-weight:600;">Month 2–3</td>
+            </tr>
+            <tr class="highlight-row">
+              <td>90% — <span class="acc-guarantee">Our Guarantee</span></td>
+              <td>$25,728</td>
+              <td>$115.8M</td>
+              <td style="color:var(--green-bright);font-size:0.75rem;font-weight:600;">Day 1 commitment</td>
+            </tr>
+            <tr>
+              <td>95% — After 6–12 months</td>
+              <td>$33,696</td>
+              <td>$151.6M</td>
+              <td style="color:var(--green-light);font-size:0.75rem;font-weight:600;">Typical outcome</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Per-facility comparison -->
+    <div style="margin-top:56px;">
+      <div class="label-d fade-up">Per-Facility Economics</div>
+      <h3 class="fade-up" style="font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--forest-text);margin-bottom:24px;">
+        What changes at each location.
+      </h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;" class="fade-up">
+        <div style="background:rgba(224,90,90,0.06);border:1px solid rgba(224,90,90,0.15);border-radius:12px;padding:28px 28px;">
+          <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(224,90,90,0.8);font-weight:700;margin-bottom:16px;">Current State (Per Facility)</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;justify-content:space-between;padding:8px 12px;background:rgba(255,255,255,0.03);border-radius:6px;font-size:0.82rem;">
+              <span style="color:var(--forest-body);">Active Members</span>
+              <span style="color:var(--forest-text);font-weight:600;">270</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:8px 12px;background:rgba(255,255,255,0.03);border-radius:6px;font-size:0.82rem;">
+              <span style="color:var(--forest-body);">Revenue/Month</span>
+              <span style="color:var(--forest-text);font-weight:600;">$3,537</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:8px 12px;background:rgba(255,255,255,0.03);border-radius:6px;font-size:0.82rem;">
+              <span style="color:var(--forest-body);">Staffing Cost</span>
+              <span style="color:rgba(224,90,90,0.9);font-weight:600;">$7,142</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:8px 12px;background:rgba(255,255,255,0.03);border-radius:6px;font-size:0.82rem;">
+              <span style="color:var(--forest-body);">Total Monthly Cost</span>
+              <span style="color:rgba(224,90,90,0.9);font-weight:600;">$19,222</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:10px 12px;background:rgba(224,90,90,0.08);border-radius:6px;font-size:0.9rem;border:1px solid rgba(224,90,90,0.12);">
+              <span style="color:var(--forest-text);font-weight:600;">Monthly Contribution</span>
+              <span style="color:rgba(224,90,90,0.9);font-weight:700;font-family:var(--serif);">-$15,685</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:rgba(53,160,95,0.06);border:1px solid rgba(53,160,95,0.2);border-radius:12px;padding:28px 28px;">
+          <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-bright);font-weight:700;margin-bottom:16px;">After Metropolis (Per Facility)</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;justify-content:space-between;padding:8px 12px;background:rgba(255,255,255,0.03);border-radius:6px;font-size:0.82rem;">
+              <span style="color:var(--forest-body);">Active Members</span>
+              <span style="color:var(--green-bright);font-weight:600;">295 <small style="font-size:0.65rem;color:var(--forest-muted);">(+9.3%)</small></span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:8px 12px;background:rgba(255,255,255,0.03);border-radius:6px;font-size:0.82rem;">
+              <span style="color:var(--forest-body);">Revenue/Month</span>
+              <span style="color:var(--green-bright);font-weight:600;">$3,872 <small style="font-size:0.65rem;color:var(--forest-muted);">(+9.5%)</small></span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:8px 12px;background:rgba(255,255,255,0.03);border-radius:6px;font-size:0.82rem;">
+              <span style="color:var(--forest-body);">Staffing Cost</span>
+              <span style="color:var(--green-bright);font-weight:600;">$4,998 <small style="font-size:0.65rem;color:var(--forest-muted);">(-30%)</small></span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:8px 12px;background:rgba(255,255,255,0.03);border-radius:6px;font-size:0.82rem;">
+              <span style="color:var(--forest-body);">Total Monthly Cost</span>
+              <span style="color:var(--green-bright);font-weight:600;">$16,378</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:10px 12px;background:rgba(53,160,95,0.08);border-radius:6px;font-size:0.9rem;border:1px solid rgba(53,160,95,0.15);">
+              <span style="color:var(--forest-text);font-weight:600;">Monthly Contribution</span>
+              <span style="color:var(--green-bright);font-weight:700;font-family:var(--serif);">-$12,506 <small style="font-size:0.65rem;font-family:var(--sans);color:var(--green-light);">(+$3,179)</small></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="body-d fade-up" style="margin-top:20px;font-size:0.82rem;">
+        With normal member growth (12% YoY), facilities reach positive contribution in <strong>18–24 months</strong> with Metropolis — versus 36+ months without it. Metropolis accelerates your path to profitability by 18 months.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 5 — HOW IT WORKS (Implementation Timeline)
+     ============================================================ -->
+<section class="section-surface" id="implementation">
+  <div class="inner">
+    <div class="timeline-header">
+      <div class="label-l fade-up" style="justify-content:center;">Implementation</div>
+      <h2 class="h-l fade-up" style="text-align:center;">
+        From approval to <span class="g it">$200M impact</span> in 30 days.
+      </h2>
+      <p class="body-l fade-up" style="text-align:center;max-width:500px;margin:0 auto;">
+        Metropolis deploys in three phases across six months. Phase 1 alone delivers $200M in Year 1 impact — and pays back the full $10M investment in 13 days.
+      </p>
+    </div>
+
+    <div class="phases">
+      <div class="phase-card fade-up">
+        <div class="phase-num-ring">1</div>
+        <div class="phase-timeline">Weeks 1–4</div>
+        <div class="phase-name">Foundation</div>
+        <div class="phase-impact">$200M</div>
+        <div class="phase-desc">The three highest-ROI capabilities deployed simultaneously across all 4,500 facilities. Fast results. Immediate organizational confidence. 13-day payback.</div>
+        <ul class="phase-items">
+          <li class="phase-item">Metropolis 1.0 — Staffing optimization · $122.8M/year</li>
+          <li class="phase-item">Churn Prevention — Alert queue · $8.56M/year</li>
+          <li class="phase-item">Shift Briefing — Agent intelligence · $68.6M/year</li>
+        </ul>
+      </div>
+
+      <div class="phase-card fade-up">
+        <div class="phase-num-ring">2</div>
+        <div class="phase-timeline">Weeks 5–12</div>
+        <div class="phase-name">Expansion</div>
+        <div class="phase-impact">+$120M</div>
+        <div class="phase-desc">Revenue-growth capabilities layered onto the operational foundation. Payment recovery. Member experience improvements. Intelligent routing. Cumulative impact hits $320M.</div>
+        <ul class="phase-items">
+          <li class="phase-item">Payment Recovery — Proactive detection · $55.5M/year</li>
+          <li class="phase-item">Wait Alerts — Member notifications · $32.8M/year</li>
+          <li class="phase-item">Call Routing — Agent specialization · $32M/year</li>
+        </ul>
+      </div>
+
+      <div class="phase-card fade-up">
+        <div class="phase-num-ring">3</div>
+        <div class="phase-timeline">Weeks 13–24</div>
+        <div class="phase-name">Monetization</div>
+        <div class="phase-impact">+$44M Y1</div>
+        <div class="phase-desc">Personalization, pricing intelligence, and partner ecosystem. $44M in Year 1. $100M+ from Year 2 as models mature and partner integrations scale.</div>
+        <ul class="phase-items">
+          <li class="phase-item">Dynamic Pricing — 500-facility pilot · $11.6M</li>
+          <li class="phase-item">Member Prediction — Personalization · $5.16M</li>
+          <li class="phase-item">Ancillary Services — Partner ecosystem · $25.6M</li>
+          <li class="phase-item">Loyalty Tiers — Upgrade engine · $2.25M</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- KPI improvements -->
+    <div style="margin-top:64px;">
+      <div class="label-l fade-up">Operational KPIs</div>
+      <h3 class="fade-up" style="font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:24px;">
+        What your metrics look like after full deployment.
+      </h3>
+      <div class="kpi-grid">
+        <div class="kpi-card fade-up">
+          <div class="kpi-label">Call Handle Time</div>
+          <div class="kpi-before">5m 40s</div>
+          <div class="kpi-after">5m 00s</div>
+        </div>
+        <div class="kpi-card fade-up">
+          <div class="kpi-label">First-Contact Resolution</div>
+          <div class="kpi-before">76%</div>
+          <div class="kpi-after">85%+</div>
+        </div>
+        <div class="kpi-card fade-up">
+          <div class="kpi-label">Monthly Churn Rate</div>
+          <div class="kpi-before">12%</div>
+          <div class="kpi-after">&lt;10%</div>
+        </div>
+        <div class="kpi-card fade-up">
+          <div class="kpi-label">Member CSAT</div>
+          <div class="kpi-before">4.1 / 5</div>
+          <div class="kpi-after">4.5 / 5</div>
+        </div>
+        <div class="kpi-card fade-up">
+          <div class="kpi-label">Revenue per Member</div>
+          <div class="kpi-before">$13.10 / mo</div>
+          <div class="kpi-after">$14.20 / mo</div>
+        </div>
+        <div class="kpi-card fade-up">
+          <div class="kpi-label">Staffing Ratio</div>
+          <div class="kpi-before">1 agent : 150 members</div>
+          <div class="kpi-after">1 : 850 target</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 6 — INVESTMENT CASE
+     ============================================================ -->
+<section class="section-d" id="investment">
+  <div class="inner">
+    <div class="label-d fade-up">Investment Case</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;" class="inv-grid">
+      <div>
+        <h2 class="h-d fade-up">
+          $10M in. <span class="g it">$364.7M</span> back. In year one.
+        </h2>
+        <p class="body-d fade-up" style="margin-bottom:18px;">
+          The investment case for Metropolis is not complicated. It is one of the most straightforward capital allocation decisions a fitness network of this scale will ever see — and it gets clearer the longer you look at it.
+        </p>
+        <p class="body-d fade-up" style="margin-bottom:18px;">
+          The $10M implementation cost spans six months and three phases. Phase 1 alone — staffing optimization, shift briefing, and churn prevention — costs $4.2M and delivers $200M in Year 1 impact. The full investment pays back in 13 days of deployment.
+        </p>
+        <p class="body-d fade-up" style="margin-bottom:18px;">
+          Year 2 impact is $407.9M+ as models mature and reach 95% accuracy. Year 3 exceeds $450M as partner ecosystems and personalization features scale. Three-year cumulative impact: <strong>$1.22 billion.</strong>
+        </p>
+        <p class="body-d fade-up" style="margin-bottom:32px;">
+          The risk is not in proceeding. The risk is in waiting. Every month without Metropolis is another month of $31.2M in preventable losses across the network.
+        </p>
+
+        <div class="fade-up">
+          <div style="background:rgba(53,160,95,0.08);border:1px solid rgba(53,160,95,0.2);border-radius:12px;padding:24px 28px;">
+            <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:16px;">3-Year Cumulative Impact</div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:0.82rem;color:var(--forest-body);">Year 1</span>
+                <div style="flex:1;height:4px;background:rgba(255,255,255,0.06);margin:0 16px;border-radius:2px;">
+                  <div style="width:30%;height:100%;background:var(--green-bright);border-radius:2px;"></div>
+                </div>
+                <span style="font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--green-bright);">$364.7M</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:0.82rem;color:var(--forest-body);">Year 2</span>
+                <div style="flex:1;height:4px;background:rgba(255,255,255,0.06);margin:0 16px;border-radius:2px;">
+                  <div style="width:34%;height:100%;background:var(--green);border-radius:2px;"></div>
+                </div>
+                <span style="font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--green-bright);">$407.9M+</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:0.82rem;color:var(--forest-body);">Year 3</span>
+                <div style="flex:1;height:4px;background:rgba(255,255,255,0.06);margin:0 16px;border-radius:2px;">
+                  <div style="width:37%;height:100%;background:var(--green-dark);border-radius:2px;"></div>
+                </div>
+                <span style="font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--green-bright);">$450M+</span>
+              </div>
+              <div style="border-top:1px solid rgba(255,255,255,0.07);padding-top:14px;display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:0.82rem;font-weight:600;color:var(--forest-text);">3-Year Total</span>
+                <span style="font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--green-bright);">$1.22B+</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <!-- Phase budget breakdown -->
+        <div style="margin-bottom:24px;" class="fade-up">
+          <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:20px;">$10M Implementation Budget</div>
+
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:18px 22px;">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+                <div>
+                  <div style="font-size:0.78rem;font-weight:600;color:var(--forest-text);">Phase 1 — Foundation</div>
+                  <div style="font-size:0.7rem;color:var(--forest-muted);">Weeks 1–4</div>
+                </div>
+                <div style="text-align:right;">
+                  <div style="font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--green-bright);">$4.2M</div>
+                  <div style="font-size:0.65rem;color:var(--green-light);">Returns $200M</div>
+                </div>
+              </div>
+              <div style="font-size:0.75rem;color:var(--forest-body);">Staffing optimization · Shift briefing · Churn prevention · All 4,500 facilities live</div>
+            </div>
+
+            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:18px 22px;">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+                <div>
+                  <div style="font-size:0.78rem;font-weight:600;color:var(--forest-text);">Phase 2 — Expansion</div>
+                  <div style="font-size:0.7rem;color:var(--forest-muted);">Weeks 5–12</div>
+                </div>
+                <div style="text-align:right;">
+                  <div style="font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--green-bright);">$3.8M</div>
+                  <div style="font-size:0.65rem;color:var(--green-light);">+$120M cumulative</div>
+                </div>
+              </div>
+              <div style="font-size:0.75rem;color:var(--forest-body);">Payment recovery · Wait alerts · Intelligent call routing</div>
+            </div>
+
+            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:18px 22px;">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+                <div>
+                  <div style="font-size:0.78rem;font-weight:600;color:var(--forest-text);">Phase 3 — Monetization</div>
+                  <div style="font-size:0.7rem;color:var(--forest-muted);">Weeks 13–24</div>
+                </div>
+                <div style="text-align:right;">
+                  <div style="font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--green-bright);">$2.0M</div>
+                  <div style="font-size:0.65rem;color:var(--green-light);">+$44M Year 1</div>
+                </div>
+              </div>
+              <div style="font-size:0.75rem;color:var(--forest-body);">Dynamic pricing pilot · Personalization · Ancillary services · Loyalty engine</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Governance / Board decision box -->
+        <div style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:24px 28px;" class="fade-up">
+          <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px;">Board Decision Required</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;gap:12px;align-items:flex-start;font-size:0.82rem;">
+              <div style="width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:7px;"></div>
+              <div style="color:var(--forest-body);"><strong style="color:var(--forest-text);">Approve Phase 1?</strong> Lock in $200M Year 1 impact. All 4,500 facilities live in 4 weeks. Investment: $4.2M.</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;font-size:0.82rem;">
+              <div style="width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:7px;"></div>
+              <div style="color:var(--forest-body);"><strong style="color:var(--forest-text);">Risk profile:</strong> Low. Phased rollout. Pilot proven. Each phase has a clear gate before the next begins.</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;font-size:0.82rem;">
+              <div style="width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:7px;"></div>
+              <div style="color:var(--forest-body);"><strong style="color:var(--forest-text);">Governance:</strong> Monthly steering committee. CELO CEO + Operations + Finance. Clear escalation path.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Competitive moat -->
+        <div style="margin-top:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:24px 28px;" class="fade-up">
+          <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:14px;">The Competitive Moat</div>
+          <p style="font-size:0.82rem;color:var(--forest-body);line-height:1.7;margin-bottom:10px;">
+            When competitors copy AI forecasting — and they will — you already have 3 years of behavioral data, proprietary churn models, deepened member relationships, and an integrated revenue ecosystem.
+          </p>
+          <p style="font-size:0.82rem;color:var(--forest-body);line-height:1.7;">
+            By the time a competitor launches their version (18–24 months), you're operating at <strong style="color:var(--forest-text);">40%+ lower call center cost per member</strong> and compounding efficiency gains they can't buy their way into.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+@media(max-width:900px) { .inv-grid { grid-template-columns: 1fr !important; gap: 48px !important; } }
+</style>
+
+<!-- ============================================================
+     SECTION 7 — WHO IT'S FOR
+     ============================================================ -->
+<section class="section-l" id="who">
+  <div class="inner">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;" class="who-grid">
+
+      <div>
+        <div class="label-l fade-up">Ideal Operator</div>
+        <h2 class="h-l fade-up">
+          Built for operators running networks at scale.
+        </h2>
+        <p class="body-l fade-up" style="margin-bottom:18px;">
+          Metropolis is purpose-built for multi-location fitness and wellness operators who have already proven their model and are ready to run it more profitably. The platform performs at its best when there's network scale to optimize across — which is why our minimum engagement starts at 50 facilities.
+        </p>
+        <p class="body-l fade-up" style="margin-bottom:24px;">
+          If you're managing fewer than 50 locations, Metropolis is likely more platform than you need today. If you're running 50 to 5,000+, the ROI compounds with every additional facility.
+        </p>
+
+        <!-- This is for you if -->
+        <div class="fade-up">
+          <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:16px;">This is for you if:</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:var(--bg-surface);border-radius:8px;border:1px solid var(--border-light);">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--green-bright);flex-shrink:0;margin-top:7px;"></div>
+              <div style="font-size:0.84rem;color:var(--body);">You operate <strong style="color:var(--text);">50 or more locations</strong> and staffing decisions are made facility-by-facility without network-level intelligence</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:var(--bg-surface);border-radius:8px;border:1px solid var(--border-light);">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--green-bright);flex-shrink:0;margin-top:7px;"></div>
+              <div style="font-size:0.84rem;color:var(--body);">Your monthly churn rate is <strong style="color:var(--text);">above 8%</strong> and you're not sure how much is payment failure versus genuine cancellations</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:var(--bg-surface);border-radius:8px;border:1px solid var(--border-light);">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--green-bright);flex-shrink:0;margin-top:7px;"></div>
+              <div style="font-size:0.84rem;color:var(--body);">Your call center is <strong style="color:var(--text);">staffed for worst-case volume</strong> — and on most days, agents are underutilized during off-peak hours</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:var(--bg-surface);border-radius:8px;border:1px solid var(--border-light);">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--green-bright);flex-shrink:0;margin-top:7px;"></div>
+              <div style="font-size:0.84rem;color:var(--body);">You know <strong style="color:var(--text);">revenue opportunities exist</strong> in your member data — dynamic pricing, ancillaries, loyalty upgrades — but no one has the bandwidth to act on them</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:var(--bg-surface);border-radius:8px;border:1px solid var(--border-light);">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--green-bright);flex-shrink:0;margin-top:7px;"></div>
+              <div style="font-size:0.84rem;color:var(--body);">You're <strong style="color:var(--text);">targeting profitability</strong> at the facility level and need a lever beyond membership pricing to get there faster</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <!-- Operator profile card -->
+        <div style="background:var(--bg-surface);border:1px solid var(--border);border-radius:16px;padding:32px;margin-bottom:20px;position:relative;overflow:hidden;" class="fade-right">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--green-bright),rgba(46,123,82,0.3));"></div>
+          <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:6px;">Primary Profile</div>
+          <div style="font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--text);margin-bottom:4px;">The Network Operator</div>
+          <div style="font-size:0.72rem;color:var(--muted);margin-bottom:20px;font-weight:600;">50–5,000+ locations · $50M–$1B+ revenue</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+            <div>
+              <div style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:4px;">Network Size</div>
+              <div style="font-size:0.84rem;color:var(--text);">50 to 5,000+ facilities across multiple markets</div>
+            </div>
+            <div>
+              <div style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:4px;">Decision Maker</div>
+              <div style="font-size:0.84rem;color:var(--text);">CEO, COO, or VP Operations — typically already exploring AI-driven optimization</div>
+            </div>
+            <div>
+              <div style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:4px;">Their Situation</div>
+              <div style="font-size:0.84rem;color:var(--text);">Growth is proving harder than expected. Unit economics improving slowly. Cost pressure from investors or the board.</div>
+            </div>
+            <div>
+              <div style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:4px;">What They Need</div>
+              <div style="font-size:0.84rem;color:var(--text);">A platform that improves economics at scale — not one more point solution that requires integration work.</div>
+            </div>
+          </div>
+          <div style="background:var(--green-soft);border:1px solid var(--green-border);border-radius:8px;padding:14px 18px;">
+            <div style="font-size:0.72rem;color:var(--body);line-height:1.6;font-style:italic;">"We've tried scheduling tools. We've tried CRM. We've tried loyalty programs. Nothing moves the needle at network scale. We need something that sees across all locations at once." — The conversation we hear every time.</div>
+          </div>
+        </div>
+
+        <!-- Not for section -->
+        <div style="background:rgba(224,90,90,0.04);border:1px solid rgba(224,90,90,0.12);border-radius:12px;padding:24px 28px;" class="fade-right">
+          <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(224,90,90,0.8);font-weight:700;margin-bottom:12px;">Not the right fit if:</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="font-size:0.8rem;color:var(--body);display:flex;gap:8px;align-items:flex-start;">
+              <span style="color:rgba(224,90,90,0.7);font-weight:700;flex-shrink:0;">—</span>
+              <span>Fewer than 50 locations — the network effect that drives ROI isn't present yet</span>
+            </div>
+            <div style="font-size:0.8rem;color:var(--body);display:flex;gap:8px;align-items:flex-start;">
+              <span style="color:rgba(224,90,90,0.7);font-weight:700;flex-shrink:0;">—</span>
+              <span>No existing member data infrastructure — Metropolis requires clean member data to forecast accurately</span>
+            </div>
+            <div style="font-size:0.8rem;color:var(--body);display:flex;gap:8px;align-items:flex-start;">
+              <span style="color:rgba(224,90,90,0.7);font-weight:700;flex-shrink:0;">—</span>
+              <span>Looking for a point solution — Metropolis is an operations layer, not a scheduling app</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+@media(max-width:900px) { .who-grid { grid-template-columns: 1fr !important; gap: 48px !important; } }
+</style>
+
+<!-- ============================================================
+     SECTION 8 — THE VISION (light green surface)
+     ============================================================ -->
+<section class="section-deep" id="vision" style="position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(46,123,82,0.12) 0%,transparent 65%);pointer-events:none;"></div>
+  <div class="inner" style="position:relative;z-index:1;">
+    <div style="max-width:800px;margin:0 auto;text-align:center;">
+      <div class="label-d fade-up" style="justify-content:center;">The Vision</div>
+      <h2 class="h-d fade-up" style="text-align:center;font-size:clamp(2rem,4vw,3.4rem);">
+        Metropolis is not operational optimization.<br>
+        <span class="g it">It is structural competitive advantage.</span>
+      </h2>
+      <p class="body-d fade-up" style="text-align:center;max-width:640px;margin:0 auto 24px;">
+        The fitness industry is in the early innings of an AI-driven transformation. The operators who build their intelligence infrastructure now will not just run more efficiently — they will be fundamentally impossible to compete with in five years.
+      </p>
+      <p class="body-d fade-up" style="text-align:center;max-width:640px;margin:0 auto 48px;">
+        Metropolis is the platform that makes that moat. Three years of member behavioral data, proprietary prediction models, deepened relationships at every touchpoint, and an integrated revenue ecosystem that compounds with every additional member and facility. By the time a competitor builds a comparable system, you've already captured the efficiency gains and operate at a structurally lower cost per member.
+      </p>
+    </div>
+
+    <!-- Vision pillars -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px;" class="vision-grid">
+
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:28px 24px;" class="fade-up">
+        <div style="font-family:var(--serif);font-size:2.4rem;font-weight:700;color:var(--green-bright);margin-bottom:8px;line-height:1;">Year 1</div>
+        <div style="font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:16px;">Operational Excellence</div>
+        <p style="font-size:0.82rem;color:var(--forest-body);line-height:1.7;">
+          Right staffing. Right routing. Right information at every shift. The operational foundation is set. $364.7M in impact. Payback achieved in 13 days. Every facility running intelligently for the first time.
+        </p>
+      </div>
+
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:28px 24px;" class="fade-up">
+        <div style="font-family:var(--serif);font-size:2.4rem;font-weight:700;color:var(--green-bright);margin-bottom:8px;line-height:1;">Year 2</div>
+        <div style="font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:16px;">Member Intelligence</div>
+        <p style="font-size:0.82rem;color:var(--forest-body);line-height:1.7;">
+          Behavioral models mature. Prediction accuracy reaches 95%. Personalization at scale — every member interaction informed by their individual patterns. Partner ecosystem generating $25M+. Loyalty driving measurable LTV uplift.
+        </p>
+      </div>
+
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:28px 24px;" class="fade-up">
+        <div style="font-family:var(--serif);font-size:2.4rem;font-weight:700;color:var(--green-bright);margin-bottom:8px;line-height:1;">Year 3+</div>
+        <div style="font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:16px;">The Moat</div>
+        <p style="font-size:0.82rem;color:var(--forest-body);line-height:1.7;">
+          Proprietary data advantage. Models no competitor can replicate without years of network data. $450M+ annual impact. 40%+ lower cost per member than the industry average. The category defined.
+        </p>
+      </div>
+    </div>
+
+    <!-- Industry context -->
+    <div style="margin-top:56px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:36px 40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;" class="fade-up vision-context">
+      <div>
+        <div style="font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--forest-text);margin-bottom:12px;line-height:1.3;">
+          "The biggest risk is not moving. Every month without Metropolis is $31.2M in preventable losses across the network."
+        </div>
+        <div style="font-size:0.75rem;color:var(--forest-muted);">
+          From the Metropolis financial model — $364.7M annual impact ÷ 12 months
+        </div>
+      </div>
+      <div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div style="text-align:center;padding:18px;background:rgba(53,160,95,0.07);border:1px solid rgba(53,160,95,0.15);border-radius:10px;">
+            <div style="font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--green-bright);margin-bottom:4px;">15%</div>
+            <div style="font-size:0.65rem;color:var(--forest-muted);">Industry YoY growth rate (parking tech)</div>
+          </div>
+          <div style="text-align:center;padding:18px;background:rgba(53,160,95,0.07);border:1px solid rgba(53,160,95,0.15);border-radius:10px;">
+            <div style="font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--green-bright);margin-bottom:4px;">$257K</div>
+            <div style="font-size:0.65rem;color:var(--forest-muted);">Per 1% accuracy improvement fleet-wide</div>
+          </div>
+          <div style="text-align:center;padding:18px;background:rgba(53,160,95,0.07);border:1px solid rgba(53,160,95,0.15);border-radius:10px;">
+            <div style="font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--green-bright);margin-bottom:4px;">18 mo.</div>
+            <div style="font-size:0.65rem;color:var(--forest-muted);">Faster path to unit profitability</div>
+          </div>
+          <div style="text-align:center;padding:18px;background:rgba(53,160,95,0.07);border:1px solid rgba(53,160,95,0.15);border-radius:10px;">
+            <div style="font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--green-bright);margin-bottom:4px;">2,430</div>
+            <div style="font-size:0.65rem;color:var(--forest-muted);">Agents optimized (not eliminated)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+@media(max-width:860px) {
+  .vision-grid { grid-template-columns: 1fr !important; }
+  .vision-context { grid-template-columns: 1fr !important; gap: 28px !important; }
+}
+</style>
+
+<!-- ============================================================
+     SECTION 9 — CTA
+     ============================================================ -->
+<section class="hero" id="demo" style="min-height:auto;padding:100px 48px;">
+  <div class="hero-inner" style="max-width:700px;">
+    <div class="hero-badge fade-up visible">
+      <div class="hero-badge-dot"></div>
+      Ready to see your numbers
+    </div>
+
+    <h2 class="hero-title fade-up visible" style="font-size:clamp(2.2rem,4.5vw,3.8rem);">
+      See exactly what Metropolis delivers<br>
+      <span class="g it">for your network.</span>
+    </h2>
+
+    <p class="hero-sub fade-up visible" style="margin-bottom:48px;">
+      Every operator we work with gets a custom financial model built from their actual network data — facilities, members, cost structure, churn rate. Not industry benchmarks. Your numbers.
+    </p>
+
+    <!-- Demo form -->
+    <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:36px 40px;max-width:560px;margin:0 auto;text-align:left;" class="fade-up visible">
+      <div style="font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:20px;">Request Custom Financial Model</div>
+
+      <form name="metropolis-demo" method="POST" data-netlify="true" style="display:flex;flex-direction:column;gap:14px;">
+        <input type="hidden" name="form-name" value="metropolis-demo">
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div>
+            <label style="font-size:0.68rem;color:var(--forest-muted);display:block;margin-bottom:6px;font-weight:500;">First Name</label>
+            <input name="first_name" type="text" placeholder="Alex" required
+              style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:var(--forest-text);font-size:0.88rem;padding:12px 14px;border-radius:8px;outline:none;font-family:var(--sans);transition:border-color 0.15s;"
+              onfocus="this.style.borderColor='rgba(53,160,95,0.4)'"
+              onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
+          </div>
+          <div>
+            <label style="font-size:0.68rem;color:var(--forest-muted);display:block;margin-bottom:6px;font-weight:500;">Last Name</label>
+            <input name="last_name" type="text" placeholder="Chen" required
+              style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:var(--forest-text);font-size:0.88rem;padding:12px 14px;border-radius:8px;outline:none;font-family:var(--sans);transition:border-color 0.15s;"
+              onfocus="this.style.borderColor='rgba(53,160,95,0.4)'"
+              onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
+          </div>
+        </div>
+
+        <div>
+          <label style="font-size:0.68rem;color:var(--forest-muted);display:block;margin-bottom:6px;font-weight:500;">Work Email</label>
+          <input name="email" type="email" placeholder="alex@yournetwork.com" required
+            style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:var(--forest-text);font-size:0.88rem;padding:12px 14px;border-radius:8px;outline:none;font-family:var(--sans);transition:border-color 0.15s;"
+            onfocus="this.style.borderColor='rgba(53,160,95,0.4)'"
+            onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div>
+            <label style="font-size:0.68rem;color:var(--forest-muted);display:block;margin-bottom:6px;font-weight:500;">Number of Facilities</label>
+            <input name="facilities" type="number" placeholder="e.g. 4500" min="1" required
+              style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:var(--forest-text);font-size:0.88rem;padding:12px 14px;border-radius:8px;outline:none;font-family:var(--sans);transition:border-color 0.15s;"
+              onfocus="this.style.borderColor='rgba(53,160,95,0.4)'"
+              onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
+          </div>
+          <div>
+            <label style="font-size:0.68rem;color:var(--forest-muted);display:block;margin-bottom:6px;font-weight:500;">Active Members</label>
+            <input name="members" type="text" placeholder="e.g. 1.2M"
+              style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:var(--forest-text);font-size:0.88rem;padding:12px 14px;border-radius:8px;outline:none;font-family:var(--sans);transition:border-color 0.15s;"
+              onfocus="this.style.borderColor='rgba(53,160,95,0.4)'"
+              onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
+          </div>
+        </div>
+
+        <div>
+          <label style="font-size:0.68rem;color:var(--forest-muted);display:block;margin-bottom:6px;font-weight:500;">Title / Role</label>
+          <input name="title" type="text" placeholder="COO, VP Operations, CEO..."
+            style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:var(--forest-text);font-size:0.88rem;padding:12px 14px;border-radius:8px;outline:none;font-family:var(--sans);transition:border-color 0.15s;"
+            onfocus="this.style.borderColor='rgba(53,160,95,0.4)'"
+            onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
+        </div>
+
+        <button type="submit" class="btn-primary" style="margin-top:6px;justify-content:center;font-size:0.88rem;padding:16px 32px;">
+          Request My Custom Model
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+
+      <p style="font-size:0.7rem;color:var(--forest-muted);text-align:center;margin-top:16px;">
+        We'll build a full financial model using your network's actual numbers and share it within 48 hours. No pitch deck. Just your data.
+      </p>
+    </div>
+
+    <!-- Social proof strip below form -->
+    <div style="margin-top:40px;display:flex;gap:32px;justify-content:center;flex-wrap:wrap;" class="fade-up visible">
+      <div style="text-align:center;">
+        <div style="font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--green-bright);">90%</div>
+        <div style="font-size:0.65rem;color:var(--forest-muted);">Accuracy guaranteed</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--green-bright);">48h</div>
+        <div style="font-size:0.65rem;color:var(--forest-muted);">Custom model turnaround</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--green-bright);">$0</div>
+        <div style="font-size:0.65rem;color:var(--forest-muted);">Cost for the model</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--green-bright);">13d</div>
+        <div style="font-size:0.65rem;color:var(--forest-muted);">Payback from deployment</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer style="background:var(--forest-deep);border-top:1px solid rgba(255,255,255,0.07);padding:60px 48px 40px;">
+  <div class="inner">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;" class="footer-grid">
+
+      <div>
+        <a href="#top" class="nav-logo" style="display:inline-flex;margin-bottom:16px;">
+          <div class="nav-logo-mark">M</div>
+          <span class="nav-wordmark">Metro<span>polis</span></span>
+        </a>
+        <p style="font-size:0.8rem;color:var(--forest-muted);line-height:1.8;max-width:280px;margin-bottom:16px;">
+          The AI operations platform for multi-location fitness and wellness networks. $364.7M Year 1 impact. 3,658% ROI. 13-day payback.
+        </p>
+        <div style="font-size:0.7rem;color:var(--forest-muted);">
+          Built by <strong style="color:var(--green-light);">CELO</strong> · Powered by a decade of fitness network operational data
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:16px;">Platform</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <a href="#platform" style="font-size:0.8rem;color:var(--forest-muted);transition:color 0.15s;" onmouseover="this.style.color='var(--forest-text)'" onmouseout="this.style.color='var(--forest-muted)'">Capabilities</a>
+          <a href="#numbers" style="font-size:0.8rem;color:var(--forest-muted);transition:color 0.15s;" onmouseover="this.style.color='var(--forest-text)'" onmouseout="this.style.color='var(--forest-muted)'">Financial Model</a>
+          <a href="#implementation" style="font-size:0.8rem;color:var(--forest-muted);transition:color 0.15s;" onmouseover="this.style.color='var(--forest-text)'" onmouseout="this.style.color='var(--forest-muted)'">Implementation</a>
+          <a href="#investment" style="font-size:0.8rem;color:var(--forest-muted);transition:color 0.15s;" onmouseover="this.style.color='var(--forest-text)'" onmouseout="this.style.color='var(--forest-muted)'">Investment Case</a>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:16px;">Company</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <a href="#who" style="font-size:0.8rem;color:var(--forest-muted);transition:color 0.15s;" onmouseover="this.style.color='var(--forest-text)'" onmouseout="this.style.color='var(--forest-muted)'">Who It's For</a>
+          <a href="#vision" style="font-size:0.8rem;color:var(--forest-muted);transition:color 0.15s;" onmouseover="this.style.color='var(--forest-text)'" onmouseout="this.style.color='var(--forest-muted)'">Vision</a>
+          <a href="#demo" style="font-size:0.8rem;color:var(--forest-muted);transition:color 0.15s;" onmouseover="this.style.color='var(--forest-text)'" onmouseout="this.style.color='var(--forest-muted)'">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:16px;">The Numbers</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="font-size:0.78rem;color:var(--forest-muted);">$364.7M Year 1 impact</div>
+          <div style="font-size:0.78rem;color:var(--forest-muted);">3,658% ROI</div>
+          <div style="font-size:0.78rem;color:var(--forest-muted);">13-day payback</div>
+          <div style="font-size:0.78rem;color:var(--forest-muted);">4,500 facilities</div>
+          <div style="font-size:0.78rem;color:var(--forest-muted);">1.2M active members</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <div style="font-size:0.7rem;color:var(--forest-muted);">
+        &copy; 2026 CELO Business Solutions · Metropolis Platform
+      </div>
+      <div style="font-size:0.7rem;color:var(--forest-muted);">
+        Financial projections based on 4,500-facility network model · 90% accuracy guarantee · Results vary by network size and configuration
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+@media(max-width:860px) { .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; } }
+@media(max-width:500px) { .footer-grid { grid-template-columns: 1fr !important; } }
+</style>
+
+<!-- ============================================================
+     JAVASCRIPT — Scroll animations + counters
+     ============================================================ -->
+<script>
+// IntersectionObserver for fade-up / fade-left / fade-right
+const animObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      animObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-up:not(.visible), .fade-left:not(.visible), .fade-right:not(.visible)').forEach(el => {
+  animObserver.observe(el);
+});
+
+// Animated counters
+function animateCounter(el, target, duration, prefix, suffix) {
+  let start = null;
+  const isFloat = target !== Math.floor(target);
+  const step = (timestamp) => {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = eased * target;
+    el.textContent = prefix + (isFloat ? current.toFixed(1) : Math.floor(current).toLocaleString()) + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+// Counter observer — triggers when big numbers come into view
+const counterEls = document.querySelectorAll('[data-counter]');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseFloat(el.getAttribute('data-counter'));
+      const prefix = el.getAttribute('data-prefix') || '';
+      const suffix = el.getAttribute('data-suffix') || '';
+      animateCounter(el, target, 1800, prefix, suffix);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.3 });
+
+counterEls.forEach(el => counterObserver.observe(el));
+
+// Nav scroll behavior — add shadow on scroll
+const nav = document.querySelector('.nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    nav.style.background = 'rgba(14, 22, 15, 0.98)';
+    nav.style.boxShadow = '0 4px 24px rgba(0,0,0,0.3)';
+  } else {
+    nav.style.background = 'rgba(20, 31, 21, 0.96)';
+    nav.style.boxShadow = 'none';
+  }
+}, { passive: true });
+
+// Smooth anchor scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>

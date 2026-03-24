@@ -16,6 +16,7 @@
 
 | File | Description | Type | Status |
 |------|-------------|------|--------|
+| **celo-website.html** | **Production website — AI/tech company for fitness & wellness** | **Web** | **Live** |
 | icp-profile.html | Ideal Customer Profile | Strategy | Live |
 | lead-reactivation.html | Lead reactivation strategy | Sales | Live |
 | activation-plan.html | Launch/activation plan | Operations | Live |
@@ -50,4 +51,4 @@
 
 ---
 
-**Last Updated:** March 20, 2026
+**Last Updated:** March 21, 2026
