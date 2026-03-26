@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CELO Savings Calculator — How Much Could You Save?</title>
+<meta name="description" content="Get a custom estimate of what you could save by building a dedicated remote team in the Philippines with CELO Business Solutions.">
+<meta property="og:title" content="CELO Savings Calculator — How Much Could You Save?">
+<meta property="og:description" content="Answer a few questions. Get your custom savings estimate in 60 seconds.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232e7b52'/><text x='16' y='23' text-anchor='middle' font-family='Georgia' font-size='18' font-weight='700' fill='white'>C</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════
+   CELO BUSINESS SOLUTIONS — ROI CALCULATOR
+   Matches celo-website.html design system exactly
+   ═══════════════════════════════════════════════════════ */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --white:#ffffff;
+  --bg:#f0f5f0;
+  --surface:#eef6f0;
+  --forest:#1c2e1e;
+  --forest-mid:#243d26;
+  --forest-card:rgba(255,255,255,.04);
+  --forest-border:rgba(255,255,255,.08);
+  --forest-text:#f0f7f2;
+  --forest-body:rgba(240,247,242,.72);
+  --forest-grey:rgba(240,247,242,.45);
+  --deep:#1a2e1e;
+  --body:#364d39;
+  --grey:#607060;
+  --muted:#8fa48f;
+  --border:rgba(46,123,82,.1);
+  --border-mid:rgba(46,123,82,.18);
+  --green:#2e7b52;
+  --green-dark:#235f40;
+  --green-bright:#35a05f;
+  --green-light:#6fc896;
+  --green-soft:rgba(46,123,82,.07);
+  --green-border:rgba(46,123,82,.18);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Inter',-apple-system,sans-serif;
+  --max:800px;
+  --shadow:0 2px 16px rgba(28,46,30,.06);
+  --shadow-md:0 4px 24px rgba(28,46,30,.09);
+  --shadow-lg:0 8px 40px rgba(28,46,30,.13);
+  --radius:12px;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--deep);overflow-x:hidden;line-height:1.6;margin:0;min-height:100vh}
+
+/* ─── TOP BAR ─── */
+.top-bar{background:var(--forest);border-bottom:1px solid var(--forest-border);padding:0 40px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
+.top-bar-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:30px;height:30px;background:var(--green-bright);border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-weight:700;font-size:.85rem;flex-shrink:0}
+.logo-text{font-family:var(--serif);font-size:.95rem;font-weight:700;color:var(--forest-text)}
+.logo-text span{color:var(--green-light)}
+.top-bar-back{display:flex;align-items:center;gap:6px;color:var(--forest-grey);font-size:.72rem;font-weight:500;text-decoration:none;transition:color .15s}
+.top-bar-back:hover{color:var(--forest-text)}
+.top-bar-back svg{width:14px;height:14px}
+@media(max-width:520px){.top-bar{padding:0 20px}}
+
+/* ─── PAGE HEADER ─── */
+.page-header{background:var(--forest);padding:52px 40px 64px;text-align:center;position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(46,160,95,.13) 0%,transparent 65%)}
+.page-header-grid{position:absolute;inset:0;opacity:.02;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.8) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.8) 1px,transparent 1px);background-size:50px 50px}
+.page-header-inner{max-width:var(--max);margin:0 auto;position:relative}
+.page-eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(53,160,95,.12);border:1px solid rgba(53,160,95,.28);color:var(--green-light);font-size:.62rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:20px}
+.page-eyebrow .dot{width:4px;height:4px;border-radius:50%;background:var(--green-light);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.page-headline{font-family:var(--serif);font-size:clamp(1.9rem,4.5vw,3.2rem);font-weight:700;line-height:1.1;color:var(--forest-text);margin-bottom:14px;letter-spacing:-.02em}
+.page-headline em{font-style:italic;color:var(--green-bright)}
+.page-sub{font-size:.95rem;color:var(--forest-body);line-height:1.75;max-width:520px;margin:0 auto}
+
+/* ─── PROGRESS BAR ─── */
+.progress-wrap{background:var(--forest);padding:0 40px 28px}
+.progress-inner{max-width:var(--max);margin:0 auto}
+.progress-steps{display:flex;align-items:center;gap:0;position:relative}
+.progress-step{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;z-index:1}
+.ps-num{width:32px;height:32px;border-radius:50%;border:2px solid var(--forest-border);background:var(--forest-card);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:var(--forest-grey);transition:all .35s}
+.ps-label{font-size:.65rem;font-weight:500;color:var(--forest-grey);white-space:nowrap;transition:color .35s}
+.progress-step.active .ps-num{border-color:var(--green-bright);background:var(--green-bright);color:#fff}
+.progress-step.active .ps-label{color:var(--forest-text)}
+.progress-step.done .ps-num{border-color:var(--green);background:rgba(46,123,82,.25);color:var(--green-light)}
+.progress-step.done .ps-label{color:var(--forest-body)}
+.progress-connector{flex:1;height:1px;background:var(--forest-border);position:relative;z-index:0}
+.progress-connector.done{background:var(--green)}
+@media(max-width:480px){.ps-label{font-size:.58rem}.ps-num{width:26px;height:26px;font-size:.65rem}}
+@media(max-width:360px){.ps-label{display:none}}
+
+/* ─── MAIN CONTAINER ─── */
+.calc-wrap{max-width:var(--max);margin:0 auto;padding:32px 20px 64px}
+
+/* ─── CARD ─── */
+.card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-md);border:1px solid var(--border);overflow:hidden}
+.card-head{padding:32px 36px 24px;border-bottom:1px solid var(--border)}
+.card-head h2{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--deep);margin-bottom:6px}
+.card-head p{font-size:.85rem;color:var(--grey);line-height:1.6}
+.card-body{padding:28px 36px 36px}
+@media(max-width:580px){.card-head{padding:24px 20px 18px}.card-body{padding:20px 20px 28px}}
+
+/* ─── FORM ELEMENTS ─── */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form-grid.cols-1{grid-template-columns:1fr}
+@media(max-width:560px){.form-grid{grid-template-columns:1fr}}
+.form-group{display:flex;flex-direction:column;gap:7px}
+.form-label{font-size:.75rem;font-weight:600;color:var(--deep);letter-spacing:.02em}
+.form-label span{color:var(--muted);font-weight:400}
+.form-select,.form-input{width:100%;padding:11px 14px;border:1.5px solid var(--border-mid);border-radius:8px;font-family:var(--sans);font-size:.85rem;color:var(--deep);background:var(--white);outline:none;transition:border-color .15s,box-shadow .15s;appearance:none;-webkit-appearance:none}
+.form-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238fa48f' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.form-select:focus,.form-input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(46,123,82,.09)}
+.form-select:hover,.form-input:hover{border-color:var(--green)}
+
+/* ─── HOURS SECTION ─── */
+.hours-section{margin-top:24px;padding-top:24px;border-top:1px solid var(--border)}
+.hours-title{font-size:.78rem;font-weight:700;color:var(--deep);margin-bottom:4px}
+.hours-sub{font-size:.76rem;color:var(--grey);margin-bottom:18px}
+.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:500px){.hours-grid{grid-template-columns:1fr}}
+.hours-item{display:flex;flex-direction:column;gap:8px}
+.hours-label{font-size:.74rem;font-weight:600;color:var(--deep)}
+.hours-input-wrap{display:flex;align-items:center;gap:12px}
+.hours-slider{flex:1;-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;background:var(--border-mid);outline:none;cursor:pointer}
+.hours-slider::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--green);box-shadow:0 1px 6px rgba(46,123,82,.3);cursor:pointer;transition:background .15s}
+.hours-slider::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--green);border:none;box-shadow:0 1px 6px rgba(46,123,82,.3);cursor:pointer}
+.hours-slider:hover::-webkit-slider-thumb{background:var(--green-bright)}
+.hours-num{font-size:.82rem;font-weight:700;color:var(--green);min-width:36px;text-align:right}
+
+/* ─── CARD OPTIONS (AI readiness) ─── */
+.option-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:4px}
+@media(max-width:480px){.option-cards{grid-template-columns:1fr}}
+.option-card{border:2px solid var(--border-mid);border-radius:10px;padding:16px 16px 14px;cursor:pointer;transition:all .2s;position:relative;background:var(--white)}
+.option-card:hover{border-color:var(--green);background:var(--green-soft)}
+.option-card.selected{border-color:var(--green-bright);background:rgba(53,160,95,.08)}
+.option-card.selected::after{content:'';position:absolute;top:10px;right:10px;width:18px;height:18px;border-radius:50%;background:var(--green-bright);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' viewBox='0 0 10 8'%3E%3Cpath d='M1 4l3 3 5-6' stroke='white' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+.oc-icon{font-size:1.4rem;margin-bottom:8px;line-height:1}
+.oc-title{font-size:.82rem;font-weight:700;color:var(--deep);margin-bottom:3px}
+.oc-desc{font-size:.73rem;color:var(--grey);line-height:1.45}
+
+/* ─── CHECKBOXES ─── */
+.pain-section{margin-top:24px;padding-top:24px;border-top:1px solid var(--border)}
+.pain-title{font-size:.78rem;font-weight:700;color:var(--deep);margin-bottom:4px}
+.pain-sub{font-size:.76rem;color:var(--grey);margin-bottom:14px}
+.pain-options{display:flex;flex-direction:column;gap:8px}
+.pain-option{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border:1.5px solid var(--border-mid);border-radius:8px;cursor:pointer;transition:all .2s}
+.pain-option:hover{border-color:var(--green);background:var(--green-soft)}
+.pain-option.checked{border-color:var(--green);background:rgba(46,123,82,.06)}
+.pain-check{width:18px;height:18px;border-radius:4px;border:2px solid var(--border-mid);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.pain-option.checked .pain-check{background:var(--green);border-color:var(--green);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' viewBox='0 0 10 8'%3E%3Cpath d='M1 4l3 3 5-6' stroke='white' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+.pain-text{font-size:.81rem;color:var(--deep);line-height:1.45}
+
+/* ─── STEP NAV ─── */
+.step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:24px;border-top:1px solid var(--border)}
+.btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--grey);font-size:.8rem;font-weight:500;background:none;border:none;cursor:pointer;padding:10px 0;transition:color .15s;font-family:var(--sans)}
+.btn-back:hover{color:var(--deep)}
+.btn-next{display:inline-flex;align-items:center;gap:8px;background:var(--green-bright);color:#fff;font-family:var(--sans);font-size:.82rem;font-weight:700;padding:13px 28px;border-radius:8px;border:none;cursor:pointer;transition:background .15s;letter-spacing:.01em}
+.btn-next:hover{background:var(--green-dark)}
+.btn-next:disabled{background:var(--muted);cursor:not-allowed}
+.btn-next svg,.btn-back svg{width:15px;height:15px;flex-shrink:0}
+
+/* ─── STEP TRANSITION ─── */
+.step{display:none}
+.step.active{display:block;animation:stepIn .35s ease}
+@keyframes stepIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:translateX(0)}}
+.step.going-back{animation:stepBack .35s ease}
+@keyframes stepBack{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:translateX(0)}}
+
+/* ─── RESULTS ─── */
+.results-header{background:var(--forest);border-radius:var(--radius);padding:28px 32px;margin-bottom:20px;position:relative;overflow:hidden;text-align:center}
+.results-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 30%,rgba(46,160,95,.18) 0%,transparent 60%);pointer-events:none}
+.results-header h2{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--forest-text);margin-bottom:8px;position:relative}
+.results-header p{font-size:.83rem;color:var(--forest-body);position:relative}
+
+.stat-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}
+@media(max-width:580px){.stat-cards{grid-template-columns:1fr;gap:10px}}
+.stat-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);padding:22px 20px 18px;text-align:center;box-shadow:var(--shadow)}
+.stat-icon{font-size:1.5rem;margin-bottom:8px;display:block}
+.stat-num{font-family:var(--serif);font-size:1.9rem;font-weight:700;color:var(--green);line-height:1;margin-bottom:5px;display:block}
+.stat-label{font-size:.72rem;color:var(--grey);font-weight:500;line-height:1.3}
+.stat-card.highlight{background:var(--forest);border-color:var(--green)}
+.stat-card.highlight .stat-num{color:var(--green-light)}
+.stat-card.highlight .stat-label{color:var(--forest-body)}
+
+/* ─── COST BAR ─── */
+.cost-bar-section{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);padding:24px 28px;margin-bottom:14px;box-shadow:var(--shadow)}
+.cb-title{font-size:.75rem;font-weight:700;color:var(--deep);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em}
+.cb-sub{font-size:.76rem;color:var(--grey);margin-bottom:18px}
+.cost-bars{display:flex;flex-direction:column;gap:12px}
+.cost-bar-row{display:flex;flex-direction:column;gap:5px}
+.cbr-label{display:flex;justify-content:space-between;font-size:.75rem;color:var(--grey);font-weight:500}
+.cbr-label strong{color:var(--deep)}
+.cbr-track{height:9px;border-radius:5px;background:var(--bg);overflow:hidden}
+.cbr-fill{height:100%;border-radius:5px;transition:width 1.2s cubic-bezier(.22,1,.36,1)}
+.cbr-fill.bar-current{background:var(--muted)}
+.cbr-fill.bar-celo{background:var(--green-bright)}
+.savings-callout{margin-top:14px;background:rgba(46,123,82,.07);border:1px solid var(--green-border);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:.8rem;color:var(--green-dark);font-weight:500}
+
+/* ─── AI READINESS METER ─── */
+.ai-meter-section{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);padding:24px 28px;margin-bottom:14px;box-shadow:var(--shadow)}
+.aim-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
+.aim-title{font-size:.75rem;font-weight:700;color:var(--deep);text-transform:uppercase;letter-spacing:.04em}
+.aim-badge{font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:20px;background:rgba(46,123,82,.1);color:var(--green-dark)}
+.aim-track{height:12px;border-radius:6px;background:var(--bg);overflow:hidden;margin-bottom:10px;position:relative}
+.aim-fill{height:100%;border-radius:6px;transition:width 1.4s cubic-bezier(.22,1,.36,1)}
+.aim-markers{display:flex;justify-content:space-between;font-size:.64rem;color:var(--muted)}
+.aim-opp{margin-top:14px;background:rgba(46,160,95,.07);border:1px solid var(--green-border);border-radius:8px;padding:12px 14px}
+.aim-opp-title{font-size:.72rem;font-weight:700;color:var(--green-dark);margin-bottom:4px}
+.aim-opp-text{font-size:.76rem;color:var(--grey);line-height:1.5}
+
+/* ─── BREAKDOWN TABLE ─── */
+.breakdown-section{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);padding:24px 28px;margin-bottom:20px;box-shadow:var(--shadow)}
+.breakdown-title{font-size:.75rem;font-weight:700;color:var(--deep);text-transform:uppercase;letter-spacing:.04em;margin-bottom:14px}
+.breakdown-rows{display:flex;flex-direction:column;gap:0}
+.breakdown-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)}
+.breakdown-row:last-child{border-bottom:none;padding-top:16px;margin-top:4px}
+.breakdown-row.total{background:none}
+.br-left{display:flex;flex-direction:column;gap:2px}
+.br-name{font-size:.82rem;font-weight:600;color:var(--deep)}
+.br-name.total-name{font-family:var(--serif);font-size:1rem;font-weight:700}
+.br-detail{font-size:.72rem;color:var(--grey)}
+.br-value{font-size:.9rem;font-weight:700;color:var(--green);text-align:right}
+.br-value.total-val{font-family:var(--serif);font-size:1.3rem;color:var(--green-dark)}
+.br-value .br-mo{display:block;font-size:.7rem;font-weight:500;color:var(--muted)}
+
+/* ─── GATE / CTA ─── */
+.gate-section{background:var(--white);border-radius:var(--radius);border:2px solid var(--green-border);padding:28px 32px;box-shadow:var(--shadow-lg)}
+@media(max-width:520px){.gate-section{padding:22px 20px}}
+.gate-teaser{margin-bottom:24px}
+.gate-teaser h3{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:var(--deep);margin-bottom:8px}
+.gate-teaser p{font-size:.82rem;color:var(--grey);line-height:1.6;margin-bottom:14px}
+.gate-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:6px}
+.gate-list li{display:flex;align-items:center;gap:9px;font-size:.8rem;color:var(--body)}
+.gate-list li::before{content:'';width:18px;height:18px;border-radius:50%;background:rgba(46,123,82,.1);border:1px solid var(--green-border);flex-shrink:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='7' viewBox='0 0 9 7'%3E%3Cpath d='M1 3.5l2.5 2.5 5-5' stroke='%232e7b52' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+.gate-divider{border:none;border-top:1px solid var(--border);margin:22px 0}
+.gate-form h3{font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--deep);margin-bottom:6px}
+.gate-form p{font-size:.8rem;color:var(--grey);margin-bottom:18px}
+.gate-form-fields{display:flex;flex-direction:column;gap:12px}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:480px){.form-row-2{grid-template-columns:1fr}}
+.btn-primary{width:100%;padding:15px;background:var(--green-bright);color:#fff;font-family:var(--sans);font-size:.88rem;font-weight:700;border:none;border-radius:8px;cursor:pointer;transition:background .15s;letter-spacing:.01em;margin-top:4px}
+.btn-primary:hover{background:var(--green-dark)}
+.gate-alt{text-align:center;margin-top:12px;font-size:.77rem;color:var(--grey)}
+.gate-alt a{color:var(--green);font-weight:600;text-decoration:none}
+.gate-alt a:hover{text-decoration:underline}
+.success-msg{text-align:center;padding:24px;display:none}
+.success-msg.visible{display:block}
+.success-icon{font-size:2.5rem;margin-bottom:12px}
+.success-msg h3{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--deep);margin-bottom:8px}
+.success-msg p{font-size:.83rem;color:var(--grey)}
+
+/* ─── START OVER ─── */
+.start-over-wrap{text-align:center;margin-top:28px}
+.btn-ghost{background:none;border:1.5px solid var(--border-mid);color:var(--grey);font-family:var(--sans);font-size:.78rem;font-weight:600;padding:10px 22px;border-radius:8px;cursor:pointer;transition:all .15s}
+.btn-ghost:hover{border-color:var(--green);color:var(--green)}
+
+/* ─── FOOTER ─── */
+.calc-footer{background:var(--forest);text-align:center;padding:28px 40px;border-top:1px solid var(--forest-border);margin-top:0}
+.cf-logo{display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:10px;text-decoration:none}
+.cf-logo-mark{width:24px;height:24px;background:var(--green-bright);border-radius:5px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-weight:700;font-size:.75rem}
+.cf-logo-text{font-family:var(--serif);font-size:.85rem;font-weight:700;color:var(--forest-text)}
+.cf-disclaimer{font-size:.68rem;color:var(--forest-grey);line-height:1.65;max-width:580px;margin:0 auto}
+.cf-disclaimer a{color:var(--green-light);text-decoration:none}
+.cf-disclaimer a:hover{text-decoration:underline}
+
+/* ─── VALIDATION ─── */
+.field-error{font-size:.68rem;color:#c0392b;margin-top:3px}
+.form-select.error,.form-input.error{border-color:#c0392b}
+
+/* ─── MOBILE TWEAKS ─── */
+@media(max-width:440px){
+  .page-header{padding:36px 20px 44px}
+  .progress-wrap{padding:0 20px 22px}
+  .calc-wrap{padding:20px 14px 48px}
+  .stat-num{font-size:1.6rem}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="top-bar">
+  <a href="index.html" class="top-bar-logo">
+    <div class="logo-mark">C</div>
+    <div class="logo-text">CELO <span>Business Solutions</span></div>
+  </a>
+  <a href="index.html#book" class="top-bar-back">
+    <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 3L4 7.5L8 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 7.5H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    Back to celoph.com
+  </a>
+</header>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-grid"></div>
+  <div class="page-header-inner">
+    <div class="page-eyebrow"><span class="dot"></span> Free Savings Estimate</div>
+    <h1 class="page-headline">How Much Could You Save<br><em>With CELO?</em></h1>
+    <p class="page-sub">Answer a few questions. Get your custom savings estimate in 60 seconds.</p>
+  </div>
+</div>
+
+<!-- PROGRESS BAR -->
+<div class="progress-wrap">
+  <div class="progress-inner">
+    <div class="progress-steps" id="progressSteps">
+      <div class="progress-step active" data-step="1">
+        <div class="ps-num">1</div>
+        <div class="ps-label">Your Business</div>
+      </div>
+      <div class="progress-connector" id="conn1"></div>
+      <div class="progress-step" data-step="2">
+        <div class="ps-num">2</div>
+        <div class="ps-label">AI Readiness</div>
+      </div>
+      <div class="progress-connector" id="conn2"></div>
+      <div class="progress-step" data-step="3">
+        <div class="ps-num">3</div>
+        <div class="ps-label">Your Results</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CALCULATOR BODY -->
+<main class="calc-wrap">
+
+  <!-- STEP 1: Your Business -->
+  <div class="step active" id="step1">
+    <div class="card">
+      <div class="card-head">
+        <h2>Tell us about your business</h2>
+        <p>We use this to calculate realistic savings based on your industry and team size.</p>
+      </div>
+      <div class="card-body">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="industry">Industry</label>
+            <select class="form-select" id="industry">
+              <option value="">Select your industry...</option>
+              <option value="ecommerce">E-commerce</option>
+              <option value="saas">SaaS / Tech</option>
+              <option value="professional_services">Professional Services</option>
+              <option value="healthcare">Healthcare</option>
+              <option value="real_estate">Real Estate</option>
+              <option value="financial">Financial Services</option>
+              <option value="education">Education</option>
+              <option value="fitness">Fitness / Wellness</option>
+              <option value="manufacturing">Manufacturing</option>
+              <option value="agency">Agency / Marketing</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="teamSize">Company size</label>
+            <select class="form-select" id="teamSize">
+              <option value="">Select team size...</option>
+              <option value="1-10">1–10 employees</option>
+              <option value="11-25">11–25 employees</option>
+              <option value="26-50">26–50 employees</option>
+              <option value="51-100">51–100 employees</option>
+              <option value="101-200">101–200 employees</option>
+              <option value="200+">200+ employees</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="revenue">Annual revenue</label>
+            <select class="form-select" id="revenue">
+              <option value="">Select range...</option>
+              <option value="under500k">Under $500K</option>
+              <option value="500k-1m">$500K – $1M</option>
+              <option value="1m-3m">$1M – $3M</option>
+              <option value="3m-10m">$3M – $10M</option>
+              <option value="10m-25m">$10M – $25M</option>
+              <option value="25m+">$25M+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="country">Country</label>
+            <select class="form-select" id="country">
+              <option value="">Select country...</option>
+              <option value="US">United States</option>
+              <option value="UK">United Kingdom</option>
+              <option value="AU">Australia</option>
+              <option value="CA">Canada</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="hours-section">
+          <div class="hours-title">How many hours per week does your team spend on these tasks?</div>
+          <div class="hours-sub">Include both you and any staff. Drag or type to set hours (0–80).</div>
+          <div class="hours-grid">
+            <div class="hours-item">
+              <div class="hours-label">Customer support</div>
+              <div class="hours-input-wrap">
+                <input type="range" class="hours-slider" id="hrsSupport" min="0" max="80" value="10">
+                <span class="hours-num" id="hrsSupport-val">10</span>
+              </div>
+            </div>
+            <div class="hours-item">
+              <div class="hours-label">Admin / back-office</div>
+              <div class="hours-input-wrap">
+                <input type="range" class="hours-slider" id="hrsAdmin" min="0" max="80" value="8">
+                <span class="hours-num" id="hrsAdmin-val">8</span>
+              </div>
+            </div>
+            <div class="hours-item">
+              <div class="hours-label">Sales / lead gen</div>
+              <div class="hours-input-wrap">
+                <input type="range" class="hours-slider" id="hrsSales" min="0" max="80" value="6">
+                <span class="hours-num" id="hrsSales-val">6</span>
+              </div>
+            </div>
+            <div class="hours-item">
+              <div class="hours-label">Data entry</div>
+              <div class="hours-input-wrap">
+                <input type="range" class="hours-slider" id="hrsData" min="0" max="80" value="4">
+                <span class="hours-num" id="hrsData-val">4</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <div></div>
+          <button class="btn-next" onclick="goToStep(2)">
+            Continue
+            <svg viewBox="0 0 15 15" fill="none"><path d="M6 3l4 4.5-4 4.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: AI Readiness -->
+  <div class="step" id="step2">
+    <div class="card">
+      <div class="card-head">
+        <h2>Your operational baseline</h2>
+        <p>This shapes your AI opportunity score — the additional efficiency gain available beyond staffing savings.</p>
+      </div>
+      <div class="card-body">
+        <div class="form-group" style="margin-bottom:20px">
+          <div class="form-label" style="margin-bottom:10px">How AI-native is your business currently?</div>
+          <div class="option-cards" id="aiReadinessCards">
+            <div class="option-card" data-value="none" onclick="selectAiReadiness(this)">
+              <div class="oc-icon">📋</div>
+              <div class="oc-title">Not at all</div>
+              <div class="oc-desc">We run everything manually. No automation.</div>
+            </div>
+            <div class="option-card" data-value="low" onclick="selectAiReadiness(this)">
+              <div class="oc-icon">⚙️</div>
+              <div class="oc-title">Low</div>
+              <div class="oc-desc">Basic tools like email automation, simple CRM. Nothing custom.</div>
+            </div>
+            <div class="option-card" data-value="medium" onclick="selectAiReadiness(this)">
+              <div class="oc-icon">🔗</div>
+              <div class="oc-title">Medium</div>
+              <div class="oc-desc">Some automation and integrations. Could definitely do more.</div>
+            </div>
+            <div class="option-card" data-value="heavy" onclick="selectAiReadiness(this)">
+              <div class="oc-icon">🧠</div>
+              <div class="oc-title">Heavy</div>
+              <div class="oc-desc">Significant AI and automation already deployed across operations.</div>
+            </div>
+          </div>
+          <div class="field-error" id="aiReadinessError" style="display:none">Please select your AI readiness level.</div>
+        </div>
+
+        <div class="pain-section">
+          <div class="pain-title">What's your biggest operational pain right now?</div>
+          <div class="pain-sub">Select all that apply — this helps us tailor your report.</div>
+          <div class="pain-options" id="painOptions">
+            <div class="pain-option" onclick="togglePain(this)" data-value="hiring_expensive">
+              <div class="pain-check"></div>
+              <div class="pain-text">Hiring is too expensive domestically</div>
+            </div>
+            <div class="pain-option" onclick="togglePain(this)" data-value="bad_outsourcing">
+              <div class="pain-check"></div>
+              <div class="pain-text">Quality of outsourcing has been poor before</div>
+            </div>
+            <div class="pain-option" onclick="togglePain(this)" data-value="founder_ops">
+              <div class="pain-check"></div>
+              <div class="pain-text">Founder / exec still doing operational work</div>
+            </div>
+            <div class="pain-option" onclick="togglePain(this)" data-value="no_visibility">
+              <div class="pain-check"></div>
+              <div class="pain-text">No visibility into where time and money is wasted</div>
+            </div>
+            <div class="pain-option" onclick="togglePain(this)" data-value="disconnected_tech">
+              <div class="pain-check"></div>
+              <div class="pain-text">Tech stack is disconnected / too many manual processes</div>
+            </div>
+            <div class="pain-option" onclick="togglePain(this)" data-value="growth_ops_lag">
+              <div class="pain-check"></div>
+              <div class="pain-text">Growing faster than operations can keep up</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <button class="btn-back" onclick="goToStep(1)">
+            <svg viewBox="0 0 15 15" fill="none"><path d="M9 3L5 7.5L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Back
+          </button>
+          <button class="btn-next" onclick="goToStep(3)">
+            Calculate my savings
+            <svg viewBox="0 0 15 15" fill="none"><path d="M6 3l4 4.5-4 4.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3: Results -->
+  <div class="step" id="step3">
+
+    <div class="results-header">
+      <h2>Your Custom Savings Estimate</h2>
+      <p>Based on your inputs — <span id="resultsLabel">your business profile</span></p>
+    </div>
+
+    <!-- 3 stat cards -->
+    <div class="stat-cards">
+      <div class="stat-card highlight">
+        <span class="stat-icon">💰</span>
+        <span class="stat-num" id="statAnnualSavings">$0</span>
+        <span class="stat-label">Estimated Annual Savings</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">⏱</span>
+        <span class="stat-num" id="statHoursRecovered">0</span>
+        <span class="stat-label">Hours Recovered Per Year</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">📈</span>
+        <span class="stat-num" id="statAiScore">0%</span>
+        <span class="stat-label">Additional AI Opportunity</span>
+      </div>
+    </div>
+
+    <!-- Cost comparison bar -->
+    <div class="cost-bar-section">
+      <div class="cb-title">Cost Comparison</div>
+      <div class="cb-sub">Annual cost at current US/UK rates vs. CELO equivalent</div>
+      <div class="cost-bars">
+        <div class="cost-bar-row">
+          <div class="cbr-label"><span>Your current cost <strong id="cbCurrentLabel">($40/hr avg)</strong></span><strong id="cbCurrentVal">$0/yr</strong></div>
+          <div class="cbr-track"><div class="cbr-fill bar-current" id="cbCurrentFill" style="width:100%"></div></div>
+        </div>
+        <div class="cost-bar-row">
+          <div class="cbr-label"><span>CELO equivalent <strong>($13/hr avg)</strong></span><strong id="cbCeloVal">$0/yr</strong></div>
+          <div class="cbr-track"><div class="cbr-fill bar-celo" id="cbCeloFill" style="width:0%"></div></div>
+        </div>
+      </div>
+      <div class="savings-callout">
+        <span>✓</span>
+        <span id="savingsCalloutText">You could recover <strong id="savingsCalloutAmt">$0</strong> annually — redirected to growth.</span>
+      </div>
+    </div>
+
+    <!-- AI Readiness Meter -->
+    <div class="ai-meter-section">
+      <div class="aim-header">
+        <div class="aim-title">AI Readiness Score</div>
+        <div class="aim-badge" id="aimBadge">Low</div>
+      </div>
+      <div class="aim-track">
+        <div class="aim-fill" id="aimFill" style="width:0%;background:linear-gradient(90deg,#2e7b52,#35a05f)"></div>
+      </div>
+      <div class="aim-markers">
+        <span>Manual</span>
+        <span>Low</span>
+        <span>Medium</span>
+        <span>Optimised</span>
+      </div>
+      <div class="aim-opp">
+        <div class="aim-opp-title" id="aimOppTitle">Significant AI opportunity available</div>
+        <div class="aim-opp-text" id="aimOppText">Your business has untapped automation potential. CELO's AI-augmented teams can layer workflow automation on top of dedicated staffing — multiplying your output without multiplying headcount.</div>
+      </div>
+    </div>
+
+    <!-- Breakdown table -->
+    <div class="breakdown-section">
+      <div class="breakdown-title">Impact Breakdown</div>
+      <div class="breakdown-rows">
+        <div class="breakdown-row">
+          <div class="br-left">
+            <div class="br-name">Staffing Cost Savings</div>
+            <div class="br-detail" id="bdStaffingDetail">Based on hours vs. domestic rates</div>
+          </div>
+          <div class="br-value" id="bdStaffingVal">$0<span class="br-mo" id="bdStaffingMo">$0/mo</span></div>
+        </div>
+        <div class="breakdown-row">
+          <div class="br-left">
+            <div class="br-name">Executive Time Recovered</div>
+            <div class="br-detail" id="bdExecDetail">Hours redirected from operations to growth</div>
+          </div>
+          <div class="br-value" id="bdExecVal">0 hrs/yr<span class="br-mo" id="bdExecMo">0 hrs/wk</span></div>
+        </div>
+        <div class="breakdown-row">
+          <div class="br-left">
+            <div class="br-name">AI Automation Potential</div>
+            <div class="br-detail" id="bdAiDetail">Additional efficiency gain from AI augmentation</div>
+          </div>
+          <div class="br-value" id="bdAiVal">$0<span class="br-mo" id="bdAiMo">additional/yr</span></div>
+        </div>
+        <div class="breakdown-row total">
+          <div class="br-left">
+            <div class="br-name total-name">Total Estimated Impact</div>
+            <div class="br-detail">Annual combined value</div>
+          </div>
+          <div class="br-value total-val" id="bdTotalVal">$0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gate -->
+    <div class="gate-section">
+      <div class="gate-teaser">
+        <h3>This is your quick estimate.</h3>
+        <p>The full diagnostic report goes deeper — built specifically for your business:</p>
+        <ul class="gate-list">
+          <li>Specific role recommendations matched to your workflow</li>
+          <li>Custom AI automation roadmap for your tech stack</li>
+          <li>90-day deployment timeline with hiring milestones</li>
+          <li>Exact team structure and transparent pricing</li>
+        </ul>
+      </div>
+
+      <hr class="gate-divider">
+
+      <div class="gate-form">
+        <h3>Send My Full Report</h3>
+        <p>Free. No sales call required to receive it.</p>
+        <form id="reportForm" class="gate-form-fields" onsubmit="submitReport(event)">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label" for="gName">Name</label>
+              <input type="text" class="form-input" id="gName" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="gEmail">Work email</label>
+              <input type="email" class="form-input" id="gEmail" name="email" placeholder="you@company.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="gPhone">Phone <span>(optional)</span></label>
+            <input type="tel" class="form-input" id="gPhone" name="phone" placeholder="+1 (555) 000-0000">
+          </div>
+          <input type="hidden" name="form-name" value="celo-calculator">
+          <input type="hidden" id="hiddenResults" name="calculator_results" value="">
+          <button type="submit" class="btn-primary">Send My Full Report →</button>
+        </form>
+        <div class="success-msg" id="successMsg">
+          <div class="success-icon">✅</div>
+          <h3>Report on its way.</h3>
+          <p>Check your inbox within a few minutes. If you'd rather talk through the numbers directly — <a href="index.html#book" style="color:var(--green);font-weight:600">book a free diagnostic call</a>.</p>
+        </div>
+        <p class="gate-alt">Or skip straight to a conversation — <a href="index.html#book">book a free diagnostic call →</a></p>
+      </div>
+    </div>
+
+    <div class="start-over-wrap">
+      <button class="btn-ghost" onclick="startOver()">↺ Start Over</button>
+    </div>
+
+  </div>
+  <!-- /step3 -->
+
+</main>
+
+<!-- FOOTER -->
+<footer class="calc-footer">
+  <a href="index.html" class="cf-logo">
+    <div class="cf-logo-mark">C</div>
+    <div class="cf-logo-text">CELO Business Solutions</div>
+  </a>
+  <p class="cf-disclaimer">
+    This calculator provides estimates based on industry-average labour rates and operational benchmarks. Your actual savings will depend on specific roles, hours, and scope.
+    <a href="index.html#book">Book a diagnostic call</a> for precise, business-specific numbers. &copy; 2025 CELO Business Solutions. Philippines-based. PHILCALL certified.
+  </p>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   CELO CALCULATOR — Core Logic
+   ═══════════════════════════════════════════════════════ */
+
+// State
+const state = {
+  step: 1,
+  industry: '',
+  teamSize: '',
+  revenue: '',
+  country: '',
+  hrsSupport: 10,
+  hrsAdmin: 8,
+  hrsSales: 6,
+  hrsData: 4,
+  aiReadiness: '',
+  pains: []
+};
+
+// ─── SLIDER LIVE UPDATE ───
+document.querySelectorAll('.hours-slider').forEach(slider => {
+  slider.addEventListener('input', function() {
+    const key = this.id;
+    const valEl = document.getElementById(key + '-val');
+    valEl.textContent = this.value;
+    state[key] = parseInt(this.value);
+  });
+});
+
+// ─── STEP NAVIGATION ───
+function goToStep(n) {
+  if (n > state.step) {
+    // Validate before advancing
+    if (state.step === 1 && !validateStep1()) return;
+    if (state.step === 2 && !validateStep2()) return;
+  }
+
+  const prev = document.getElementById('step' + state.step);
+  const next = document.getElementById('step' + n);
+
+  prev.classList.remove('active');
+  next.classList.add('active');
+  next.classList.toggle('going-back', n < state.step);
+
+  setTimeout(() => next.classList.remove('going-back'), 400);
+
+  state.step = n;
+  updateProgress();
+
+  if (n === 3) {
+    collectState();
+    renderResults();
+  }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateProgress() {
+  document.querySelectorAll('.progress-step').forEach(el => {
+    const s = parseInt(el.dataset.step);
+    el.classList.remove('active', 'done');
+    if (s === state.step) el.classList.add('active');
+    if (s < state.step) el.classList.add('done');
+  });
+  const conn1 = document.getElementById('conn1');
+  const conn2 = document.getElementById('conn2');
+  conn1.classList.toggle('done', state.step > 1);
+  conn2.classList.toggle('done', state.step > 2);
+}
+
+// ─── VALIDATION ───
+function validateStep1() {
+  let ok = true;
+  ['industry', 'teamSize', 'revenue', 'country'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el.value) {
+      el.classList.add('error');
+      ok = false;
+    } else {
+      el.classList.remove('error');
+    }
+  });
+  if (!ok) {
+    const firstErr = document.querySelector('.form-select.error');
+    if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  // Read select values into state
+  state.industry = document.getElementById('industry').value;
+  state.teamSize = document.getElementById('teamSize').value;
+  state.revenue = document.getElementById('revenue').value;
+  state.country = document.getElementById('country').value;
+  return ok;
+}
+
+function validateStep2() {
+  if (!state.aiReadiness) {
+    document.getElementById('aiReadinessError').style.display = 'block';
+    return false;
+  }
+  document.getElementById('aiReadinessError').style.display = 'none';
+  return true;
+}
+
+// ─── SELECT CHANGE ───
+['industry', 'teamSize', 'revenue', 'country'].forEach(id => {
+  document.getElementById(id).addEventListener('change', function() {
+    this.classList.remove('error');
+    state[id] = this.value;
+  });
+});
+
+// ─── AI READINESS ───
+function selectAiReadiness(el) {
+  document.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  state.aiReadiness = el.dataset.value;
+  document.getElementById('aiReadinessError').style.display = 'none';
+}
+
+// ─── PAIN TOGGLES ───
+function togglePain(el) {
+  el.classList.toggle('checked');
+  const val = el.dataset.value;
+  const idx = state.pains.indexOf(val);
+  if (idx > -1) state.pains.splice(idx, 1);
+  else state.pains.push(val);
+}
+
+// ─── COLLECT STATE ───
+function collectState() {
+  state.hrsSupport = parseInt(document.getElementById('hrsSupport').value);
+  state.hrsAdmin = parseInt(document.getElementById('hrsAdmin').value);
+  state.hrsSales = parseInt(document.getElementById('hrsSales').value);
+  state.hrsData = parseInt(document.getElementById('hrsData').value);
+}
+
+// ─── CALCULATIONS ───
+function getHourlyRates() {
+  const country = state.country;
+  // Current domestic rates (avg for operational roles)
+  const rates = {
+    US: { current: 42, celo: 13 },
+    UK: { current: 38, celo: 13 },
+    AU: { current: 40, celo: 13 },
+    CA: { current: 36, celo: 13 },
+    other: { current: 30, celo: 13 }
+  };
+  return rates[country] || rates['other'];
+}
+
+function calculate() {
+  const { current: rCurrent, celo: rCelo } = getHourlyRates();
+  const totalHrsWeek = state.hrsSupport + state.hrsAdmin + state.hrsSales + state.hrsData;
+  const totalHrsYear = totalHrsWeek * 52;
+
+  const currentCostYear = totalHrsYear * rCurrent;
+  const celoCostYear = totalHrsYear * rCelo;
+  const staffingSavingsYear = currentCostYear - celoCostYear;
+  const staffingSavingsMo = staffingSavingsYear / 12;
+
+  const execHrsWeek = Math.round(totalHrsWeek * 0.3);
+  const execHrsYear = execHrsWeek * 52;
+
+  // AI opportunity range
+  const aiRanges = {
+    none:   { low: 0.40, high: 0.60, label: 'Massive', score: 22 },
+    low:    { low: 0.25, high: 0.40, label: 'High', score: 42 },
+    medium: { low: 0.15, high: 0.25, label: 'Moderate', score: 62 },
+    heavy:  { low: 0.05, high: 0.15, label: 'Optimising', score: 85 }
+  };
+  const ai = aiRanges[state.aiReadiness] || aiRanges['low'];
+  const aiMidpoint = (ai.low + ai.high) / 2;
+  const aiValueYear = Math.round(staffingSavingsYear * aiMidpoint);
+  const aiPercent = Math.round(aiMidpoint * 100);
+
+  const totalImpact = staffingSavingsYear + aiValueYear;
+
+  return {
+    rCurrent, rCelo,
+    totalHrsWeek, totalHrsYear,
+    currentCostYear, celoCostYear,
+    staffingSavingsYear, staffingSavingsMo,
+    execHrsWeek, execHrsYear,
+    aiValueYear, aiPercent,
+    totalImpact,
+    aiScore: ai.score,
+    aiLabel: ai.label,
+    aiLow: Math.round(ai.low * 100),
+    aiHigh: Math.round(ai.high * 100)
+  };
+}
+
+// ─── FORMAT NUMBERS ───
+function fmt(n, decimals = 0) {
+  return '$' + Math.round(n).toLocaleString('en-US', { maximumFractionDigits: decimals });
+}
+function fmtNum(n) {
+  return Math.round(n).toLocaleString('en-US');
+}
+
+// ─── ANIMATED COUNTER ───
+function animateCounter(el, target, prefix = '', suffix = '', duration = 1400) {
+  let start = null;
+  const isFloat = target % 1 !== 0;
+  const step = ts => {
+    if (!start) start = ts;
+    const progress = Math.min((ts - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const val = Math.floor(eased * target);
+    el.textContent = prefix + val.toLocaleString('en-US') + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+// ─── RENDER RESULTS ───
+function renderResults() {
+  const c = calculate();
+
+  // Results label
+  const industryLabels = {
+    ecommerce:'E-commerce', saas:'SaaS/Tech', professional_services:'Professional Services',
+    healthcare:'Healthcare', real_estate:'Real Estate', financial:'Financial Services',
+    education:'Education', fitness:'Fitness/Wellness', manufacturing:'Manufacturing',
+    agency:'Agency/Marketing', other:'your industry'
+  };
+  document.getElementById('resultsLabel').textContent =
+    (industryLabels[state.industry] || 'your business') + ' · ' + state.teamSize + ' employees';
+
+  // Stat cards — animate
+  setTimeout(() => {
+    animateCounter(document.getElementById('statAnnualSavings'), c.staffingSavingsYear, '$', '');
+    animateCounter(document.getElementById('statHoursRecovered'), c.execHrsYear, '', '');
+    animateCounter(document.getElementById('statAiScore'), c.aiPercent, '', '%');
+  }, 200);
+
+  // Cost bars
+  document.getElementById('cbCurrentLabel').textContent = '($' + c.rCurrent + '/hr avg)';
+  document.getElementById('cbCurrentVal').textContent = fmt(c.currentCostYear) + '/yr';
+  document.getElementById('cbCeloVal').textContent = fmt(c.celoCostYear) + '/yr';
+
+  const maxCost = c.currentCostYear;
+  const celoWidth = maxCost > 0 ? Math.round((c.celoCostYear / maxCost) * 100) : 0;
+
+  setTimeout(() => {
+    document.getElementById('cbCurrentFill').style.width = '100%';
+    document.getElementById('cbCeloFill').style.width = celoWidth + '%';
+  }, 400);
+
+  document.getElementById('savingsCalloutAmt').textContent = fmt(c.staffingSavingsYear);
+
+  // AI meter
+  document.getElementById('aimBadge').textContent = c.aiLabel;
+  document.getElementById('aimBadge').style.background = c.aiScore > 70
+    ? 'rgba(46,123,82,.15)' : c.aiScore > 45 ? 'rgba(200,140,40,.12)' : 'rgba(46,123,82,.10)';
+
+  setTimeout(() => {
+    document.getElementById('aimFill').style.width = c.aiScore + '%';
+  }, 500);
+
+  const aiCopy = {
+    none: {
+      title: 'Massive AI opportunity — you\'re starting from scratch',
+      text: 'Your business is running entirely manually. CELO can deploy AI-augmented teams that handle your operations AND layer automation on top — a 40–60% additional efficiency gain is realistic within 6–12 months of a proper deployment.'
+    },
+    low: {
+      title: 'High AI opportunity — foundation exists, gaps remain',
+      text: 'You have basic tools in place, but significant manual work persists. CELO can fill those gaps with trained staff and connect your existing tools into automated workflows — an additional 25–40% efficiency gain is within reach.'
+    },
+    medium: {
+      title: 'Moderate AI opportunity — optimization available',
+      text: 'You\'ve done the groundwork. A CELO team can take over operational execution and identify the specific automation layers that will give you another 15–25% efficiency gain without disrupting what already works.'
+    },
+    heavy: {
+      title: 'AI optimization mode — fine-tuning your edge',
+      text: 'You\'re already advanced. CELO can provide specialist staff who understand your AI stack, maintain your workflows, and identify the remaining 5–15% of automation gains most businesses miss once they hit this stage.'
+    }
+  };
+
+  const ai = aiCopy[state.aiReadiness] || aiCopy['low'];
+  document.getElementById('aimOppTitle').textContent = ai.title;
+  document.getElementById('aimOppText').textContent = ai.text;
+
+  // Breakdown table
+  document.getElementById('bdStaffingDetail').textContent =
+    fmtNum(c.totalHrsWeek) + ' hrs/wk × $' + c.rCurrent + ' current vs $' + c.rCelo + ' CELO rate';
+  document.getElementById('bdStaffingVal').innerHTML =
+    fmt(c.staffingSavingsYear) + '<span class="br-mo">' + fmt(c.staffingSavingsMo) + '/mo</span>';
+
+  document.getElementById('bdExecDetail').textContent =
+    '~' + c.execHrsWeek + ' hrs/wk founder time currently in operations';
+  document.getElementById('bdExecVal').innerHTML =
+    fmtNum(c.execHrsYear) + ' hrs/yr<span class="br-mo">' + c.execHrsWeek + ' hrs/wk</span>';
+
+  document.getElementById('bdAiDetail').textContent =
+    c.aiLow + '–' + c.aiHigh + '% efficiency gain from AI-augmented workflows';
+  document.getElementById('bdAiVal').innerHTML =
+    fmt(c.aiValueYear) + '<span class="br-mo">additional/yr</span>';
+
+  document.getElementById('bdTotalVal').textContent = fmt(c.totalImpact);
+
+  // Hidden results field
+  document.getElementById('hiddenResults').value = JSON.stringify({
+    industry: state.industry,
+    teamSize: state.teamSize,
+    revenue: state.revenue,
+    country: state.country,
+    totalHoursPerWeek: c.totalHrsWeek,
+    aiReadiness: state.aiReadiness,
+    pains: state.pains,
+    annualSavings: Math.round(c.staffingSavingsYear),
+    hoursRecoveredYear: c.execHrsYear,
+    aiOpportunityPct: c.aiPercent,
+    totalImpact: Math.round(c.totalImpact)
+  });
+}
+
+// ─── FORM SUBMIT ───
+function submitReport(e) {
+  e.preventDefault();
+  const form = document.getElementById('reportForm');
+  const data = new FormData(form);
+
+  // Try Netlify Forms / fallback to mailto
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(data).toString()
+  })
+  .then(() => showSuccess())
+  .catch(() => {
+    // Fallback: mailto
+    const name = document.getElementById('gName').value;
+    const email = document.getElementById('gEmail').value;
+    const phone = document.getElementById('gPhone').value;
+    const results = document.getElementById('hiddenResults').value;
+    const subject = encodeURIComponent('CELO Calculator — Report Request from ' + name);
+    const body = encodeURIComponent(
+      'Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + (phone || 'not provided') +
+      '\n\nCalculator Results:\n' + results
+    );
+    window.location.href = 'mailto:hello@celoph.com?subject=' + subject + '&body=' + body;
+    showSuccess();
+  });
+}
+
+function showSuccess() {
+  document.getElementById('reportForm').style.display = 'none';
+  document.getElementById('successMsg').classList.add('visible');
+}
+
+// ─── START OVER ───
+function startOver() {
+  // Reset state
+  Object.assign(state, {
+    step: 1, industry: '', teamSize: '', revenue: '', country: '',
+    hrsSupport: 10, hrsAdmin: 8, hrsSales: 6, hrsData: 4,
+    aiReadiness: '', pains: []
+  });
+
+  // Reset form
+  ['industry', 'teamSize', 'revenue', 'country'].forEach(id => {
+    const el = document.getElementById(id);
+    el.value = '';
+    el.classList.remove('error');
+  });
+
+  document.querySelectorAll('.hours-slider').forEach(slider => {
+    const defaults = { hrsSupport: 10, hrsAdmin: 8, hrsSales: 6, hrsData: 4 };
+    slider.value = defaults[slider.id] || 0;
+    document.getElementById(slider.id + '-val').textContent = slider.value;
+  });
+
+  document.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+  document.querySelectorAll('.pain-option').forEach(p => p.classList.remove('checked'));
+  document.getElementById('reportForm').style.display = '';
+  document.getElementById('successMsg').classList.remove('visible');
+
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active', 'going-back'));
+  document.getElementById('step1').classList.add('active');
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
